@@ -25,6 +25,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 /* 
  * Method is used for when a user clicks on the login button. 
  * Checks to see if they have both fields entered and checks 
