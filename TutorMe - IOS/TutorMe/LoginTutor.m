@@ -1,24 +1,22 @@
 //
-//  Login.m
+//  LoginTutor.m
 //  TutorMe
 //
-//  Created by Christian Valderrama on 10/13/15.
+//  Created by Christian Valderrama on 10/18/15.
 //  Copyright © 2015 soft_dev2_group1. All rights reserved.
 //
-// Class is used for Main display when user opens app. Also for them
-// to login to our services. 
 
-#import "Login.h"
+#import "LoginTutor.h"
 
-@interface Login ()
+@interface LoginTutor ()
 
 @end
 
-@implementation Login
+@implementation LoginTutor
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,9 +24,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-/* 
- * Method is used for when a user clicks on the login button. 
- * Checks to see if they have both fields entered and checks 
+/*
+ * Method is used for when a user clicks on the login button.
+ * Checks to see if they have both fields entered and checks
  * to make sure they are a user/student.
  */
 - (IBAction)LoginButton:(id)sender {
@@ -49,10 +47,15 @@
         
     }
 }
-- (IBAction)unwindToMainMenu:(UIStoryboardSegue*)sender
-{
-    UIViewController *sourceViewController = sender.sourceViewController;
-    // Pull any data from the view controller which initiated the unwind segue.
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
 }
+*/
 
 @end
