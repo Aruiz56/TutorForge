@@ -496,6 +496,7 @@
 				F80071731BCDF8C100EA56C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F80071741BCDF8C100EA56C5 /* Build configuration list for PBXNativeTarget "TutorMeTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +505,7 @@
 				F80071761BCDF8C100EA56C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F80071771BCDF8C100EA56C5 /* Build configuration list for PBXNativeTarget "TutorMeUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +514,7 @@
 				F80071791BCDF8C100EA56C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
