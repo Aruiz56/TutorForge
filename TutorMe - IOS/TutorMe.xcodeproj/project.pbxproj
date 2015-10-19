@@ -15,6 +15,8 @@
 		F80071571BCDF8C000EA56C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F80071551BCDF8C000EA56C5 /* LaunchScreen.storyboard */; };
 		F80071621BCDF8C000EA56C5 /* TutorMeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F80071611BCDF8C000EA56C5 /* TutorMeTests.m */; };
 		F800716D1BCDF8C100EA56C5 /* TutorMeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F800716C1BCDF8C100EA56C5 /* TutorMeUITests.m */; };
+		F8EB89461BD480EE001064C7 /* LoginAdmin.m in Sources */ = {isa = PBXBuildFile; fileRef = F8EB89451BD480EE001064C7 /* LoginAdmin.m */; settings = {ASSET_TAGS = (); }; };
+		F8EB89491BD48106001064C7 /* LoginTutor.m in Sources */ = {isa = PBXBuildFile; fileRef = F8EB89481BD48106001064C7 /* LoginTutor.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,10 @@
 		F80071681BCDF8C100EA56C5 /* TutorMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TutorMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F800716C1BCDF8C100EA56C5 /* TutorMeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TutorMeUITests.m; sourceTree = "<group>"; };
 		F800716E1BCDF8C100EA56C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8EB89441BD480EE001064C7 /* LoginAdmin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginAdmin.h; sourceTree = "<group>"; };
+		F8EB89451BD480EE001064C7 /* LoginAdmin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginAdmin.m; sourceTree = "<group>"; };
+		F8EB89471BD48106001064C7 /* LoginTutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginTutor.h; sourceTree = "<group>"; };
+		F8EB89481BD48106001064C7 /* LoginTutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginTutor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,10 @@
 				F800714B1BCDF8C000EA56C5 /* AppDelegate.m */,
 				F800714D1BCDF8C000EA56C5 /* Login.h */,
 				F800714E1BCDF8C000EA56C5 /* Login.m */,
+				F8EB89441BD480EE001064C7 /* LoginAdmin.h */,
+				F8EB89451BD480EE001064C7 /* LoginAdmin.m */,
+				F8EB89471BD48106001064C7 /* LoginTutor.h */,
+				F8EB89481BD48106001064C7 /* LoginTutor.m */,
 				F80071501BCDF8C000EA56C5 /* Main.storyboard */,
 				F80071531BCDF8C000EA56C5 /* Assets.xcassets */,
 				F80071551BCDF8C000EA56C5 /* LaunchScreen.storyboard */,
@@ -272,6 +282,8 @@
 			files = (
 				F800714F1BCDF8C000EA56C5 /* Login.m in Sources */,
 				F800714C1BCDF8C000EA56C5 /* AppDelegate.m in Sources */,
+				F8EB89461BD480EE001064C7 /* LoginAdmin.m in Sources */,
+				F8EB89491BD48106001064C7 /* LoginTutor.m in Sources */,
 				F80071491BCDF8C000EA56C5 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
