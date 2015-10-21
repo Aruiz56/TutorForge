@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <WebKit/WebKit.h>
 
 @interface Login : UIViewController
 
-@property (strong, nonatomic) IBOutlet UITextField *myUsernameTextField;
-@property (strong, nonatomic) IBOutlet UITextField *myPasswordTextField;
+@property(strong,nonatomic) WKWebView *myWebView;
+@property (strong, nonatomic) NSString *myURL;
 
 @end
 

@@ -18,36 +18,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    
+    //URL To use for WebkitView
+    self.myURL = @"https://cas.stetson.edu";
+    
+    NSURL *myNSURL = [NSURL URLWithString:self.myURL];
+    NSURLRequest *myRequest = [NSURLRequest requestWithURL:myNSURL];
+    
+    //Create the webview to be the size of the screen
+    _myWebView = [[WKWebView alloc] initWithFrame:self.view.frame];
+    
+    [_myWebView loadRequest:myRequest];
+    
+    
+    _myWebView.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height);
+    [self.view addSubview:_myWebView]; //add it to the view
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-/* 
- * Method is used for when a user clicks on the login button. 
- * Checks to see if they have both fields entered and checks 
- * to make sure they are a user/student.
- */
-- (IBAction)LoginButton:(id)sender {
-    
-    if([_myUsernameTextField.text isEqualToString:@""] || [_myPasswordTextField.text isEqualToString:@""])
-    {
-        //Alert Box to display error
-        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Error"
-                                                                       message:@"Both fields must be filled" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {}];
-        
-        [alert addAction:cancelAction];
-        [self presentViewController:alert animated:YES completion:nil];
-    }else {
-        
-        NSString *myUsername = _myUsernameTextField.text;
-        NSString *myPassword = _myPasswordTextField.text;
-        
-    }
 }
 - (IBAction)unwindToMainMenu:(UIStoryboardSegue*)sender
 {
