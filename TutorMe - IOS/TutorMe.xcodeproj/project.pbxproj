@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		74D43E681BD9803C00D6F9C6 /* login_tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 74D43E671BD9803B00D6F9C6 /* login_tab.png */; settings = {ASSET_TAGS = (); }; };
+		74D43E6A1BD9803F00D6F9C6 /* logout_tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 74D43E691BD9803F00D6F9C6 /* logout_tab.png */; settings = {ASSET_TAGS = (); }; };
 		F80071491BCDF8C000EA56C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F80071481BCDF8C000EA56C5 /* main.m */; };
 		F800714C1BCDF8C000EA56C5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F800714B1BCDF8C000EA56C5 /* AppDelegate.m */; };
 		F800714F1BCDF8C000EA56C5 /* Login.m in Sources */ = {isa = PBXBuildFile; fileRef = F800714E1BCDF8C000EA56C5 /* Login.m */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		74D43E671BD9803B00D6F9C6 /* login_tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_tab.png; sourceTree = "<group>"; };
+		74D43E691BD9803F00D6F9C6 /* logout_tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout_tab.png; sourceTree = "<group>"; };
 		F80071441BCDF8C000EA56C5 /* TutorMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TutorMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F80071481BCDF8C000EA56C5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F800714A1BCDF8C000EA56C5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -78,6 +82,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		74D43E661BD9803100D6F9C6 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				74D43E691BD9803F00D6F9C6 /* logout_tab.png */,
+				74D43E671BD9803B00D6F9C6 /* login_tab.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		F800713B1BCDF8C000EA56C5 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +114,7 @@
 		F80071461BCDF8C000EA56C5 /* TutorMe */ = {
 			isa = PBXGroup;
 			children = (
+				74D43E661BD9803100D6F9C6 /* images */,
 				F800714A1BCDF8C000EA56C5 /* AppDelegate.h */,
 				F800714B1BCDF8C000EA56C5 /* AppDelegate.m */,
 				F800714D1BCDF8C000EA56C5 /* Login.h */,
@@ -246,6 +260,8 @@
 				F80071571BCDF8C000EA56C5 /* LaunchScreen.storyboard in Resources */,
 				F80071541BCDF8C000EA56C5 /* Assets.xcassets in Resources */,
 				F80071521BCDF8C000EA56C5 /* Main.storyboard in Resources */,
+				74D43E681BD9803C00D6F9C6 /* login_tab.png in Resources */,
+				74D43E6A1BD9803F00D6F9C6 /* logout_tab.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

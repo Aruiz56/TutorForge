@@ -11,7 +11,7 @@
 
 @interface Login : UIViewController
 
-@property(strong,nonatomic) WKWebView *myWebView;
+@property(strong,nonatomic) IBOutlet UIWebView *myWebView;
 @property (strong, nonatomic) NSString *myURL;
 
 @end
