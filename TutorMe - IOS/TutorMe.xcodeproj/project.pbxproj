@@ -17,6 +17,12 @@
 		F80071571BCDF8C000EA56C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F80071551BCDF8C000EA56C5 /* LaunchScreen.storyboard */; };
 		F80071621BCDF8C000EA56C5 /* TutorMeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F80071611BCDF8C000EA56C5 /* TutorMeTests.m */; };
 		F800716D1BCDF8C100EA56C5 /* TutorMeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F800716C1BCDF8C100EA56C5 /* TutorMeUITests.m */; };
+		F8F4FB6B1BD9B03F000A689B /* feedback_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F8F4FB651BD9B03F000A689B /* feedback_icon.png */; settings = {ASSET_TAGS = (); }; };
+		F8F4FB6C1BD9B03F000A689B /* requests.png in Resources */ = {isa = PBXBuildFile; fileRef = F8F4FB661BD9B03F000A689B /* requests.png */; settings = {ASSET_TAGS = (); }; };
+		F8F4FB6D1BD9B03F000A689B /* appointment_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F8F4FB671BD9B03F000A689B /* appointment_icon.png */; settings = {ASSET_TAGS = (); }; };
+		F8F4FB6E1BD9B03F000A689B /* student_login_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F8F4FB681BD9B03F000A689B /* student_login_icon.png */; settings = {ASSET_TAGS = (); }; };
+		F8F4FB6F1BD9B03F000A689B /* schedule_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F8F4FB691BD9B03F000A689B /* schedule_icon.png */; settings = {ASSET_TAGS = (); }; };
+		F8F4FB701BD9B03F000A689B /* tutors_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F8F4FB6A1BD9B03F000A689B /* tutors_icon.png */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +61,12 @@
 		F80071681BCDF8C100EA56C5 /* TutorMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TutorMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F800716C1BCDF8C100EA56C5 /* TutorMeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TutorMeUITests.m; sourceTree = "<group>"; };
 		F800716E1BCDF8C100EA56C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8F4FB651BD9B03F000A689B /* feedback_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feedback_icon.png; sourceTree = "<group>"; };
+		F8F4FB661BD9B03F000A689B /* requests.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = requests.png; sourceTree = "<group>"; };
+		F8F4FB671BD9B03F000A689B /* appointment_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appointment_icon.png; sourceTree = "<group>"; };
+		F8F4FB681BD9B03F000A689B /* student_login_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = student_login_icon.png; sourceTree = "<group>"; };
+		F8F4FB691BD9B03F000A689B /* schedule_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = schedule_icon.png; sourceTree = "<group>"; };
+		F8F4FB6A1BD9B03F000A689B /* tutors_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutors_icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +97,12 @@
 		74D43E661BD9803100D6F9C6 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				F8F4FB651BD9B03F000A689B /* feedback_icon.png */,
+				F8F4FB661BD9B03F000A689B /* requests.png */,
+				F8F4FB671BD9B03F000A689B /* appointment_icon.png */,
+				F8F4FB681BD9B03F000A689B /* student_login_icon.png */,
+				F8F4FB691BD9B03F000A689B /* schedule_icon.png */,
+				F8F4FB6A1BD9B03F000A689B /* tutors_icon.png */,
 				74D43E691BD9803F00D6F9C6 /* logout_tab.png */,
 				74D43E671BD9803B00D6F9C6 /* login_tab.png */,
 			);
@@ -258,9 +276,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F80071571BCDF8C000EA56C5 /* LaunchScreen.storyboard in Resources */,
+				F8F4FB6B1BD9B03F000A689B /* feedback_icon.png in Resources */,
+				F8F4FB701BD9B03F000A689B /* tutors_icon.png in Resources */,
+				F8F4FB6C1BD9B03F000A689B /* requests.png in Resources */,
+				F8F4FB6F1BD9B03F000A689B /* schedule_icon.png in Resources */,
 				F80071541BCDF8C000EA56C5 /* Assets.xcassets in Resources */,
 				F80071521BCDF8C000EA56C5 /* Main.storyboard in Resources */,
 				74D43E681BD9803C00D6F9C6 /* login_tab.png in Resources */,
+				F8F4FB6D1BD9B03F000A689B /* appointment_icon.png in Resources */,
+				F8F4FB6E1BD9B03F000A689B /* student_login_icon.png in Resources */,
 				74D43E6A1BD9803F00D6F9C6 /* logout_tab.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
