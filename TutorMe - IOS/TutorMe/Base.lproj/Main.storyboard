@@ -17,33 +17,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R5R-MB-cPw">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.29019607843137252" green="0.72156862745098038" blue="0.68627450980392157" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="R5R-MB-cPw" secondAttribute="height" multiplier="375:49" id="3gE-CT-BGo"/>
-                                </constraints>
-                                <items>
-                                    <tabBarItem title="Log In" id="cbU-jq-Inr"/>
-                                </items>
-                                <color key="tintColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="barTintColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="selectedImageTintColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="3gE-CT-BGo"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="3gE-CT-BGo"/>
-                                    </mask>
-                                </variation>
-                            </tabBar>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O7S-QQ-PzB">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Rbl-zi-TE8"/>
+                                </constraints>
                                 <color key="barTintColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="30"/>
@@ -54,13 +33,25 @@
                                 <items>
                                     <navigationItem title="TutorMe" id="91K-h0-ChE"/>
                                 </items>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Rbl-zi-TE8"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Rbl-zi-TE8"/>
+                                    </mask>
+                                </variation>
                             </navigationBar>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gr4-bL-Zk0">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Gr4-bL-Zk0" secondAttribute="height" multiplier="375:554" id="F04-ks-gzQ"/>
+                                    <constraint firstAttribute="width" secondItem="Gr4-bL-Zk0" secondAttribute="height" multiplier="375:554" id="F04-ks-gzQ">
+                                        <variation key="widthClass=compact" constant="-33.167870036101078"/>
+                                    </constraint>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -69,7 +60,7 @@
                                 </variation>
                                 <variation key="widthClass=compact">
                                     <mask key="constraints">
-                                        <include reference="F04-ks-gzQ"/>
+                                        <exclude reference="F04-ks-gzQ"/>
                                     </mask>
                                 </variation>
                             </webView>
@@ -77,65 +68,42 @@
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.47450980392156861" blue="0.41960784313725491" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="R5R-MB-cPw" secondAttribute="trailing" id="20S-Ms-ta1"/>
-                            <constraint firstItem="R5R-MB-cPw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="B1E-xT-laG"/>
-                            <constraint firstItem="Gr4-bL-Zk0" firstAttribute="leading" secondItem="R5R-MB-cPw" secondAttribute="leading" id="BFz-dN-ie3"/>
-                            <constraint firstItem="R5R-MB-cPw" firstAttribute="width" secondItem="Gr4-bL-Zk0" secondAttribute="width" id="HAe-kg-Q4y"/>
-                            <constraint firstItem="Gr4-bL-Zk0" firstAttribute="trailing" secondItem="R5R-MB-cPw" secondAttribute="trailing" id="P87-PQ-nvP"/>
-                            <constraint firstItem="Gr4-bL-Zk0" firstAttribute="top" secondItem="O7S-QQ-PzB" secondAttribute="bottom" id="R78-QF-Zvh"/>
-                            <constraint firstItem="R5R-MB-cPw" firstAttribute="centerX" secondItem="Gr4-bL-Zk0" secondAttribute="centerX" id="WjV-js-nGn"/>
-                            <constraint firstItem="Gr4-bL-Zk0" firstAttribute="top" secondItem="O7S-QQ-PzB" secondAttribute="bottom" id="je2-wm-xsX"/>
-                            <constraint firstItem="R5R-MB-cPw" firstAttribute="top" secondItem="Gr4-bL-Zk0" secondAttribute="bottom" id="paB-Tf-4ov"/>
-                            <constraint firstItem="R5R-MB-cPw" firstAttribute="top" secondItem="Gr4-bL-Zk0" secondAttribute="bottom" id="ptA-gu-dpK"/>
-                            <constraint firstItem="O7S-QQ-PzB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="svQ-BX-e7G"/>
-                            <constraint firstItem="R5R-MB-cPw" firstAttribute="top" secondItem="Gr4-bL-Zk0" secondAttribute="bottom" id="te6-aW-j1a"/>
-                            <constraint firstItem="R5R-MB-cPw" firstAttribute="trailing" secondItem="O7S-QQ-PzB" secondAttribute="trailing" id="uBI-NB-mui"/>
-                            <constraint firstItem="O7S-QQ-PzB" firstAttribute="leading" secondItem="Gr4-bL-Zk0" secondAttribute="leading" id="yk1-DF-DoA"/>
+                            <constraint firstItem="O7S-QQ-PzB" firstAttribute="leading" secondItem="Gr4-bL-Zk0" secondAttribute="leading" id="14Q-ZY-pDj"/>
+                            <constraint firstItem="Gr4-bL-Zk0" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="44" id="CWO-eg-Rkj"/>
+                            <constraint firstItem="O7S-QQ-PzB" firstAttribute="width" secondItem="Gr4-bL-Zk0" secondAttribute="width" id="W2a-Co-HJ8"/>
+                            <constraint firstItem="Gr4-bL-Zk0" firstAttribute="top" secondItem="O7S-QQ-PzB" secondAttribute="bottom" id="Xjy-wS-5cP"/>
+                            <constraint firstItem="Gr4-bL-Zk0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dZf-Ps-Z5a"/>
+                            <constraint firstItem="Gr4-bL-Zk0" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="sbJ-gT-cDF"/>
+                            <constraint firstAttribute="width" secondItem="Gr4-bL-Zk0" secondAttribute="width" id="vw9-gF-zyP"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="R5R-MB-cPw"/>
                                 <exclude reference="O7S-QQ-PzB"/>
                                 <exclude reference="Gr4-bL-Zk0"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="svQ-BX-e7G"/>
-                                <exclude reference="yk1-DF-DoA"/>
-                                <exclude reference="20S-Ms-ta1"/>
-                                <exclude reference="B1E-xT-laG"/>
-                                <exclude reference="HAe-kg-Q4y"/>
-                                <exclude reference="WjV-js-nGn"/>
-                                <exclude reference="paB-Tf-4ov"/>
-                                <exclude reference="ptA-gu-dpK"/>
-                                <exclude reference="te6-aW-j1a"/>
-                                <exclude reference="uBI-NB-mui"/>
-                                <exclude reference="BFz-dN-ie3"/>
-                                <exclude reference="P87-PQ-nvP"/>
-                                <exclude reference="R78-QF-Zvh"/>
-                                <exclude reference="je2-wm-xsX"/>
+                                <exclude reference="14Q-ZY-pDj"/>
+                                <exclude reference="W2a-Co-HJ8"/>
+                                <exclude reference="CWO-eg-Rkj"/>
+                                <exclude reference="Xjy-wS-5cP"/>
+                                <exclude reference="dZf-Ps-Z5a"/>
+                                <exclude reference="sbJ-gT-cDF"/>
+                                <exclude reference="vw9-gF-zyP"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="R5R-MB-cPw"/>
                                 <include reference="O7S-QQ-PzB"/>
                                 <include reference="Gr4-bL-Zk0"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="svQ-BX-e7G"/>
-                                <include reference="yk1-DF-DoA"/>
-                                <include reference="20S-Ms-ta1"/>
-                                <include reference="B1E-xT-laG"/>
-                                <include reference="HAe-kg-Q4y"/>
-                                <include reference="WjV-js-nGn"/>
-                                <include reference="paB-Tf-4ov"/>
-                                <include reference="ptA-gu-dpK"/>
-                                <include reference="te6-aW-j1a"/>
-                                <include reference="uBI-NB-mui"/>
-                                <include reference="BFz-dN-ie3"/>
-                                <include reference="P87-PQ-nvP"/>
-                                <include reference="R78-QF-Zvh"/>
-                                <include reference="je2-wm-xsX"/>
+                                <include reference="14Q-ZY-pDj"/>
+                                <include reference="W2a-Co-HJ8"/>
+                                <include reference="CWO-eg-Rkj"/>
+                                <include reference="Xjy-wS-5cP"/>
+                                <include reference="dZf-Ps-Z5a"/>
+                                <include reference="sbJ-gT-cDF"/>
+                                <include reference="vw9-gF-zyP"/>
                             </mask>
                         </variation>
                     </view>
@@ -150,7 +118,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="947.25" y="636.5"/>
+            <point key="canvasLocation" x="173.25" y="636.5"/>
         </scene>
         <!--Admin - Log Out-->
         <scene sceneID="be0-s8-4F7">
@@ -170,7 +138,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GND-Y1-LdL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="200.25" y="2246.5"/>
+            <point key="canvasLocation" x="173.25" y="2246.5"/>
         </scene>
         <!--Admin - Tutors-->
         <scene sceneID="kKO-gK-BxC">
@@ -514,7 +482,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bP0-fd-PoC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2418.75" y="2246.5"/>
+            <point key="canvasLocation" x="2408.25" y="2246.5"/>
         </scene>
         <!--Tutor - Logout-->
         <scene sceneID="Fbh-Ga-NNC">
@@ -534,7 +502,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iD6-dF-A7a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2427.75" y="1436.5"/>
+            <point key="canvasLocation" x="1673.25" y="1420.5"/>
         </scene>
         <!--Admin - Schedule-->
         <scene sceneID="2iZ-Aj-j8u">
@@ -578,11 +546,11 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Tutor Schedules" image="schedule_icon.png" id="Fe7-KW-B7Z"/>
+                    <tabBarItem key="tabBarItem" title="Schedules" image="schedule_icon.png" id="Fe7-KW-B7Z"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qx7-5o-EeF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1683.75" y="1436.5"/>
+            <point key="canvasLocation" x="947.25" y="1420.5"/>
         </scene>
         <!--Admin Tab Controller Scene-->
         <scene sceneID="pv2-lD-qC1">
@@ -605,7 +573,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P0J-cw-OQh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="947.25" y="1436.5"/>
+            <point key="canvasLocation" x="173.25" y="1420.5"/>
         </scene>
         <!--Tutor - add appointment-->
         <scene sceneID="XyK-gB-eA6">
@@ -679,12 +647,12 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Add Appointment" image="appointment_icon.png" id="dLd-hg-sMA"/>
+                    <tabBarItem key="tabBarItem" title="Appointments" image="appointment_icon.png" id="dLd-hg-sMA"/>
                     <navigationItem key="navigationItem" title="Student Login" id="N1k-9C-Ftc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O3L-Uz-YwI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3138.75" y="636.5"/>
+            <point key="canvasLocation" x="1673.25" y="636.5"/>
         </scene>
         <!--Tutor - add appoinment for oneself-->
         <scene sceneID="i5X-gV-FBz">
@@ -746,7 +714,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i4u-qo-Vo3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3912.75" y="636.5"/>
+            <point key="canvasLocation" x="2408.25" y="636.5"/>
         </scene>
         <!--Tutor - requests-->
         <scene sceneID="ohI-GH-SIw">
@@ -829,7 +797,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fr0-l1-ruB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3138.75" y="1436.5"/>
+            <point key="canvasLocation" x="2408.25" y="1420.5"/>
         </scene>
         <!--Tutor - request view-->
         <scene sceneID="g8S-1w-Rca">
@@ -950,7 +918,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PDx-Re-gEo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3863.25" y="1436.5"/>
+            <point key="canvasLocation" x="3138.75" y="1420.5"/>
         </scene>
         <!--Tutor - student feedback-->
         <scene sceneID="Lzq-6x-30j">
@@ -1073,7 +1041,7 @@
                                     <rect key="frame" x="258" y="105" width="35" height="30"/>
                                 </variation>
                                 <connections>
-                                    <segue destination="gxi-Hb-lC2" kind="popoverPresentation" popoverAnchorView="wSE-FM-bLU" id="Gd7-gd-5Il">
+                                    <segue destination="gxi-Hb-lC2" kind="popoverPresentation" popoverAnchorView="wSE-FM-bLU" id="V0V-iF-hV7">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
                                 </connections>
@@ -1155,7 +1123,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BRA-Ks-I97" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3138.75" y="-120.5"/>
+            <point key="canvasLocation" x="2408.25" y="-110.5"/>
         </scene>
         <!--Tutor - log in student descriptive-->
         <scene sceneID="cJH-f4-CZc">
@@ -1260,10 +1228,12 @@
                             </mask>
                         </variation>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Znb-RT-DEP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3912.75" y="-120.5"/>
+            <point key="canvasLocation" x="3138.75" y="-110.5"/>
         </scene>
         <!--Tutor Tab Controller-->
         <scene sceneID="bx9-Ig-jHC">
@@ -1287,7 +1257,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eJw-GM-0Pd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2418.75" y="636.5"/>
+            <point key="canvasLocation" x="947.25" y="636.5"/>
         </scene>
         <!--Student - requests-->
         <scene sceneID="gxw-Jf-wTI">
@@ -1364,7 +1334,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Alerts and Requests" image="requests.png" id="vPl-SF-pCh"/>
+                    <tabBarItem key="tabBarItem" title="Requests" image="requests.png" id="vPl-SF-pCh"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KfY-Cj-MDG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1521,7 +1491,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Add Appointment" image="appointment_icon.png" id="qVt-9M-U3r"/>
+                    <tabBarItem key="tabBarItem" title="Appointment" image="appointment_icon.png" id="qVt-9M-U3r"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="65h-qa-B5d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
