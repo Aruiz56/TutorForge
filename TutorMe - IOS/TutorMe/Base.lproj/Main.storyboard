@@ -98,10 +98,6 @@
                             <mask key="constraints">
                                 <exclude reference="svQ-BX-e7G"/>
                                 <exclude reference="yk1-DF-DoA"/>
-                                <exclude reference="BFz-dN-ie3"/>
-                                <exclude reference="P87-PQ-nvP"/>
-                                <exclude reference="R78-QF-Zvh"/>
-                                <exclude reference="je2-wm-xsX"/>
                                 <exclude reference="20S-Ms-ta1"/>
                                 <exclude reference="B1E-xT-laG"/>
                                 <exclude reference="HAe-kg-Q4y"/>
@@ -110,6 +106,10 @@
                                 <exclude reference="ptA-gu-dpK"/>
                                 <exclude reference="te6-aW-j1a"/>
                                 <exclude reference="uBI-NB-mui"/>
+                                <exclude reference="BFz-dN-ie3"/>
+                                <exclude reference="P87-PQ-nvP"/>
+                                <exclude reference="R78-QF-Zvh"/>
+                                <exclude reference="je2-wm-xsX"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -121,10 +121,6 @@
                             <mask key="constraints">
                                 <include reference="svQ-BX-e7G"/>
                                 <include reference="yk1-DF-DoA"/>
-                                <include reference="BFz-dN-ie3"/>
-                                <include reference="P87-PQ-nvP"/>
-                                <include reference="R78-QF-Zvh"/>
-                                <include reference="je2-wm-xsX"/>
                                 <include reference="20S-Ms-ta1"/>
                                 <include reference="B1E-xT-laG"/>
                                 <include reference="HAe-kg-Q4y"/>
@@ -133,6 +129,10 @@
                                 <include reference="ptA-gu-dpK"/>
                                 <include reference="te6-aW-j1a"/>
                                 <include reference="uBI-NB-mui"/>
+                                <include reference="BFz-dN-ie3"/>
+                                <include reference="P87-PQ-nvP"/>
+                                <include reference="R78-QF-Zvh"/>
+                                <include reference="je2-wm-xsX"/>
                             </mask>
                         </variation>
                     </view>
@@ -207,6 +207,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RKi-IT-YHr" id="i6W-tX-nSJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
@@ -252,6 +253,7 @@
                         <viewControllerLayoutGuide type="bottom" id="WwH-Bs-kXs"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="wGn-yz-pS8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rQJ-Uh-KFB">
@@ -352,6 +354,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Iuj-GG-lfm" id="Sfo-PL-fwS">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
@@ -397,6 +400,7 @@
                         <viewControllerLayoutGuide type="bottom" id="2ij-Bj-fbu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4Ib-8K-rcQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kot-a9-9h7">
@@ -641,6 +645,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Ffm-0E-d8n"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="sFD-Rp-ER2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eLc-Cu-EBO">
@@ -729,6 +734,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2bj-7W-dI9" id="Bx0-3C-pqJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
@@ -777,6 +783,7 @@
                         <viewControllerLayoutGuide type="bottom" id="2S6-5y-Mnp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="nVu-TN-dXa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vgh-qT-Xo4">
@@ -911,6 +918,7 @@
                         <viewControllerLayoutGuide type="bottom" id="35F-yg-qhC"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4VL-mt-DEk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UI8-kI-nKt">
@@ -1260,6 +1268,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cDz-8q-MZe" id="EKC-fN-UUK">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
@@ -1306,6 +1315,7 @@
                         <viewControllerLayoutGuide type="bottom" id="UuO-Jo-8A2"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rnY-RQ-oHS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tgl-Yy-gpM">
@@ -1369,7 +1379,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wTg-Vp-0TH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2381.25" y="-894.5"/>
+            <point key="canvasLocation" x="2408.25" y="-894.5"/>
         </scene>
         <!--Student - log out-->
         <scene sceneID="fql-fS-TkR">
