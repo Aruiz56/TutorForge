@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ZU8-3u-cmT">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -315,6 +315,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Eh8-GV-D8X"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Cmn-LW-paX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cTe-fv-bNy">
@@ -983,85 +984,6 @@
             </objects>
             <point key="canvasLocation" x="3138.75" y="1420.5"/>
         </scene>
-        <!--Tutor - student feedback-->
-        <scene sceneID="Lzq-6x-30j">
-            <objects>
-                <viewController id="zV6-62-aC1" userLabel="Tutor - student feedback" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="aCG-zu-JP3"/>
-                        <viewControllerLayoutGuide type="bottom" id="35F-yg-qhC"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="4VL-mt-DEk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UI8-kI-nKt">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <animations/>
-                                <color key="barTintColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="22"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="textShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem title="student feedback" id="f6z-Nm-BQ1"/>
-                                </items>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                </variation>
-                            </navigationBar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ct0-Zj-7nd">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="20" y="90" width="335" height="404"/>
-                                </variation>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zda-4S-exO">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="21"/>
-                                <state key="normal" title="submit">
-                                    <color key="titleColor" red="0.45098039220000002" green="1" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="147" y="510" width="81" height="31"/>
-                                </variation>
-                            </button>
-                        </subviews>
-                        <animations/>
-                        <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="tintColor" red="0.0" green="0.47450980390000003" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="UI8-kI-nKt"/>
-                                <exclude reference="Ct0-Zj-7nd"/>
-                                <exclude reference="zda-4S-exO"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="UI8-kI-nKt"/>
-                                <include reference="Ct0-Zj-7nd"/>
-                                <include reference="zda-4S-exO"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="667"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YP8-0m-Lf2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3138.75" y="-894.5"/>
-        </scene>
         <!--Tutor - log in student-->
         <scene sceneID="KHk-N4-4Qg">
             <objects>
@@ -1101,7 +1023,7 @@
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="28"/>
-                                    <rect key="frame" x="258" y="105" width="35" height="30"/>
+                                    <rect key="frame" x="290" y="105" width="35" height="30"/>
                                 </variation>
                                 <connections>
                                     <segue destination="gxi-Hb-lC2" kind="popoverPresentation" popoverAnchorView="wSE-FM-bLU" id="V0V-iF-hV7">
@@ -1140,23 +1062,15 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="112" y="572" width="151" height="30"/>
                                 </variation>
-                                <connections>
-                                    <segue destination="zV6-62-aC1" kind="popoverPresentation" popoverAnchorView="hoW-Gg-GLb" id="q8Y-S2-L7h">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
-                                </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="800 Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cTd-zM-9Xm">
-                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="XH1-Le-JKn">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <color key="barTintColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="78" y="105" width="160" height="30"/>
+                                    <rect key="frame" x="50" y="98" width="229" height="44"/>
                                 </variation>
-                            </textField>
+                            </searchBar>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1167,7 +1081,7 @@
                                 <exclude reference="Ngd-BO-nAj"/>
                                 <exclude reference="RjM-DT-ktg"/>
                                 <exclude reference="hoW-Gg-GLb"/>
-                                <exclude reference="cTd-zM-9Xm"/>
+                                <exclude reference="XH1-Le-JKn"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -1177,7 +1091,7 @@
                                 <include reference="Ngd-BO-nAj"/>
                                 <include reference="RjM-DT-ktg"/>
                                 <include reference="hoW-Gg-GLb"/>
-                                <include reference="cTd-zM-9Xm"/>
+                                <include reference="XH1-Le-JKn"/>
                             </mask>
                         </variation>
                     </view>
@@ -1561,6 +1475,48 @@
             </objects>
             <point key="canvasLocation" x="947.25" y="-894.5"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="a5d-pR-jkA">
+            <objects>
+                <viewController id="ZU8-3u-cmT" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ivq-Mg-wHp"/>
+                        <viewControllerLayoutGuide type="bottom" id="KNs-DA-ly4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jsL-Lj-jzD">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAp-de-IOr">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <state key="normal" title="Tutor Tab Controller"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="39" y="413" width="296" height="90"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="6W6-dI-c54" kind="show" id="csE-dK-u9a"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="iAp-de-IOr"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="iAp-de-IOr"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Eg-Dc-DjS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="173.25" y="-120.5"/>
+        </scene>
         <!--Student Tab Controller-->
         <scene sceneID="JLB-co-Ajz">
             <objects>
@@ -1593,4 +1549,7 @@
         <image name="student_login_icon.png" width="50" height="50"/>
         <image name="tutors_icon.png" width="50" height="50"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="csE-dK-u9a"/>
+    </inferredMetricsTieBreakers>
 </document>
