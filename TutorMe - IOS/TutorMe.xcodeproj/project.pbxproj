@@ -17,6 +17,11 @@
 		F80071571BCDF8C000EA56C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F80071551BCDF8C000EA56C5 /* LaunchScreen.storyboard */; };
 		F80071621BCDF8C000EA56C5 /* TutorMeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F80071611BCDF8C000EA56C5 /* TutorMeTests.m */; };
 		F800716D1BCDF8C100EA56C5 /* TutorMeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F800716C1BCDF8C100EA56C5 /* TutorMeUITests.m */; };
+		F84412121BE053D3008325EC /* StudentScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F84412111BE053D3008325EC /* StudentScheduleViewController.m */; settings = {ASSET_TAGS = (); }; };
+		F844121B1BE054C2008325EC /* DateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F84412141BE054C2008325EC /* DateUtil.m */; settings = {ASSET_TAGS = (); }; };
+		F844121D1BE054C2008325EC /* SACalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = F84412171BE054C2008325EC /* SACalendar.m */; settings = {ASSET_TAGS = (); }; };
+		F844121E1BE054C2008325EC /* SACalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F84412191BE054C2008325EC /* SACalendarCell.m */; settings = {ASSET_TAGS = (); }; };
+		F84412241BE05735008325EC /* DMLazyScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F84412231BE05735008325EC /* DMLazyScrollView.m */; settings = {ASSET_TAGS = (); }; };
 		F8F4FB6B1BD9B03F000A689B /* feedback_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F8F4FB651BD9B03F000A689B /* feedback_icon.png */; settings = {ASSET_TAGS = (); }; };
 		F8F4FB6C1BD9B03F000A689B /* requests.png in Resources */ = {isa = PBXBuildFile; fileRef = F8F4FB661BD9B03F000A689B /* requests.png */; settings = {ASSET_TAGS = (); }; };
 		F8F4FB6D1BD9B03F000A689B /* appointment_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F8F4FB671BD9B03F000A689B /* appointment_icon.png */; settings = {ASSET_TAGS = (); }; };
@@ -61,6 +66,17 @@
 		F80071681BCDF8C100EA56C5 /* TutorMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TutorMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F800716C1BCDF8C100EA56C5 /* TutorMeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TutorMeUITests.m; sourceTree = "<group>"; };
 		F800716E1BCDF8C100EA56C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F84412101BE053D3008325EC /* StudentScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentScheduleViewController.h; sourceTree = "<group>"; };
+		F84412111BE053D3008325EC /* StudentScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentScheduleViewController.m; sourceTree = "<group>"; };
+		F84412131BE054C2008325EC /* DateUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateUtil.h; sourceTree = "<group>"; };
+		F84412141BE054C2008325EC /* DateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateUtil.m; sourceTree = "<group>"; };
+		F84412161BE054C2008325EC /* SACalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SACalendar.h; sourceTree = "<group>"; };
+		F84412171BE054C2008325EC /* SACalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SACalendar.m; sourceTree = "<group>"; };
+		F84412181BE054C2008325EC /* SACalendarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SACalendarCell.h; sourceTree = "<group>"; };
+		F84412191BE054C2008325EC /* SACalendarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SACalendarCell.m; sourceTree = "<group>"; };
+		F844121A1BE054C2008325EC /* SACalendarConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SACalendarConstants.h; sourceTree = "<group>"; };
+		F84412221BE05735008325EC /* DMLazyScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMLazyScrollView.h; sourceTree = "<group>"; };
+		F84412231BE05735008325EC /* DMLazyScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMLazyScrollView.m; sourceTree = "<group>"; };
 		F8F4FB651BD9B03F000A689B /* feedback_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feedback_icon.png; sourceTree = "<group>"; };
 		F8F4FB661BD9B03F000A689B /* requests.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = requests.png; sourceTree = "<group>"; };
 		F8F4FB671BD9B03F000A689B /* appointment_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appointment_icon.png; sourceTree = "<group>"; };
@@ -142,6 +158,8 @@
 				F80071551BCDF8C000EA56C5 /* LaunchScreen.storyboard */,
 				F80071581BCDF8C000EA56C5 /* Info.plist */,
 				F80071471BCDF8C000EA56C5 /* Supporting Files */,
+				F84412101BE053D3008325EC /* StudentScheduleViewController.h */,
+				F84412111BE053D3008325EC /* StudentScheduleViewController.m */,
 			);
 			path = TutorMe;
 			sourceTree = "<group>";
@@ -149,6 +167,15 @@
 		F80071471BCDF8C000EA56C5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F84412221BE05735008325EC /* DMLazyScrollView.h */,
+				F84412231BE05735008325EC /* DMLazyScrollView.m */,
+				F84412131BE054C2008325EC /* DateUtil.h */,
+				F84412141BE054C2008325EC /* DateUtil.m */,
+				F84412161BE054C2008325EC /* SACalendar.h */,
+				F84412171BE054C2008325EC /* SACalendar.m */,
+				F84412181BE054C2008325EC /* SACalendarCell.h */,
+				F84412191BE054C2008325EC /* SACalendarCell.m */,
+				F844121A1BE054C2008325EC /* SACalendarConstants.h */,
 				F80071481BCDF8C000EA56C5 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -310,9 +337,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F84412241BE05735008325EC /* DMLazyScrollView.m in Sources */,
 				F800714F1BCDF8C000EA56C5 /* Login.m in Sources */,
+				F844121B1BE054C2008325EC /* DateUtil.m in Sources */,
+				F84412121BE053D3008325EC /* StudentScheduleViewController.m in Sources */,
 				F800714C1BCDF8C000EA56C5 /* AppDelegate.m in Sources */,
 				F80071491BCDF8C000EA56C5 /* main.m in Sources */,
+				F844121D1BE054C2008325EC /* SACalendar.m in Sources */,
+				F844121E1BE054C2008325EC /* SACalendarCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
