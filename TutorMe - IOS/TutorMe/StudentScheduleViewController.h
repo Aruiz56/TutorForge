@@ -9,7 +9,23 @@
 #import <UIKit/UIKit.h>
 #import "SACalendar.h"
 
-@interface StudentScheduleViewController : UIViewController
+@interface StudentScheduleViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
+{
+    //Global Variable
+    UIDatePicker *datePicker;
+    UIToolbar *toolBar;
+    //Tutor Picker
+    UIPickerView *tutorPicker;
+    UIToolbar *tutorPickerToolbar;
+    //Time Picker
+    UIPickerView *timePicker;
+    UIToolbar *timePickerToolbar;
+}
+
 @property (strong, nonatomic) IBOutlet UIView *myView;
+@property (strong, nonatomic) IBOutlet UITextField *TutorTextField;
+@property (strong, nonatomic) IBOutlet UITextField *TimeTextField;
+@property (strong, nonatomic) IBOutlet UITextField *DOBTextField;
+
 
 @end

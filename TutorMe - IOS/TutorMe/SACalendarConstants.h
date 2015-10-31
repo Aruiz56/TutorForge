@@ -8,6 +8,9 @@
 //  Copyright (c) 2014 SyncoApp. All rights reserved.
 //
 //  Distributed under MIT License
+//
+// Modified October 31, 2015 By Christian Valderrama - Changing colors
+//
 
 #import <Foundation/Foundation.h>
 

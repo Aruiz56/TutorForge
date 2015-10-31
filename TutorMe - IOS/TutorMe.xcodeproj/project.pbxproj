@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		74D43E681BD9803C00D6F9C6 /* login_tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 74D43E671BD9803B00D6F9C6 /* login_tab.png */; settings = {ASSET_TAGS = (); }; };
-		74D43E6A1BD9803F00D6F9C6 /* logout_tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 74D43E691BD9803F00D6F9C6 /* logout_tab.png */; settings = {ASSET_TAGS = (); }; };
+		74D43E681BD9803C00D6F9C6 /* login_tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 74D43E671BD9803B00D6F9C6 /* login_tab.png */; };
+		74D43E6A1BD9803F00D6F9C6 /* logout_tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 74D43E691BD9803F00D6F9C6 /* logout_tab.png */; };
 		F80071491BCDF8C000EA56C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F80071481BCDF8C000EA56C5 /* main.m */; };
 		F800714C1BCDF8C000EA56C5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F800714B1BCDF8C000EA56C5 /* AppDelegate.m */; };
 		F800714F1BCDF8C000EA56C5 /* Login.m in Sources */ = {isa = PBXBuildFile; fileRef = F800714E1BCDF8C000EA56C5 /* Login.m */; };
@@ -17,17 +17,17 @@
 		F80071571BCDF8C000EA56C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F80071551BCDF8C000EA56C5 /* LaunchScreen.storyboard */; };
 		F80071621BCDF8C000EA56C5 /* TutorMeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F80071611BCDF8C000EA56C5 /* TutorMeTests.m */; };
 		F800716D1BCDF8C100EA56C5 /* TutorMeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F800716C1BCDF8C100EA56C5 /* TutorMeUITests.m */; };
-		F84412121BE053D3008325EC /* StudentScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F84412111BE053D3008325EC /* StudentScheduleViewController.m */; settings = {ASSET_TAGS = (); }; };
-		F844121B1BE054C2008325EC /* DateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F84412141BE054C2008325EC /* DateUtil.m */; settings = {ASSET_TAGS = (); }; };
-		F844121D1BE054C2008325EC /* SACalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = F84412171BE054C2008325EC /* SACalendar.m */; settings = {ASSET_TAGS = (); }; };
-		F844121E1BE054C2008325EC /* SACalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F84412191BE054C2008325EC /* SACalendarCell.m */; settings = {ASSET_TAGS = (); }; };
-		F84412241BE05735008325EC /* DMLazyScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F84412231BE05735008325EC /* DMLazyScrollView.m */; settings = {ASSET_TAGS = (); }; };
-		F8F4FB6B1BD9B03F000A689B /* feedback_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F8F4FB651BD9B03F000A689B /* feedback_icon.png */; settings = {ASSET_TAGS = (); }; };
-		F8F4FB6C1BD9B03F000A689B /* requests.png in Resources */ = {isa = PBXBuildFile; fileRef = F8F4FB661BD9B03F000A689B /* requests.png */; settings = {ASSET_TAGS = (); }; };
-		F8F4FB6D1BD9B03F000A689B /* appointment_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F8F4FB671BD9B03F000A689B /* appointment_icon.png */; settings = {ASSET_TAGS = (); }; };
-		F8F4FB6E1BD9B03F000A689B /* student_login_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F8F4FB681BD9B03F000A689B /* student_login_icon.png */; settings = {ASSET_TAGS = (); }; };
-		F8F4FB6F1BD9B03F000A689B /* schedule_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F8F4FB691BD9B03F000A689B /* schedule_icon.png */; settings = {ASSET_TAGS = (); }; };
-		F8F4FB701BD9B03F000A689B /* tutors_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F8F4FB6A1BD9B03F000A689B /* tutors_icon.png */; settings = {ASSET_TAGS = (); }; };
+		F84412121BE053D3008325EC /* StudentScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F84412111BE053D3008325EC /* StudentScheduleViewController.m */; };
+		F844121B1BE054C2008325EC /* DateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F84412141BE054C2008325EC /* DateUtil.m */; };
+		F844121D1BE054C2008325EC /* SACalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = F84412171BE054C2008325EC /* SACalendar.m */; };
+		F844121E1BE054C2008325EC /* SACalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F84412191BE054C2008325EC /* SACalendarCell.m */; };
+		F84412241BE05735008325EC /* DMLazyScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F84412231BE05735008325EC /* DMLazyScrollView.m */; };
+		F8F4FB6B1BD9B03F000A689B /* feedback_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F8F4FB651BD9B03F000A689B /* feedback_icon.png */; };
+		F8F4FB6C1BD9B03F000A689B /* requests.png in Resources */ = {isa = PBXBuildFile; fileRef = F8F4FB661BD9B03F000A689B /* requests.png */; };
+		F8F4FB6D1BD9B03F000A689B /* appointment_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F8F4FB671BD9B03F000A689B /* appointment_icon.png */; };
+		F8F4FB6E1BD9B03F000A689B /* student_login_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F8F4FB681BD9B03F000A689B /* student_login_icon.png */; };
+		F8F4FB6F1BD9B03F000A689B /* schedule_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F8F4FB691BD9B03F000A689B /* schedule_icon.png */; };
+		F8F4FB701BD9B03F000A689B /* tutors_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F8F4FB6A1BD9B03F000A689B /* tutors_icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,13 +153,13 @@
 				F800714B1BCDF8C000EA56C5 /* AppDelegate.m */,
 				F800714D1BCDF8C000EA56C5 /* Login.h */,
 				F800714E1BCDF8C000EA56C5 /* Login.m */,
+				F84412101BE053D3008325EC /* StudentScheduleViewController.h */,
+				F84412111BE053D3008325EC /* StudentScheduleViewController.m */,
 				F80071501BCDF8C000EA56C5 /* Main.storyboard */,
 				F80071531BCDF8C000EA56C5 /* Assets.xcassets */,
 				F80071551BCDF8C000EA56C5 /* LaunchScreen.storyboard */,
 				F80071581BCDF8C000EA56C5 /* Info.plist */,
 				F80071471BCDF8C000EA56C5 /* Supporting Files */,
-				F84412101BE053D3008325EC /* StudentScheduleViewController.h */,
-				F84412111BE053D3008325EC /* StudentScheduleViewController.m */,
 			);
 			path = TutorMe;
 			sourceTree = "<group>";
