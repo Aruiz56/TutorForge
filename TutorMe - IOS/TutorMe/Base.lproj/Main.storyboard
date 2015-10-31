@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -192,7 +192,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RKi-IT-YHr" id="i6W-tX-nSJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                             <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -323,6 +323,7 @@
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cTe-fv-bNy">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <animations/>
                                 <color key="barTintColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -336,12 +337,14 @@
                             </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SDc-B1-cK6">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
                                 <color key="backgroundColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="0.0" y="90" width="375" height="577"/>
                                 </variation>
                             </view>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
                         <variation key="default">
                             <mask key="subviews">
@@ -404,7 +407,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Iuj-GG-lfm" id="Sfo-PL-fwS">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                             <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -824,7 +827,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2bj-7W-dI9" id="Bx0-3C-pqJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                             <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1068,6 +1071,7 @@
                             </navigationBar>
                             <searchBar contentMode="redraw" placeholder="student" translatesAutoresizingMaskIntoConstraints="NO" id="ZYc-Gm-gcv">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <animations/>
                                 <color key="barTintColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
@@ -1344,7 +1348,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cDz-8q-MZe" id="EKC-fN-UUK">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                             <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1486,7 +1490,7 @@
         <!--Student - schedule-->
         <scene sceneID="NxX-Pu-jNs">
             <objects>
-                <viewController id="v6u-gw-3g3" userLabel="Student - schedule" sceneMemberID="viewController">
+                <viewController id="v6u-gw-3g3" userLabel="Student - schedule" customClass="StudentScheduleViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Uz8-02-ZdA"/>
                         <viewControllerLayoutGuide type="bottom" id="adB-LW-zmy"/>
@@ -1511,35 +1515,44 @@
                                     <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 </variation>
                             </navigationBar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MXa-PF-h9B">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2rB-wr-EPa">
+                                <rect key="frame" x="24" y="142" width="326" height="421"/>
                                 <animations/>
-                                <color key="backgroundColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="71" width="375" height="539"/>
-                                </variation>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPI-yh-uLg">
+                                <rect key="frame" x="141" y="81" width="92" height="42"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Request">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="AddButton:" destination="v6u-gw-3g3" eventType="touchUpInside" id="Jcq-ru-SqY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="pRR-ae-CfC"/>
-                                <exclude reference="MXa-PF-h9B"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="pRR-ae-CfC"/>
-                                <include reference="MXa-PF-h9B"/>
                             </mask>
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Appointment" image="appointment_icon.png" id="qVt-9M-U3r"/>
+                    <connections>
+                        <outlet property="myView" destination="2rB-wr-EPa" id="fIj-Bi-mII"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="65h-qa-B5d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="947.25" y="-894.5"/>
+            <point key="canvasLocation" x="946.5" y="-894.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="a5d-pR-jkA">
@@ -1555,6 +1568,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAp-de-IOr">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <state key="normal" title="Tutor Tab Controller"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
@@ -1564,7 +1578,16 @@
                                     <segue destination="6W6-dI-c54" kind="show" id="csE-dK-u9a"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNQ-vb-vYV">
+                                <rect key="frame" x="127" y="504" width="120" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Student Calendar"/>
+                                <connections>
+                                    <segue destination="v6u-gw-3g3" kind="show" id="l3A-Ed-B69"/>
+                                </connections>
+                            </button>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
@@ -1582,7 +1605,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Eg-Dc-DjS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="173.25" y="-120.5"/>
+            <point key="canvasLocation" x="284.5" y="-352.5"/>
         </scene>
         <!--Student Tab Controller-->
         <scene sceneID="JLB-co-Ajz">
@@ -1617,6 +1640,7 @@
         <image name="tutors_icon.png" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="EET-N7-d4F"/>
+        <segue reference="nHU-ye-IH9"/>
+        <segue reference="csE-dK-u9a"/>
     </inferredMetricsTieBreakers>
 </document>
