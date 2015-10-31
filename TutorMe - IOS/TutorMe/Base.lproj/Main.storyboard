@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ZU8-3u-cmT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -63,6 +63,9 @@
                                         <exclude reference="F04-ks-gzQ"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="rKb-fl-WpN"/>
+                                </connections>
                             </webView>
                         </subviews>
                         <animations/>
@@ -987,7 +990,7 @@
         <!--Tutor - log in student-->
         <scene sceneID="KHk-N4-4Qg">
             <objects>
-                <viewController title="Schedule" id="H0k-Sx-dP2" userLabel="Tutor - log in student" sceneMemberID="viewController">
+                <viewController title="Schedule" id="H0k-Sx-dP2" userLabel="Tutor - log in student" customClass="LogInStudentViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E6L-qS-K5C"/>
                         <viewControllerLayoutGuide type="bottom" id="9hP-1U-dsS"/>
@@ -996,22 +999,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8HY-7u-voZ">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <animations/>
-                                <color key="barTintColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="22"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="textShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem title="log in a student" id="AKp-TZ-0gM"/>
-                                </items>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                </variation>
-                            </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wSE-FM-bLU">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <animations/>
@@ -1023,7 +1010,7 @@
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="28"/>
-                                    <rect key="frame" x="290" y="105" width="35" height="30"/>
+                                    <rect key="frame" x="326" y="105" width="35" height="30"/>
                                 </variation>
                                 <connections>
                                     <segue destination="gxi-Hb-lC2" kind="popoverPresentation" popoverAnchorView="wSE-FM-bLU" id="V0V-iF-hV7">
@@ -1040,7 +1027,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="183" width="375" height="47"/>
+                                    <rect key="frame" x="-1" y="183" width="377" height="47"/>
                                 </variation>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RjM-DT-ktg">
@@ -1060,47 +1047,119 @@
                                     <color key="titleColor" red="0.45098039220000002" green="1" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="112" y="572" width="151" height="30"/>
+                                    <rect key="frame" x="113" y="572" width="150" height="34"/>
                                 </variation>
                             </button>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="XH1-Le-JKn">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8HY-7u-voZ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <animations/>
+                                <color key="barTintColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="22"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="textShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="log in a student" id="AKp-TZ-0gM"/>
+                                </items>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="-1" y="20" width="377" height="44"/>
+                                </variation>
+                            </navigationBar>
+                            <searchBar contentMode="redraw" placeholder="student" translatesAutoresizingMaskIntoConstraints="NO" id="ZYc-Gm-gcv">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <color key="barTintColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="50" y="98" width="229" height="44"/>
+                                    <rect key="frame" x="15" y="98" width="296" height="44"/>
                                 </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="H0k-Sx-dP2" id="y89-Ba-6XH"/>
+                                </connections>
                             </searchBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hrd-Na-31p">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="9" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fw2-pp-vv8">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <color key="backgroundColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="separatorColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="sectionIndexBackgroundColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="sectionIndexTrackingBackgroundColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="9" id="3k4-cA-sAp">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3k4-cA-sAp" id="OTm-H9-qGx">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                                <color key="backgroundColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="0.0" y="0.0" width="296" height="128"/>
+                                        </variation>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="fw2-pp-vv8"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="15" y="136" width="296" height="128"/>
+                                    <mask key="subviews">
+                                        <include reference="fw2-pp-vv8"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="8HY-7u-voZ"/>
                                 <exclude reference="wSE-FM-bLU"/>
                                 <exclude reference="Ngd-BO-nAj"/>
                                 <exclude reference="RjM-DT-ktg"/>
                                 <exclude reference="hoW-Gg-GLb"/>
-                                <exclude reference="XH1-Le-JKn"/>
+                                <exclude reference="8HY-7u-voZ"/>
+                                <exclude reference="ZYc-Gm-gcv"/>
+                                <exclude reference="hrd-Na-31p"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="8HY-7u-voZ"/>
                                 <include reference="wSE-FM-bLU"/>
                                 <include reference="Ngd-BO-nAj"/>
                                 <include reference="RjM-DT-ktg"/>
                                 <include reference="hoW-Gg-GLb"/>
-                                <include reference="XH1-Le-JKn"/>
+                                <include reference="8HY-7u-voZ"/>
+                                <include reference="ZYc-Gm-gcv"/>
+                                <include reference="hrd-Na-31p"/>
                             </mask>
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Log In Student" image="student_login_icon.png" id="ubj-7L-WBS"/>
                     <navigationItem key="navigationItem" title="My Schedule" id="gXX-hL-lz5"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="searchBar" destination="ZYc-Gm-gcv" id="7mS-Ui-Im0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BRA-Ks-I97" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="qC9-7A-ckl">
+                    <connections>
+                        <outlet property="delegate" destination="H0k-Sx-dP2" id="33W-An-KEP"/>
+                        <outlet property="searchContentsController" destination="H0k-Sx-dP2" id="5F1-7s-lii"/>
+                        <outlet property="searchResultsDataSource" destination="H0k-Sx-dP2" id="rcG-q1-fcm"/>
+                        <outlet property="searchResultsDelegate" destination="H0k-Sx-dP2" id="218-np-Nzh"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2408.25" y="-110.5"/>
+            <point key="canvasLocation" x="2408.25" y="-120.5"/>
         </scene>
         <!--Tutor - log in student descriptive-->
         <scene sceneID="cJH-f4-CZc">
@@ -1176,7 +1235,14 @@
                                     <color key="textShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="log in a student" id="oZ3-sB-beP"/>
+                                    <navigationItem title="log in a student" id="oZ3-sB-beP">
+                                        <barButtonItem key="leftBarButtonItem" title="back" id="BiH-ax-EhT">
+                                            <color key="tintColor" red="0.45098039220000002" green="1" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="log in" id="isl-oP-si4">
+                                            <color key="tintColor" red="0.45098039220000002" green="1" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -1484,6 +1550,7 @@
                         <viewControllerLayoutGuide type="bottom" id="KNs-DA-ly4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jsL-Lj-jzD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAp-de-IOr">
@@ -1550,6 +1617,6 @@
         <image name="tutors_icon.png" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="csE-dK-u9a"/>
+        <segue reference="EET-N7-d4F"/>
     </inferredMetricsTieBreakers>
 </document>

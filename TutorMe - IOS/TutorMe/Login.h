@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>
 
-@interface Login : UIViewController
+@interface Login : UIViewController <UIWebViewDelegate>
 
 @property(strong,nonatomic) IBOutlet UIWebView *myWebView;
 @property (strong, nonatomic) NSString *myURL;
