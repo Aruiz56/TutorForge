@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LogInStudentViewController : UIViewController <UISearchBarDelegate>
+@interface LogInStudentViewController : UIViewController <UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-
+@property (strong, nonatomic) NSMutableArray *searchResults;
+@property (weak, nonatomic) IBOutlet UITableView *searchResultsTableView;
 
 
 @end
