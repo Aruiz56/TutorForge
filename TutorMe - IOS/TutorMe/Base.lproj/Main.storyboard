@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ZU8-3u-cmT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -577,7 +577,7 @@
         <!--Admin - Schedule-->
         <scene sceneID="2iZ-Aj-j8u">
             <objects>
-                <viewController id="VFC-CV-ipi" userLabel="Admin - Schedule" sceneMemberID="viewController">
+                <viewController id="VFC-CV-ipi" userLabel="Admin - Schedule" customClass="AdminScheduleViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Jwd-Fi-Arx"/>
                         <viewControllerLayoutGuide type="bottom" id="Si8-VD-tqa"/>
@@ -602,6 +602,11 @@
                                     <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 </variation>
                             </navigationBar>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0WO-lg-BxL">
+                                <rect key="frame" x="24" y="142" width="326" height="421"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -617,6 +622,9 @@
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Schedules" image="schedule_icon.png" id="Fe7-KW-B7Z"/>
+                    <connections>
+                        <outlet property="myView" destination="0WO-lg-BxL" id="Zte-Rz-eXb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qx7-5o-EeF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -648,7 +656,7 @@
         <!--Tutor - add appointment-->
         <scene sceneID="XyK-gB-eA6">
             <objects>
-                <viewController title="Student Login" id="DdO-Nx-4tT" userLabel="Tutor - add appointment" sceneMemberID="viewController">
+                <viewController title="Student Login" id="DdO-Nx-4tT" userLabel="Tutor - add appointment" customClass="TutorScheduleViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZTz-nU-vZ4"/>
                         <viewControllerLayoutGuide type="bottom" id="1Gz-Gb-rRM"/>
@@ -673,14 +681,6 @@
                                     <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 </variation>
                             </navigationBar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dqc-hw-cZx">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="71" width="375" height="498"/>
-                                </variation>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g4Z-t1-Xlx">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <animations/>
@@ -699,30 +699,48 @@
                                     </segue>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AT8-3k-s9j">
+                                <rect key="frame" x="24" y="142" width="326" height="421"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aRU-SK-Z5W">
+                                <rect key="frame" x="82" y="72" width="211" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Add Appointment">
+                                    <color key="titleColor" red="0.45098039220000002" green="1" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="AddButton:" destination="DdO-Nx-4tT" eventType="touchUpInside" id="tOv-3S-euU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="fjA-k5-OpN"/>
-                                <exclude reference="Dqc-hw-cZx"/>
                                 <exclude reference="g4Z-t1-Xlx"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="fjA-k5-OpN"/>
-                                <include reference="Dqc-hw-cZx"/>
                                 <include reference="g4Z-t1-Xlx"/>
                             </mask>
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Appointments" image="appointment_icon.png" id="dLd-hg-sMA"/>
                     <navigationItem key="navigationItem" title="Student Login" id="N1k-9C-Ftc"/>
+                    <connections>
+                        <outlet property="myView" destination="AT8-3k-s9j" id="xES-He-3Lh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O3L-Uz-YwI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1673.25" y="636.5"/>
+            <point key="canvasLocation" x="1672.5" y="636.5"/>
         </scene>
         <!--Tutor - add appoinment for oneself-->
         <scene sceneID="i5X-gV-FBz">
@@ -1097,6 +1115,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aJU-kS-nLH" id="lCJ-6Z-8ge">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>

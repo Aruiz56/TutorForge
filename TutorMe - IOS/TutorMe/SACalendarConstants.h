@@ -45,7 +45,7 @@
 #define scrollViewBackgroundColor [UIColor whiteColor]
 #define calendarBackgroundColor [UIColor whiteColor]
 
-#define headerTextColor [UIColor redColor]
+#define headerTextColor [UIColor colorWithRed:0.0f/225.0f green:121.0f/225.0f blue:107.0f/225.0f alpha:1.0]
 
 /**
  *  Cell's property
@@ -61,7 +61,7 @@
 #define dateTextColor [UIColor blackColor]
 
 // Current date's cell
-#define currentDateCircleColor [UIColor redColor]
+#define currentDateCircleColor [UIColor colorWithRed:0.0f/225.0f green:121.0f/225.0f blue:107.0f/225.0f alpha:1.0]
 #define currentDateTextColor [UIColor whiteColor]
 
 // Selected date's cell
