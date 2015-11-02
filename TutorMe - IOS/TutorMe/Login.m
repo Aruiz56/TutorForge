@@ -22,15 +22,17 @@
     [super viewDidLoad];
     
     //URL To use for WebkitView and make request
-    myURL = @"https://cas.stetson.edu";
+    myURL = @"https://tutorme.ad.stetson.edu";
     NSURL *myNSURL = [NSURL URLWithString:self.myURL];
-    NSURLRequest *myRequest = [NSURLRequest requestWithURL:myNSURL];
+    NSMutableURLRequest *myRequest = [NSMutableURLRequest requestWithURL:myNSURL];
     
-    //Create the webview to be the size of the screen
+    //Load request
     [myWebView loadRequest:myRequest];
     
-    [self.view addSubview:myWebView];
+//    [self.view addSubview:myWebView];
 }
+
+#pragma mark - UIWebView Delegate methods
 
 - (void) webViewDidFinishLoad:(UIWebView *)webView {
     if ([webView isEqual:myWebView]) {
@@ -40,12 +42,26 @@
         NSString *sessionID = [sessionIDWithLabel objectAtIndex:1];
         NSLog(@"SessionID: %@", sessionID);
         
-//        NSHTTPCookie *cookie;
-//        NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-//        for(cookie in [cookieJar cookies]) {
-//            NSLog(@"%@", cookie);
-//        }
+        [self getUserInformation];
     }
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    NSLog(@"Error: %@", error);
+}
+
+- (void)getUserInformation {
+    //Connect to server and database
+    NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://tutorme.ad.stetson.edu/student"]];
+    
+    //Setting up for response
+    NSURLResponse *response;
+    NSError *err;
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
+    
+    //Printing response
+    id json = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error: nil];
+
 }
 
 - (void)didReceiveMemoryWarning {

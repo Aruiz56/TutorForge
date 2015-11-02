@@ -14,5 +14,7 @@
 @property(strong,nonatomic) IBOutlet UIWebView *myWebView;
 @property (strong, nonatomic) NSString *myURL;
 
+- (void)getUserInformation;
+
 @end
 

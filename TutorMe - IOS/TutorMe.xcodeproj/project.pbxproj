@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7428DD5F1BE7041D00A74EE1 /* LogInStudentDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7428DD5E1BE7041D00A74EE1 /* LogInStudentDetailsViewController.m */; settings = {ASSET_TAGS = (); }; };
 		74D43E681BD9803C00D6F9C6 /* login_tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 74D43E671BD9803B00D6F9C6 /* login_tab.png */; settings = {ASSET_TAGS = (); }; };
 		74D43E6A1BD9803F00D6F9C6 /* logout_tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 74D43E691BD9803F00D6F9C6 /* logout_tab.png */; settings = {ASSET_TAGS = (); }; };
 		74EB8FF91BE2C150000EFD5E /* LogInStudentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74EB8FF81BE2C150000EFD5E /* LogInStudentViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -49,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7428DD5D1BE7041D00A74EE1 /* LogInStudentDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInStudentDetailsViewController.h; sourceTree = "<group>"; };
+		7428DD5E1BE7041D00A74EE1 /* LogInStudentDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInStudentDetailsViewController.m; sourceTree = "<group>"; };
 		74D43E671BD9803B00D6F9C6 /* login_tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_tab.png; sourceTree = "<group>"; };
 		74D43E691BD9803F00D6F9C6 /* logout_tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout_tab.png; sourceTree = "<group>"; };
 		74EB8FF71BE2C150000EFD5E /* LogInStudentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInStudentViewController.h; sourceTree = "<group>"; };
@@ -165,6 +168,8 @@
 				F80071471BCDF8C000EA56C5 /* Supporting Files */,
 				74EB8FF71BE2C150000EFD5E /* LogInStudentViewController.h */,
 				74EB8FF81BE2C150000EFD5E /* LogInStudentViewController.m */,
+				7428DD5D1BE7041D00A74EE1 /* LogInStudentDetailsViewController.h */,
+				7428DD5E1BE7041D00A74EE1 /* LogInStudentDetailsViewController.m */,
 			);
 			path = TutorMe;
 			sourceTree = "<group>";
@@ -347,6 +352,7 @@
 				F844121B1BE054C2008325EC /* DateUtil.m in Sources */,
 				F84412121BE053D3008325EC /* StudentScheduleViewController.m in Sources */,
 				F800714C1BCDF8C000EA56C5 /* AppDelegate.m in Sources */,
+				7428DD5F1BE7041D00A74EE1 /* LogInStudentDetailsViewController.m in Sources */,
 				74EB8FF91BE2C150000EFD5E /* LogInStudentViewController.m in Sources */,
 				F80071491BCDF8C000EA56C5 /* main.m in Sources */,
 				F844121D1BE054C2008325EC /* SACalendar.m in Sources */,

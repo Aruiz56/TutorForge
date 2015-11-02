@@ -7,6 +7,7 @@
 //
 
 #import "LogInStudentViewController.h"
+#import "LogInStudentDetailsViewController.h"
 
 @interface LogInStudentViewController ()
 
@@ -16,6 +17,10 @@
 @synthesize searchBar;
 @synthesize searchResults;
 @synthesize searchResultsTableView;
+@synthesize student;
+@synthesize studentInformation;
+@synthesize populateTable;
+@synthesize loggedInStudents;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,6 +33,13 @@
     [searchResults addObject:@"Marisa Gomez 800104806"];
     [searchResults addObject:@"Marisa Gomez 800104806"];
     [searchResults addObject:@"800104846"];
+    
+    if (![[studentInformation objectForKey:@"student"] isEqualToString:@""]) {
+        populateTable = YES;
+        [loggedInStudents addObject:studentInformation];
+    } else {
+        populateTable = NO;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,6 +47,7 @@
 }
 
 #pragma mark - Search Bar Delegate
+
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
     NSLog(@"Search bar was pressed.");
     return true;
@@ -61,24 +74,42 @@
 }
 
 #pragma mark - Table View
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [searchResults count];
+    if ([tableView isEqual:searchResultsTableView]) {
+        return [searchResults count];
+    } else {
+        return [loggedInStudents count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *simpleTableIdentifier = @"MyReuseIdentifier";
+    NSString *searchResultsIdentifier = @"SearchResultsIdentifier";
+    NSString *loggedInStudentsIdentifer = @"LoggedStudentsIdentifier";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    UITableViewCell *cell;
     
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+    if ([tableView isEqual:searchResultsTableView]) {
+    
+        cell = [tableView dequeueReusableCellWithIdentifier:searchResultsIdentifier];
+    
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:  searchResultsIdentifier];
+            cell.textLabel.text = [searchResults objectAtIndex:indexPath.row];
+        }
+    } else {
+        cell = [tableView dequeueReusableCellWithIdentifier:loggedInStudentsIdentifer];
+        
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:  loggedInStudentsIdentifer];
+            cell.textLabel.text = [loggedInStudents objectAtIndex:indexPath.row];
+        }
     }
-    
-    cell.textLabel.text = [searchResults objectAtIndex:indexPath.row];
+
     CGFloat red = 115.0;
     CGFloat green = 255.0;
     CGFloat blue = 248.0;
@@ -87,14 +118,33 @@
     return cell;
 }
 
-/*
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([tableView isEqual:searchResultsTableView]) {
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        student = cell.textLabel.text;
+    } else {
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    }
+}
+
 #pragma mark - Navigation
+
+- (IBAction)unwindForSegue:(UIStoryboardSegue *)unwindSegue {
+    
+}
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"logInStudent"])
+    {
+        // Get reference to the destination view controller
+        LogInStudentDetailsViewController *vc = [segue destinationViewController];
+        
+        // Pass any objects to the view controller here, like...
+        vc.student = self.student;
+    }
 }
-*/
+
 
 @end
