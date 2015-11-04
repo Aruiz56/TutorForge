@@ -166,8 +166,11 @@
     NSString *newDay = [[NSString alloc]init];
     //    UIColor *textColor = [[UIColor alloc]init]; LATER WHEN CHANGING TO GREEN IF ACCEPTED
     //Format date correctly to fit datePicker values when looping
-    if(day == 1) newDay = [NSString stringWithFormat:@"0%d", day];
+    
+    
+    if(day == 1 || day == 2 || day == 3 || day == 4 || day == 5 || day == 6 || day == 7 || day == 8 || day == 9) newDay = [NSString stringWithFormat:@"0%d", day];
     else newDay = [NSString stringWithFormat:@"%d", day];
+
     
     //Add each event into NSMutuableArray
     if(_mySavedEvents.count > 0)
