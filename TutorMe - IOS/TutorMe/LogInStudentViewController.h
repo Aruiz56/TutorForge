@@ -14,8 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *searchResultsTableView;
 @property (strong, nonatomic) NSString *student;
 @property (strong, nonatomic) NSMutableDictionary *studentInformation;
-@property (nonatomic) BOOL populateTable;
 @property (strong, nonatomic) NSMutableArray *loggedInStudents;
+@property (weak, nonatomic) IBOutlet UITableView *loggedInStudentsTableView;
 
-- (IBAction) logInStudent:(UIButton *)button;
 @end
