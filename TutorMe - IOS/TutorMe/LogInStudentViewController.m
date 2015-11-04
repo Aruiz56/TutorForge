@@ -39,11 +39,15 @@
         [loggedInStudents addObject:studentInformation];
     } else {
         populateTable = NO;
-    }
+    }        
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    
 }
 
 #pragma mark - Search Bar Delegate
