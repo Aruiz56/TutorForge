@@ -22,7 +22,7 @@
     [super viewDidLoad];
     
     //URL To use for WebkitView and make request
-    myURL = @"https://tutorme.ad.stetson.edu";
+    myURL = @"https://tutorme.stetson.edu";
     NSURL *myNSURL = [NSURL URLWithString:self.myURL];
     NSMutableURLRequest *myRequest = [NSMutableURLRequest requestWithURL:myNSURL];
     

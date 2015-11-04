@@ -19,8 +19,8 @@
 @synthesize searchResultsTableView;
 @synthesize student;
 @synthesize studentInformation;
-@synthesize populateTable;
 @synthesize loggedInStudents;
+@synthesize loggedInStudentsTableView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,11 +28,15 @@
     [searchResultsTableView setHidden:YES];
     [searchResultsTableView setScrollEnabled:YES];
     
+    studentInformation = [[NSMutableDictionary alloc] init];
+    loggedInStudents = [[NSMutableArray alloc] init];
+    
     searchResults = [[NSMutableArray alloc] init];
     [searchResults addObject:@"Marisa Gomez 800104806"];
     [searchResults addObject:@"Marisa Gomez 800104806"];
     [searchResults addObject:@"Marisa Gomez 800104806"];
     [searchResults addObject:@"800104846"];
+<<<<<<< HEAD
     
     if (![[studentInformation objectForKey:@"student"] isEqualToString:@""]) {
         populateTable = YES;
@@ -40,14 +44,24 @@
     } else {
         populateTable = NO;
     }        
+=======
+>>>>>>> f27a1340976fdfa0078837d49707cb83505c65cf
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
+<<<<<<< HEAD
 - (void)viewDidAppear:(BOOL)animated {
     
+=======
+- (void)viewWillAppear:(BOOL)animated {
+    if ([[studentInformation objectForKey:@"student"] length] > 0) {
+        [loggedInStudents addObject:studentInformation];
+        [loggedInStudentsTableView reloadData];
+    }
+>>>>>>> f27a1340976fdfa0078837d49707cb83505c65cf
 }
 
 #pragma mark - Search Bar Delegate
@@ -135,7 +149,8 @@
 #pragma mark - Navigation
 
 - (IBAction)unwindForSegue:(UIStoryboardSegue *)unwindSegue {
-    
+    LogInStudentDetailsViewController *detailsViewController = [unwindSegue sourceViewController];
+    self.studentInformation = detailsViewController.studentInformation;
 }
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -149,6 +164,4 @@
         vc.student = self.student;
     }
 }
-
-
 @end

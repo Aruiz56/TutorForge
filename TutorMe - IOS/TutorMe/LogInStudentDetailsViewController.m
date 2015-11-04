@@ -25,6 +25,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    studentInformation = [[NSMutableDictionary alloc] init];
     [studentInformation setObject:student forKey:@"student"];
     
     courses = [[NSMutableArray alloc] init];
@@ -90,10 +91,10 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"unwindWithInfo"]) {
-        LogInStudentViewController *vc = [[LogInStudentViewController alloc] init];
-        vc.studentInformation = self.studentInformation;
-    }
+//    if ([[segue identifier] isEqualToString:@"unwindWithInfo"]) {
+//        LogInStudentViewController *vc = [[LogInStudentViewController alloc] init];
+//        vc.studentInformation = self.studentInformation;
+//    }
 }
 
 @end
