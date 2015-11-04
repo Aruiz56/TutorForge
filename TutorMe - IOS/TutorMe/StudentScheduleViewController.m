@@ -39,7 +39,7 @@
      */
     _TutorArray = [[NSArray alloc]initWithObjects:@"", @"Josh John", @"Ashley Combs", @"Dylan Roberts", nil];
     
-    tutorPicker = [[UIPickerView alloc]initWithFrame:CGRectMake(0, 43, 320, 480)];
+    tutorPicker = [[UIPickerView alloc]initWithFrame:CGRectMake(0, 0, 320, 215)];
     tutorPicker.delegate = self;
     tutorPicker.dataSource = self;
     [tutorPicker setShowsSelectionIndicator:YES];
@@ -65,7 +65,7 @@
      */
     _TimeArray = [[NSArray alloc]initWithObjects:@"", @"1:00pm", @"1:30pm", @"2:00pm", nil];
     
-    timePicker = [[UIPickerView alloc]initWithFrame:CGRectMake(0, 43, 320, 480)];
+    timePicker = [[UIPickerView alloc]initWithFrame:CGRectMake(0, 0, 320, 215)];
     timePicker.delegate = self;
     timePicker.dataSource = self;
     [timePicker setShowsSelectionIndicator:YES];
@@ -166,7 +166,8 @@
     NSString *newDay = [[NSString alloc]init];
 //    UIColor *textColor = [[UIColor alloc]init]; LATER WHEN CHANGING TO GREEN IF ACCEPTED
     //Format date correctly to fit datePicker values when looping
-    if(day == 1) newDay = [NSString stringWithFormat:@"0%d", day];
+    
+    if(day == 1 || day == 2 || day == 3 || day == 4 || day == 5 || day == 6 || day == 7 || day == 8 || day == 9) newDay = [NSString stringWithFormat:@"0%d", day];
     else newDay = [NSString stringWithFormat:@"%d", day];
     
     //Add each event into NSMutuableArray
@@ -177,9 +178,6 @@
             if([[_myEventDate objectAtIndex:i] isEqualToString:[NSString stringWithFormat:@"%d/%@/%d", month, newDay, year]])
             {
                 [events addObject:[NSString stringWithFormat:@"%@ @ %@",[_mySavedEvents objectAtIndex:i], [_myEventTime objectAtIndex:i]]];
-            }else{
-                [events addObject:@"No Events"];
-                
             }
         }
     } else {

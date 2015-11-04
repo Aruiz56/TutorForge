@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7428DD5F1BE7041D00A74EE1 /* LogInStudentDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7428DD5E1BE7041D00A74EE1 /* LogInStudentDetailsViewController.m */; settings = {ASSET_TAGS = (); }; };
-		74D43E681BD9803C00D6F9C6 /* login_tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 74D43E671BD9803B00D6F9C6 /* login_tab.png */; settings = {ASSET_TAGS = (); }; };
-		74D43E6A1BD9803F00D6F9C6 /* logout_tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 74D43E691BD9803F00D6F9C6 /* logout_tab.png */; settings = {ASSET_TAGS = (); }; };
-		74EB8FF91BE2C150000EFD5E /* LogInStudentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74EB8FF81BE2C150000EFD5E /* LogInStudentViewController.m */; settings = {ASSET_TAGS = (); }; };
+		7428DD5F1BE7041D00A74EE1 /* LogInStudentDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7428DD5E1BE7041D00A74EE1 /* LogInStudentDetailsViewController.m */; };
+		74D43E681BD9803C00D6F9C6 /* login_tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 74D43E671BD9803B00D6F9C6 /* login_tab.png */; };
+		74D43E6A1BD9803F00D6F9C6 /* logout_tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 74D43E691BD9803F00D6F9C6 /* logout_tab.png */; };
+		74EB8FF91BE2C150000EFD5E /* LogInStudentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74EB8FF81BE2C150000EFD5E /* LogInStudentViewController.m */; };
 		F80071491BCDF8C000EA56C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F80071481BCDF8C000EA56C5 /* main.m */; };
 		F800714C1BCDF8C000EA56C5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F800714B1BCDF8C000EA56C5 /* AppDelegate.m */; };
 		F800714F1BCDF8C000EA56C5 /* Login.m in Sources */ = {isa = PBXBuildFile; fileRef = F800714E1BCDF8C000EA56C5 /* Login.m */; };
@@ -24,13 +24,15 @@
 		F844121D1BE054C2008325EC /* SACalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = F84412171BE054C2008325EC /* SACalendar.m */; };
 		F844121E1BE054C2008325EC /* SACalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F84412191BE054C2008325EC /* SACalendarCell.m */; };
 		F84412241BE05735008325EC /* DMLazyScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F84412231BE05735008325EC /* DMLazyScrollView.m */; };
+		F879903D1BEA3CC40096A08A /* schedule_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F879903C1BEA3CC40096A08A /* schedule_icon.png */; };
+		F87990411BEA3E830096A08A /* StudentRequestsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F87990401BEA3E830096A08A /* StudentRequestsViewController.m */; };
+		F87990441BEA4D890096A08A /* TutorRequestsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F87990431BEA4D890096A08A /* TutorRequestsViewController.m */; };
 		F8BF1E7D1BE6F83500A42C04 /* AdminScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8BF1E7C1BE6F83500A42C04 /* AdminScheduleViewController.m */; };
 		F8BF1E801BE6F93900A42C04 /* TutorScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8BF1E7F1BE6F93900A42C04 /* TutorScheduleViewController.m */; };
 		F8F4FB6B1BD9B03F000A689B /* feedback_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F8F4FB651BD9B03F000A689B /* feedback_icon.png */; };
 		F8F4FB6C1BD9B03F000A689B /* requests.png in Resources */ = {isa = PBXBuildFile; fileRef = F8F4FB661BD9B03F000A689B /* requests.png */; };
 		F8F4FB6D1BD9B03F000A689B /* appointment_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F8F4FB671BD9B03F000A689B /* appointment_icon.png */; };
 		F8F4FB6E1BD9B03F000A689B /* student_login_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F8F4FB681BD9B03F000A689B /* student_login_icon.png */; };
-		F8F4FB6F1BD9B03F000A689B /* schedule_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F8F4FB691BD9B03F000A689B /* schedule_icon.png */; };
 		F8F4FB701BD9B03F000A689B /* tutors_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F8F4FB6A1BD9B03F000A689B /* tutors_icon.png */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +87,11 @@
 		F844121A1BE054C2008325EC /* SACalendarConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SACalendarConstants.h; sourceTree = "<group>"; };
 		F84412221BE05735008325EC /* DMLazyScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMLazyScrollView.h; sourceTree = "<group>"; };
 		F84412231BE05735008325EC /* DMLazyScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMLazyScrollView.m; sourceTree = "<group>"; };
+		F879903C1BEA3CC40096A08A /* schedule_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = schedule_icon.png; sourceTree = "<group>"; };
+		F879903F1BEA3E830096A08A /* StudentRequestsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentRequestsViewController.h; sourceTree = "<group>"; };
+		F87990401BEA3E830096A08A /* StudentRequestsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentRequestsViewController.m; sourceTree = "<group>"; };
+		F87990421BEA4D890096A08A /* TutorRequestsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorRequestsViewController.h; sourceTree = "<group>"; };
+		F87990431BEA4D890096A08A /* TutorRequestsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorRequestsViewController.m; sourceTree = "<group>"; };
 		F8BF1E7B1BE6F83500A42C04 /* AdminScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminScheduleViewController.h; sourceTree = "<group>"; };
 		F8BF1E7C1BE6F83500A42C04 /* AdminScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminScheduleViewController.m; sourceTree = "<group>"; };
 		F8BF1E7E1BE6F93900A42C04 /* TutorScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorScheduleViewController.h; sourceTree = "<group>"; };
@@ -93,7 +100,6 @@
 		F8F4FB661BD9B03F000A689B /* requests.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = requests.png; sourceTree = "<group>"; };
 		F8F4FB671BD9B03F000A689B /* appointment_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appointment_icon.png; sourceTree = "<group>"; };
 		F8F4FB681BD9B03F000A689B /* student_login_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = student_login_icon.png; sourceTree = "<group>"; };
-		F8F4FB691BD9B03F000A689B /* schedule_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = schedule_icon.png; sourceTree = "<group>"; };
 		F8F4FB6A1BD9B03F000A689B /* tutors_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutors_icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,11 +155,11 @@
 		74D43E661BD9803100D6F9C6 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				F879903C1BEA3CC40096A08A /* schedule_icon.png */,
 				F8F4FB651BD9B03F000A689B /* feedback_icon.png */,
 				F8F4FB661BD9B03F000A689B /* requests.png */,
 				F8F4FB671BD9B03F000A689B /* appointment_icon.png */,
 				F8F4FB681BD9B03F000A689B /* student_login_icon.png */,
-				F8F4FB691BD9B03F000A689B /* schedule_icon.png */,
 				F8F4FB6A1BD9B03F000A689B /* tutors_icon.png */,
 				74D43E691BD9803F00D6F9C6 /* logout_tab.png */,
 				74D43E671BD9803B00D6F9C6 /* login_tab.png */,
@@ -194,6 +200,7 @@
 				F80071471BCDF8C000EA56C5 /* Supporting Files */,
 				F800714D1BCDF8C000EA56C5 /* Login.h */,
 				F800714E1BCDF8C000EA56C5 /* Login.m */,
+				F879903E1BEA3E440096A08A /* Requests */,
 				74A6BA0E1BE7D6DB00277EB7 /* Log In Student */,
 				74A6BA0F1BE7D6EB00277EB7 /* Schedules */,
 			);
@@ -233,6 +240,18 @@
 				F800716E1BCDF8C100EA56C5 /* Info.plist */,
 			);
 			path = TutorMeUITests;
+			sourceTree = "<group>";
+		};
+		F879903E1BEA3E440096A08A /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				F879903F1BEA3E830096A08A /* StudentRequestsViewController.h */,
+				F87990401BEA3E830096A08A /* StudentRequestsViewController.m */,
+				F87990421BEA4D890096A08A /* TutorRequestsViewController.h */,
+				F87990431BEA4D890096A08A /* TutorRequestsViewController.m */,
+			);
+			name = Requests;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,8 +361,8 @@
 				F8F4FB6B1BD9B03F000A689B /* feedback_icon.png in Resources */,
 				F8F4FB701BD9B03F000A689B /* tutors_icon.png in Resources */,
 				F8F4FB6C1BD9B03F000A689B /* requests.png in Resources */,
-				F8F4FB6F1BD9B03F000A689B /* schedule_icon.png in Resources */,
 				F80071541BCDF8C000EA56C5 /* Assets.xcassets in Resources */,
+				F879903D1BEA3CC40096A08A /* schedule_icon.png in Resources */,
 				F80071521BCDF8C000EA56C5 /* Main.storyboard in Resources */,
 				74D43E681BD9803C00D6F9C6 /* login_tab.png in Resources */,
 				F8F4FB6D1BD9B03F000A689B /* appointment_icon.png in Resources */,
@@ -380,11 +399,13 @@
 				F84412121BE053D3008325EC /* StudentScheduleViewController.m in Sources */,
 				F800714C1BCDF8C000EA56C5 /* AppDelegate.m in Sources */,
 				7428DD5F1BE7041D00A74EE1 /* LogInStudentDetailsViewController.m in Sources */,
+				F87990411BEA3E830096A08A /* StudentRequestsViewController.m in Sources */,
 				74EB8FF91BE2C150000EFD5E /* LogInStudentViewController.m in Sources */,
 				F80071491BCDF8C000EA56C5 /* main.m in Sources */,
 				F844121D1BE054C2008325EC /* SACalendar.m in Sources */,
 				F8BF1E801BE6F93900A42C04 /* TutorScheduleViewController.m in Sources */,
 				F844121E1BE054C2008325EC /* SACalendarCell.m in Sources */,
+				F87990441BEA4D890096A08A /* TutorRequestsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
