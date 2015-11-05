@@ -1,1 +1,2 @@
 pod 'MSCollectionViewCalendarLayout'
+pod "AFNetworking", "~> 2.0"
