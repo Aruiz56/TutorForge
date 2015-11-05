@@ -2,11 +2,12 @@
 //  AppDelegate.m
 //  TutorMe
 //
-//  Created by Christian Valderrama on 10/13/15.
+//  Created by Christian Valderrama and Marisa Gomez on 10/13/15.
 //  Copyright © 2015 soft_dev2_group1. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "URLProtocol.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    //Add to create own NSURLProtocol class for requests
+    [NSURLProtocol registerClass:[URLProtocol class]];
+    
     return YES;
 }
 

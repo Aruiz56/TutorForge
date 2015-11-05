@@ -22,47 +22,46 @@
     [super viewDidLoad];
     
     //URL To use for WebkitView and make request
-    myURL = @"https://tutorme.stetson.edu";
+    myURL = @"https://casdev.ad.stetson.edu/cas/login?service=https%3A%2F%2Ftutorme.stetson.edu%2F";
     NSURL *myNSURL = [NSURL URLWithString:self.myURL];
     NSMutableURLRequest *myRequest = [NSMutableURLRequest requestWithURL:myNSURL];
     
     //Load request
+    [myWebView stopLoading];
     [myWebView loadRequest:myRequest];
-    
-//    [self.view addSubview:myWebView];
 }
 
 #pragma mark - UIWebView Delegate methods
 
 - (void) webViewDidFinishLoad:(UIWebView *)webView {
-    if ([webView isEqual:myWebView]) {
-        NSString *currentURL = myWebView.request.URL.absoluteString;
-        NSLog(@"Current URL: %@", currentURL);
-        NSArray *sessionIDWithLabel = [currentURL componentsSeparatedByString:@"="];
-        NSString *sessionID = [sessionIDWithLabel objectAtIndex:1];
-        NSLog(@"SessionID: %@", sessionID);
-        
-        [self getUserInformation];
-    }
+//    if ([webView isEqual:myWebView]) {
+//        NSString *currentURL = myWebView.request.URL.absoluteString;
+//        NSLog(@"Current URL: %@", currentURL);
+//        NSArray *sessionIDWithLabel = [currentURL componentsSeparatedByString:@"="];
+//        NSString *sessionID = [sessionIDWithLabel objectAtIndex:1];
+//        NSLog(@"SessionID: %@", sessionID);
+    
+//        [self getUserInformation];
+//    }
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     NSLog(@"Error: %@", error);
 }
-
-- (void)getUserInformation {
-    //Connect to server and database
-    NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://tutorme.ad.stetson.edu/student"]];
-    
-    //Setting up for response
-    NSURLResponse *response;
-    NSError *err;
-    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
-    
-    //Printing response
-    id json = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error: nil];
-
-}
+//
+//- (void)getUserInformation {
+//    //Connect to server and database
+//    NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://tutorme.stetson.edu/student"]];
+//    
+//    //Setting up for response
+//    NSURLResponse *response;
+//    NSError *err;
+//    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
+//    
+//    //Printing response
+//    id json = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error: nil];
+//
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

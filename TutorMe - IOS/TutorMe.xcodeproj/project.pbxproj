@@ -11,6 +11,7 @@
 		74D43E681BD9803C00D6F9C6 /* login_tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 74D43E671BD9803B00D6F9C6 /* login_tab.png */; };
 		74D43E6A1BD9803F00D6F9C6 /* logout_tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 74D43E691BD9803F00D6F9C6 /* logout_tab.png */; };
 		74EB8FF91BE2C150000EFD5E /* LogInStudentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74EB8FF81BE2C150000EFD5E /* LogInStudentViewController.m */; };
+		DD0E6CAA1BEBBA4500042C64 /* URLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0E6CA91BEBBA4500042C64 /* URLProtocol.m */; };
 		F80071491BCDF8C000EA56C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F80071481BCDF8C000EA56C5 /* main.m */; };
 		F800714C1BCDF8C000EA56C5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F800714B1BCDF8C000EA56C5 /* AppDelegate.m */; };
 		F800714F1BCDF8C000EA56C5 /* Login.m in Sources */ = {isa = PBXBuildFile; fileRef = F800714E1BCDF8C000EA56C5 /* Login.m */; };
@@ -60,6 +61,8 @@
 		74D43E691BD9803F00D6F9C6 /* logout_tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout_tab.png; sourceTree = "<group>"; };
 		74EB8FF71BE2C150000EFD5E /* LogInStudentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInStudentViewController.h; sourceTree = "<group>"; };
 		74EB8FF81BE2C150000EFD5E /* LogInStudentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInStudentViewController.m; sourceTree = "<group>"; };
+		DD0E6CA81BEBBA4500042C64 /* URLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLProtocol.h; sourceTree = "<group>"; };
+		DD0E6CA91BEBBA4500042C64 /* URLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLProtocol.m; sourceTree = "<group>"; };
 		F80071441BCDF8C000EA56C5 /* TutorMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TutorMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F80071481BCDF8C000EA56C5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F800714A1BCDF8C000EA56C5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -167,6 +170,17 @@
 			name = images;
 			sourceTree = "<group>";
 		};
+		DD0E6CA71BEBBA1E00042C64 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				F800714D1BCDF8C000EA56C5 /* Login.h */,
+				F800714E1BCDF8C000EA56C5 /* Login.m */,
+				DD0E6CA81BEBBA4500042C64 /* URLProtocol.h */,
+				DD0E6CA91BEBBA4500042C64 /* URLProtocol.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		F800713B1BCDF8C000EA56C5 = {
 			isa = PBXGroup;
 			children = (
@@ -198,8 +212,7 @@
 				F80071551BCDF8C000EA56C5 /* LaunchScreen.storyboard */,
 				F80071581BCDF8C000EA56C5 /* Info.plist */,
 				F80071471BCDF8C000EA56C5 /* Supporting Files */,
-				F800714D1BCDF8C000EA56C5 /* Login.h */,
-				F800714E1BCDF8C000EA56C5 /* Login.m */,
+				DD0E6CA71BEBBA1E00042C64 /* Login */,
 				F879903E1BEA3E440096A08A /* Requests */,
 				74A6BA0E1BE7D6DB00277EB7 /* Log In Student */,
 				74A6BA0F1BE7D6EB00277EB7 /* Schedules */,
@@ -393,6 +406,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F84412241BE05735008325EC /* DMLazyScrollView.m in Sources */,
+				DD0E6CAA1BEBBA4500042C64 /* URLProtocol.m in Sources */,
 				F800714F1BCDF8C000EA56C5 /* Login.m in Sources */,
 				F844121B1BE054C2008325EC /* DateUtil.m in Sources */,
 				F8BF1E7D1BE6F83500A42C04 /* AdminScheduleViewController.m in Sources */,

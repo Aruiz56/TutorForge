@@ -36,32 +36,17 @@
     [searchResults addObject:@"Marisa Gomez 800104806"];
     [searchResults addObject:@"Marisa Gomez 800104806"];
     [searchResults addObject:@"800104846"];
-<<<<<<< HEAD
-    
-    if (![[studentInformation objectForKey:@"student"] isEqualToString:@""]) {
-        populateTable = YES;
-        [loggedInStudents addObject:studentInformation];
-    } else {
-        populateTable = NO;
-    }        
-=======
->>>>>>> f27a1340976fdfa0078837d49707cb83505c65cf
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-<<<<<<< HEAD
-- (void)viewDidAppear:(BOOL)animated {
-    
-=======
 - (void)viewWillAppear:(BOOL)animated {
     if ([[studentInformation objectForKey:@"student"] length] > 0) {
         [loggedInStudents addObject:studentInformation];
         [loggedInStudentsTableView reloadData];
     }
->>>>>>> f27a1340976fdfa0078837d49707cb83505c65cf
 }
 
 #pragma mark - Search Bar Delegate
