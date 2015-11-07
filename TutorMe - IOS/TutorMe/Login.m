@@ -9,6 +9,8 @@
 // to login to our services. 
 
 #import "Login.h"
+#import "AFNetworking.h"
+#import "UIWebView+AFNetworking.h"
 
 @interface Login ()
 
@@ -23,12 +25,39 @@
     
     //URL To use for WebkitView and make request
     myURL = @"https://casdev.ad.stetson.edu/cas/login?service=https%3A%2F%2Ftutorme.stetson.edu%2F";
-    NSURL *myNSURL = [NSURL URLWithString:self.myURL];
-    NSMutableURLRequest *myRequest = [NSMutableURLRequest requestWithURL:myNSURL];
+//    myURL = @"https://tutorme.stetson.edu";
+    NSURL *myNSURL = [NSURL URLWithString:myURL];
+    NSURLRequest *myRequest = [NSURLRequest requestWithURL:myNSURL];
     
     //Load request
-    [myWebView stopLoading];
-    [myWebView loadRequest:myRequest];
+//    [myWebView stopLoading];
+//    [myWebView loadRequest:myRequest];
+    
+    //Try using AFNetworking
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    manager.securityPolicy.allowInvalidCertificates = YES;
+//
+//    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:myRequest];
+//    [operation setCompletionBlockWithSuccess: ^(AFHTTPRequestOperation *operation, id responseObject) {
+//        
+//        NSString *stringResponse = [[NSString alloc] initWithData:responseObject
+//                                                         encoding:NSUTF8StringEncoding];
+//        [myWebView loadHTMLString:stringResponse baseURL:nil];
+//        
+//    } failure: ^(AFHTTPRequestOperation *operation, NSError *error) {
+//        
+//        [myWebView loadHTMLString:error.localizedDescription baseURL:nil];
+//        
+//    }];
+    
+//    [operation start];
+    
+    [myWebView loadRequest:myRequest progress:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {    } success:^NSString * _Nonnull(NSHTTPURLResponse * _Nonnull response, NSString * _Nonnull HTML) {
+        NSLog(@"Loading response..");
+        return HTML;
+    } failure:^(NSError * _Nonnull error) {
+        NSLog(@"Failed with error: %@", error);
+    }];
 }
 
 #pragma mark - UIWebView Delegate methods
@@ -48,7 +77,7 @@
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     NSLog(@"Error: %@", error);
 }
-//
+
 //- (void)getUserInformation {
 //    //Connect to server and database
 //    NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://tutorme.stetson.edu/student"]];
