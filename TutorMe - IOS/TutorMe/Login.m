@@ -24,8 +24,8 @@
     [super viewDidLoad];
     
     //URL To use for WebkitView and make request
-    myURL = @"https://casdev.ad.stetson.edu/cas/login?service=https%3A%2F%2Ftutorme.stetson.edu%2F";
-//    myURL = @"https://tutorme.stetson.edu";
+//    myURL = @"https://casdev.ad.stetson.edu/cas/login?service=https%3A%2F%2Ftutorme.stetson.edu%2F";
+    myURL = @"https://tutorme.stetson.edu/docs";
     NSURL *myNSURL = [NSURL URLWithString:myURL];
     NSURLRequest *myRequest = [NSURLRequest requestWithURL:myNSURL];
     
@@ -49,11 +49,10 @@
 //        [myWebView loadHTMLString:error.localizedDescription baseURL:nil];
 //        
 //    }];
-    
+//    
 //    [operation start];
     
     [myWebView loadRequest:myRequest progress:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {    } success:^NSString * _Nonnull(NSHTTPURLResponse * _Nonnull response, NSString * _Nonnull HTML) {
-        NSLog(@"Loading response..");
         return HTML;
     } failure:^(NSError * _Nonnull error) {
         NSLog(@"Failed with error: %@", error);
