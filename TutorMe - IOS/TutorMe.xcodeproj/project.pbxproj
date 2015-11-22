@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7428DD5F1BE7041D00A74EE1 /* LogInStudentDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7428DD5E1BE7041D00A74EE1 /* LogInStudentDetailsViewController.m */; };
+		74A210031BFA252B0074966B /* AdminAddTutorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74A210021BFA252B0074966B /* AdminAddTutorViewController.m */; };
 		74D43E681BD9803C00D6F9C6 /* login_tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 74D43E671BD9803B00D6F9C6 /* login_tab.png */; };
 		74D43E6A1BD9803F00D6F9C6 /* logout_tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 74D43E691BD9803F00D6F9C6 /* logout_tab.png */; };
 		74EB8FF91BE2C150000EFD5E /* LogInStudentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74EB8FF81BE2C150000EFD5E /* LogInStudentViewController.m */; };
@@ -59,6 +60,8 @@
 		4908487194F72733FB24CC94 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7428DD5D1BE7041D00A74EE1 /* LogInStudentDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInStudentDetailsViewController.h; sourceTree = "<group>"; };
 		7428DD5E1BE7041D00A74EE1 /* LogInStudentDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInStudentDetailsViewController.m; sourceTree = "<group>"; };
+		74A210011BFA252B0074966B /* AdminAddTutorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminAddTutorViewController.h; sourceTree = "<group>"; };
+		74A210021BFA252B0074966B /* AdminAddTutorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminAddTutorViewController.m; sourceTree = "<group>"; };
 		74D43E671BD9803B00D6F9C6 /* login_tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_tab.png; sourceTree = "<group>"; };
 		74D43E691BD9803F00D6F9C6 /* logout_tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout_tab.png; sourceTree = "<group>"; };
 		74EB8FF71BE2C150000EFD5E /* LogInStudentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInStudentViewController.h; sourceTree = "<group>"; };
@@ -136,6 +139,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		74A210041BFA25450074966B /* Admin add Tutor */ = {
+			isa = PBXGroup;
+			children = (
+				74A210011BFA252B0074966B /* AdminAddTutorViewController.h */,
+				74A210021BFA252B0074966B /* AdminAddTutorViewController.m */,
+			);
+			name = "Admin add Tutor";
+			sourceTree = "<group>";
+		};
 		74A6BA0E1BE7D6DB00277EB7 /* Log In Student */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +252,7 @@
 				F879903E1BEA3E440096A08A /* Requests */,
 				74A6BA0E1BE7D6DB00277EB7 /* Log In Student */,
 				74A6BA0F1BE7D6EB00277EB7 /* Schedules */,
+				74A210041BFA25450074966B /* Admin add Tutor */,
 			);
 			path = TutorMe;
 			sourceTree = "<group>";
@@ -487,6 +500,7 @@
 				F8BF1E7D1BE6F83500A42C04 /* AdminScheduleViewController.m in Sources */,
 				F84412121BE053D3008325EC /* StudentScheduleViewController.m in Sources */,
 				F800714C1BCDF8C000EA56C5 /* AppDelegate.m in Sources */,
+				74A210031BFA252B0074966B /* AdminAddTutorViewController.m in Sources */,
 				7428DD5F1BE7041D00A74EE1 /* LogInStudentDetailsViewController.m in Sources */,
 				F87990411BEA3E830096A08A /* StudentRequestsViewController.m in Sources */,
 				74EB8FF91BE2C150000EFD5E /* LogInStudentViewController.m in Sources */,

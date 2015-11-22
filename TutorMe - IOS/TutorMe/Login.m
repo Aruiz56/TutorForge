@@ -24,8 +24,8 @@
     [super viewDidLoad];
     
     //URL To use for WebkitView and make request
-//    myURL = @"https://casdev.ad.stetson.edu/cas/login?service=https%3A%2F%2Ftutorme.stetson.edu%2F";
-    myURL = @"https://tutorme.stetson.edu/docs";
+//    myURL = @"https://casdev.ad.stetson.edu/cas/login?service=https%3A%2F%2Ftutorme.stetson.edu%2fapi%2fiosauthenticate";
+    myURL = @"https://tutorme.stetson.edu/api/students/get?field=FullName&value=Marisa%20Gomez";
     NSURL *myNSURL = [NSURL URLWithString:myURL];
     NSURLRequest *myRequest = [NSURLRequest requestWithURL:myNSURL];
     
@@ -53,6 +53,7 @@
 //    [operation start];
     
     [myWebView loadRequest:myRequest progress:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {    } success:^NSString * _Nonnull(NSHTTPURLResponse * _Nonnull response, NSString * _Nonnull HTML) {
+//        NSLog(@"JSON: %@", HTML);
         return HTML;
     } failure:^(NSError * _Nonnull error) {
         NSLog(@"Failed with error: %@", error);
@@ -62,15 +63,15 @@
 #pragma mark - UIWebView Delegate methods
 
 - (void) webViewDidFinishLoad:(UIWebView *)webView {
-//    if ([webView isEqual:myWebView]) {
-//        NSString *currentURL = myWebView.request.URL.absoluteString;
-//        NSLog(@"Current URL: %@", currentURL);
-//        NSArray *sessionIDWithLabel = [currentURL componentsSeparatedByString:@"="];
-//        NSString *sessionID = [sessionIDWithLabel objectAtIndex:1];
-//        NSLog(@"SessionID: %@", sessionID);
+    if ([webView isEqual:myWebView]) {
+        NSString *currentURL = myWebView.request.URL.absoluteString;
+        NSLog(@"Current URL: %@", currentURL);
+        NSArray *sessionIDWithLabel = [currentURL componentsSeparatedByString:@"="];
+        NSString *sessionID = [sessionIDWithLabel objectAtIndex:1];
+        NSLog(@"SessionID: %@", sessionID);
     
 //        [self getUserInformation];
-//    }
+    }
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {

@@ -45,7 +45,12 @@
 - (void)viewWillAppear:(BOOL)animated {
     if ([[studentInformation objectForKey:@"student"] length] > 0) {
         [loggedInStudents addObject:studentInformation];
+        [loggedInStudentsTableView beginUpdates];
         [loggedInStudentsTableView reloadData];
+        
+//        for (int i = 0; i < [loggedInStudentsTableView numberOfRowsInSection:1]; i++) {
+//            [loggedInStudentsTableView reloa];
+//        }
     }
 }
 
