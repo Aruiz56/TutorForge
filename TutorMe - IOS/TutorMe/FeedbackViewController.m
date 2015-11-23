@@ -1,29 +1,24 @@
 //
-//  StudentRequestsViewController.m
+//  RequestTableViewController.m
 //  TutorMe
 //
-//  Created by Christian Valderrama on 11/4/15.
+//  Created by Christian Valderrama on 11/22/15.
 //  Copyright © 2015 soft_dev2_group1. All rights reserved.
 //
 
-#import "StudentRequestsViewController.h"
+#import "FeedbackViewController.h"
 
-@interface StudentRequestsViewController ()
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *myEditButton;
-@property int Editing;
-
-@end
-
-@implementation StudentRequestsViewController
+@implementation FeedbackViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //Used to determine if user is editing list with bar button item
     _Editing = 0;
+    
     //Populate dummy data
-    _tableData = [[NSMutableArray alloc]initWithObjects:@"Ashley @ 2:00pm", @"Jacob @ 3:00pm", @"John @ 4:00pm", nil];
+    _tableData = [[NSMutableArray alloc]initWithObjects:@"Complaint - Josh", @"Great Work... - Ashley", @"Another well done.. - Nik", nil];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -55,6 +50,24 @@
     return myCell;
 }
 /*
+ * Method tableview delegate is used when user selects a row in the table view.
+ * Displays an alert with request sent & with option to resend the request.
+ */
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIAlertController *myAlert = [UIAlertController alertControllerWithTitle:@"Message" message:[NSString stringWithFormat:@"%@", [_tableData objectAtIndex:indexPath.row]] preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Reply" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
+                                    {
+                                        //Reply to user and send to database to send to user app or email?
+                                    }];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action){}];
+    
+    [myAlert addAction:okAction];
+    [myAlert addAction:cancel];
+    [self presentViewController:myAlert animated:YES completion:nil];
+    
+}
+/*
  * Method used to enable editing on table view.
  */
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -75,40 +88,16 @@
         [tableView reloadData];
     }
 }
-- (IBAction)editButton:(UIBarButtonItem *)sender {
+- (IBAction)trashButton:(UIBarButtonItem *)sender {
     if(_Editing == 0)
     {
         _Editing = 1;
-        _myEditButton.title = @"Cancel";
+        
         [self.myTableView setEditing:YES animated:YES];
     } else {
         _Editing = 0;
-        _myEditButton.title = @"Edit";
         [self.myTableView setEditing:NO animated:NO];
     }
-}
-/*
- * Method tableview delegate is used when user selects a row in the table view.
- * Displays an alert with request sent & with option to resend the request.
- */
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UIAlertController *myAlert = [UIAlertController alertControllerWithTitle:@"Request" message:[NSString stringWithFormat:@"%@", [_tableData objectAtIndex:indexPath.row]] preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *resendRequest = [UIAlertAction actionWithTitle:@"Resend Request" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
-                                    {
-                                        //NEED TO RESEND REQUEST THROUGH DATABASE OR CHANGE TO BE ABLE TO DELETE REQUEST FROM DATABASE?
-                                        //NO NEED TO RESEND?
-                                        UIAlertController *sentAlert = [UIAlertController alertControllerWithTitle:nil message:@"Request Resent!" preferredStyle:UIAlertControllerStyleAlert];
-                                        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){}];
-                                        [sentAlert addAction:okAction];
-                                        [self presentViewController:sentAlert animated:YES completion:nil];
-                                    }];
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action){}];
-    
-    [myAlert addAction:resendRequest];
-    [myAlert addAction:cancel];
-    [self presentViewController:myAlert animated:YES completion:nil];
-    
 }
 
 /*
@@ -122,3 +111,4 @@
  */
 
 @end
+

@@ -10,7 +10,7 @@
 
 @interface StudentScheduleViewController () <SACalendarDelegate>
 
-@property (strong, nonatomic) NSArray *TutorArray;
+@property (strong, nonatomic) NSMutableArray *TutorArray;
 @property (strong, nonatomic) NSArray *TimeArray;
 @property (strong, nonatomic) NSMutableArray *mySavedEvents;
 @property (strong, nonatomic) NSMutableArray *myEventDate;
@@ -23,6 +23,57 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _TutorArray = [[NSMutableArray alloc]init];
+    
+    NSURL *url = [NSURL URLWithString:@"https://tutorme.stetson.edu/api/administrator/setAsTutor"];
+    NSMutableURLRequest *rq = [NSMutableURLRequest requestWithURL:url];
+    [rq setHTTPMethod:@"POST"];
+    NSString *post = [NSString stringWithFormat:@"ID=%d&Subject=%@&isStudentTutor=%d&Email=%@", 800612343, @"CSCI", false, @"fakeTutor@yahoo.com"];
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding];
+    [rq setHTTPBody:postData];
+    [rq setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    //Recieve the JSON data from the PHP file
+    NSError *error = [[NSError alloc]init];
+    NSHTTPURLResponse *response = nil;
+    NSData *urlData = [NSURLConnection sendSynchronousRequest:rq returningResponse:&response error:&error];
+    
+    NSLog(@"Response code : %ld", (long) [response statusCode]); //Print out response codes
+    
+    if([response statusCode] >= 200 && [response statusCode] < 300)
+    {
+        NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+        NSLog(@"Tutor Added Response ===> %@", responseData);
+    }
+    
+    // DEPENDING ON SUBJECT OF STUDENT IS WHAT IS PASSEED BELOW *** Then added into
+    //Tutor array
+    NSString *myURL = @"https://tutorme.stetson.edu/api/tutors/getAll?Subject=CSCI";
+    NSURL *myNSURL = [NSURL URLWithString:myURL];
+    NSURLRequest *myRequest = [NSURLRequest requestWithURL:myNSURL];
+    
+    
+    error = [[NSError alloc]init];
+    response = nil;
+    urlData = [NSURLConnection sendSynchronousRequest:myRequest returningResponse:&response error:&error];
+    
+    NSLog(@"Response code : %ld", (long) [response statusCode]); //Print out response codes
+    
+    if([response statusCode] >= 200 && [response statusCode] < 300)
+    {
+        NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+        NSLog(@"Response ===> %@", responseData);
+        
+        NSMutableArray *myData = [[NSMutableArray alloc]init];
+        NSError *error = nil;
+        
+        //Populate tutor array with tutors from database
+        myData = [NSJSONSerialization
+                  JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error:&error];
+        
+        //Loop through mydata and add to tutors with same subject as student and then add to timeArray **
+    }
+    
     //Create the SACalendar
     SACalendar *myCalendar = [[SACalendar alloc]initWithFrame:CGRectMake(0, 20, 320, 400)];
     
@@ -33,11 +84,10 @@
     _mySavedEvents = [[NSMutableArray alloc]init];
     _myEventDate = [[NSMutableArray alloc]init];
     _myEventTime = [[NSMutableArray alloc]init];
-
+    
     /*
      * Set up Tutor Picker for Tutor selection in UIAlertController
      */
-    _TutorArray = [[NSArray alloc]initWithObjects:@"", @"Josh John", @"Ashley Combs", @"Dylan Roberts", nil];
     
     tutorPicker = [[UIPickerView alloc]initWithFrame:CGRectMake(0, 0, 320, 215)];
     tutorPicker.delegate = self;
@@ -58,10 +108,10 @@
     [barItems addObject:doneBtn];
     
     [tutorPickerToolbar setItems:barItems animated:YES];
-
+    
     
     /*
-     * Set up Time Picker for Time selection in UIAlertController
+     * Set up Time Picker for Time selection in UIAlertController - Populated with Tutor schedules depending which tutor is selected
      */
     _TimeArray = [[NSArray alloc]initWithObjects:@"", @"1:00pm", @"1:30pm", @"2:00pm", nil];
     
@@ -84,7 +134,7 @@
     [timeBarItems addObject:timeDoneBtn];
     
     [timePickerToolbar setItems:timeBarItems animated:YES];
-
+    
     
     /*
      * Set up Date Picker for DOB
@@ -97,13 +147,13 @@
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(ShowSelectedDate)];
     UIBarButtonItem *space= [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     [toolBar setItems:[NSArray arrayWithObjects:space, doneButton, nil]];
-
+    
 }
 
 /*
  * Method to show the selected Tutor
  */
-#pragma mark - Picker Show Selected Tutor
+#pragma mark - Picker Show Methods
 -(void)ShowSelectedTutor
 {
     [_TutorTextField resignFirstResponder];
@@ -111,11 +161,22 @@
 /*
  * Method to show the selected Time
  */
-#pragma mark - Picker Show Selected Time
 -(void)ShowSelectedTime
 {
     [_TimeTextField resignFirstResponder];
 }
+/*
+ * Method for Date Picker to display Date properly when selected with correct format
+ * in the Date Text Field.
+ */
+-(void)ShowSelectedDate
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"MM/dd/YYYY"];
+    self.DOBTextField.text = [NSString stringWithFormat:@"%@", [formatter stringFromDate:datePicker.date]];
+    [self.DOBTextField resignFirstResponder];
+}
+
 /*
  * Methods needed by picker view to control the selection of the picker.
  *
@@ -130,25 +191,25 @@
  */
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-     if([pickerView isEqual:tutorPicker]) return [_TutorArray count];
-     else return [_TimeArray count];
+    if([pickerView isEqual:tutorPicker]) return [_TutorArray count];
+    else return [_TimeArray count];
 }
 /*
  * Method is used to determinet the array at the certain index.
  */
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-     if([pickerView isEqual:tutorPicker]) return [_TutorArray objectAtIndex:row];
-     else return [_TimeArray objectAtIndex:row];
+    if([pickerView isEqual:tutorPicker]) return [_TutorArray objectAtIndex:row];
+    else return [_TimeArray objectAtIndex:row];
 }
 /*
  * Method Required by PickerView to set the text field to the current selected value in the picker view.
  */
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-     if([pickerView isEqual:tutorPicker]) _TutorTextField.text = [_TutorArray objectAtIndex:row];
-     else _TimeTextField.text = [_TimeArray objectAtIndex:row];
-
+    if([pickerView isEqual:tutorPicker]) _TutorTextField.text = [_TutorArray objectAtIndex:row];
+    else _TimeTextField.text = [_TimeArray objectAtIndex:row];
+    
 }
 
 
@@ -156,7 +217,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+#pragma mark - SACalendar Delegates
 /*
  * Method is used when user clicks on a certain date.
  */
@@ -164,7 +225,7 @@
 {
     NSMutableArray *events = [[NSMutableArray alloc]init];
     NSString *newDay = [[NSString alloc]init];
-//    UIColor *textColor = [[UIColor alloc]init]; LATER WHEN CHANGING TO GREEN IF ACCEPTED
+    //    UIColor *textColor = [[UIColor alloc]init]; LATER WHEN CHANGING TO GREEN IF ACCEPTED
     //Format date correctly to fit datePicker values when looping
     
     if(day == 1 || day == 2 || day == 3 || day == 4 || day == 5 || day == 6 || day == 7 || day == 8 || day == 9) newDay = [NSString stringWithFormat:@"0%d", day];
@@ -200,9 +261,9 @@
     [myAlertController setValue:requestedString forKey:@"attributedMessage"];
     
     UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Done" style:UIAlertActionStyleDefault handler:^(UIAlertAction *myAction)
-    {
-        //SAVE IN DATABASE HERE*
-    }];
+                                    {
+                                        //SAVE IN DATABASE HERE*
+                                    }];
     
     [myAlertController addAction:defaultAction];
     [self presentViewController:myAlertController animated:YES completion:nil];
@@ -214,20 +275,20 @@
  */
 -(void) SACalendar:(SACalendar *)calendar didDisplayCalendarForMonth:(int)month year:(int)year
 {
-    NSLog(@"%02/%i",month,year);
+    //    NSLog(@"%02/%i",month,year);
 }
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
+#pragma mark - Add Button
 /*
  * Method is used when user clicks on Request button so that they can request appoitments.
  */
@@ -236,18 +297,18 @@
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Request an Appoitment"
                                                                    message:nil preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"Request" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
-    {
-        NSString *myEvent = ((UITextField *)[alert.textFields objectAtIndex:0]).text;
-        NSString *myDate = ((UITextField *)[alert.textFields objectAtIndex:1]).text;
-        NSString *myTime = ((UITextField *)[alert.textFields objectAtIndex:2]).text;
-
-        [_mySavedEvents addObject:myEvent];
-        [_myEventDate addObject:myDate];
-        [_myEventTime addObject:myTime];
-        
+                                    {
+                                        NSString *myEvent = ((UITextField *)[alert.textFields objectAtIndex:0]).text;
+                                        NSString *myDate = ((UITextField *)[alert.textFields objectAtIndex:1]).text;
+                                        NSString *myTime = ((UITextField *)[alert.textFields objectAtIndex:2]).text;
+                                        
+                                        [_mySavedEvents addObject:myEvent];
+                                        [_myEventDate addObject:myDate];
+                                        [_myEventTime addObject:myTime];
+                                        
+                                        
+                                    }];
     
-    }];
-       
     UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {}];
     
     //1. Field
@@ -284,18 +345,8 @@
     [alert addAction:cancelAction];
     [alert addAction:defaultAction];
     [self presentViewController:alert animated:YES completion:nil];
+    
+}
 
-}
-/*
- * Method for Date Picker to display Date properly when selected with correct format
- * in the Date Text Field.
- */
--(void)ShowSelectedDate
-{
-    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-    [formatter setDateFormat:@"MM/dd/YYYY"];
-    self.DOBTextField.text = [NSString stringWithFormat:@"%@", [formatter stringFromDate:datePicker.date]];
-    [self.DOBTextField resignFirstResponder];
-}
 
 @end

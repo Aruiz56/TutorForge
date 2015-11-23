@@ -31,6 +31,7 @@
 		F879903D1BEA3CC40096A08A /* schedule_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F879903C1BEA3CC40096A08A /* schedule_icon.png */; };
 		F87990411BEA3E830096A08A /* StudentRequestsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F87990401BEA3E830096A08A /* StudentRequestsViewController.m */; };
 		F87990441BEA4D890096A08A /* TutorRequestsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F87990431BEA4D890096A08A /* TutorRequestsViewController.m */; };
+		F889236C1C037F7600363274 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F889236B1C037F7600363274 /* FeedbackViewController.m */; };
 		F8BF1E7D1BE6F83500A42C04 /* AdminScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8BF1E7C1BE6F83500A42C04 /* AdminScheduleViewController.m */; };
 		F8BF1E801BE6F93900A42C04 /* TutorScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8BF1E7F1BE6F93900A42C04 /* TutorScheduleViewController.m */; };
 		F8F4FB6B1BD9B03F000A689B /* feedback_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F8F4FB651BD9B03F000A689B /* feedback_icon.png */; };
@@ -105,6 +106,8 @@
 		F87990401BEA3E830096A08A /* StudentRequestsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentRequestsViewController.m; sourceTree = "<group>"; };
 		F87990421BEA4D890096A08A /* TutorRequestsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorRequestsViewController.h; sourceTree = "<group>"; };
 		F87990431BEA4D890096A08A /* TutorRequestsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorRequestsViewController.m; sourceTree = "<group>"; };
+		F889236A1C037F7600363274 /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
+		F889236B1C037F7600363274 /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
 		F8BF1E7B1BE6F83500A42C04 /* AdminScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminScheduleViewController.h; sourceTree = "<group>"; };
 		F8BF1E7C1BE6F83500A42C04 /* AdminScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminScheduleViewController.m; sourceTree = "<group>"; };
 		F8BF1E7E1BE6F93900A42C04 /* TutorScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorScheduleViewController.h; sourceTree = "<group>"; };
@@ -149,6 +152,8 @@
 				74A210021BFA252B0074966B /* AdminAddTutorViewController.m */,
 				DDC90BA51C035C9400F39E24 /* AdminAddTutorInformationViewController.h */,
 				DDC90BA61C035C9400F39E24 /* AdminAddTutorInformationViewController.m */,
+				F889236A1C037F7600363274 /* FeedbackViewController.h */,
+				F889236B1C037F7600363274 /* FeedbackViewController.m */,
 			);
 			name = "Admin add Tutor";
 			sourceTree = "<group>";
@@ -515,6 +520,7 @@
 				F8BF1E801BE6F93900A42C04 /* TutorScheduleViewController.m in Sources */,
 				F844121E1BE054C2008325EC /* SACalendarCell.m in Sources */,
 				F87990441BEA4D890096A08A /* TutorRequestsViewController.m in Sources */,
+				F889236C1C037F7600363274 /* FeedbackViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
