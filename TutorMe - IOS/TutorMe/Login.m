@@ -24,8 +24,8 @@
     [super viewDidLoad];
     
     //URL To use for WebkitView and make request
-//    myURL = @"https://casdev.ad.stetson.edu/cas/login?service=https%3A%2F%2Ftutorme.stetson.edu%2fapi%2fiosauthenticate";
-    myURL = @"https://tutorme.stetson.edu/api/students/get?field=FullName&value=Marisa%20Gomez";
+    myURL = @"https://casdev.ad.stetson.edu/cas/login?service=https%3A%2F%2Ftutorme.stetson.edu%2fapi%2fiosauthenticate";
+//    myURL = @"https://tutorme.stetson.edu/api/students/get?field=FullName&value=Marisa%20Gomez";
     NSURL *myNSURL = [NSURL URLWithString:myURL];
     NSURLRequest *myRequest = [NSURLRequest requestWithURL:myNSURL];
     
@@ -65,10 +65,39 @@
 - (void) webViewDidFinishLoad:(UIWebView *)webView {
     if ([webView isEqual:myWebView]) {
         NSString *currentURL = myWebView.request.URL.absoluteString;
-        NSLog(@"Current URL: %@", currentURL);
+//        NSLog(@"Current URL: %@", currentURL);
+        
+        BOOL loaded = NO;
+        if ([currentURL isEqual:myURL]) {
+            loaded = YES;
+        }
+        
         NSArray *sessionIDWithLabel = [currentURL componentsSeparatedByString:@"="];
         NSString *sessionID = [sessionIDWithLabel objectAtIndex:1];
-        NSLog(@"SessionID: %@", sessionID);
+//        NSLog(@"SessionID: %@", sessionID);
+        
+        if (loaded) {
+            NSHTTPCookieStorage * storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+            NSArray * cookies = [storage cookiesForURL:webView.request.URL];
+
+            for (NSHTTPCookie * cookie in cookies)
+            {
+                NSLog(@"%@=%@", cookie.name, cookie.value);
+                
+                NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://tutorme.stetson.edu/user"]];
+                
+                [request setValue:[NSString stringWithFormat:@"%@=%@", cookie.name, cookie.value] forHTTPHeaderField:@"Cookie"];
+                
+                //Setting up for response
+                NSURLResponse *response;
+                NSError *err;
+                NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
+                
+                //Printing response
+                id json = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error: nil];
+                NSLog(@"JSON: %@", json);
+            }
+        }
     
 //        [self getUserInformation];
     }

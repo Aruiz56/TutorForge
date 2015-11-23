@@ -1025,9 +1025,7 @@
                                     <rect key="frame" x="326" y="105" width="35" height="30"/>
                                 </variation>
                                 <connections>
-                                    <segue destination="gxi-Hb-lC2" kind="popoverPresentation" identifier="logInStudent" popoverAnchorView="wSE-FM-bLU" id="jyg-LV-gWr">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="gxi-Hb-lC2" kind="show" id="t1r-L0-QkB"/>
                                 </connections>
                             </button>
                         </subviews>
