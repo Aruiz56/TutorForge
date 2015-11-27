@@ -7,14 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Student.h"
 
 @interface LogInStudentDetailsViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
 
-@property (strong, nonatomic) NSString *student;
+@property (strong, nonatomic) Student *student;
 @property (weak, nonatomic) IBOutlet UIPickerView *coursePickerView;
 @property (weak, nonatomic) IBOutlet UITextField *topicTextField;
 @property (weak, nonatomic) IBOutlet UISwitch *emailProfessor;
-@property (strong, nonatomic) NSMutableArray *courses;
+@property (strong, nonatomic) NSArray *courses;
 @property (strong, nonatomic) NSString *course;
 @property (strong, nonatomic) NSMutableDictionary *studentInformation;
 

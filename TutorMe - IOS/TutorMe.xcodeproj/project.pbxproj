@@ -15,6 +15,7 @@
 		77A8E268B81DB204C6940733 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C732DD977DCE018A9AC6BB95 /* libPods.a */; };
 		DD0E6CAA1BEBBA4500042C64 /* URLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0E6CA91BEBBA4500042C64 /* URLProtocol.m */; };
 		DDC90BA71C035C9400F39E24 /* AdminAddTutorInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDC90BA61C035C9400F39E24 /* AdminAddTutorInformationViewController.m */; };
+		DDF2F5801C0904E800EE4F17 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF2F57F1C0904E800EE4F17 /* Student.m */; };
 		F80071491BCDF8C000EA56C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F80071481BCDF8C000EA56C5 /* main.m */; };
 		F800714C1BCDF8C000EA56C5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F800714B1BCDF8C000EA56C5 /* AppDelegate.m */; };
 		F800714F1BCDF8C000EA56C5 /* Login.m in Sources */ = {isa = PBXBuildFile; fileRef = F800714E1BCDF8C000EA56C5 /* Login.m */; };
@@ -73,6 +74,8 @@
 		DD0E6CA91BEBBA4500042C64 /* URLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLProtocol.m; sourceTree = "<group>"; };
 		DDC90BA51C035C9400F39E24 /* AdminAddTutorInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminAddTutorInformationViewController.h; sourceTree = "<group>"; };
 		DDC90BA61C035C9400F39E24 /* AdminAddTutorInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminAddTutorInformationViewController.m; sourceTree = "<group>"; };
+		DDF2F57E1C0904E800EE4F17 /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
+		DDF2F57F1C0904E800EE4F17 /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
 		F80071441BCDF8C000EA56C5 /* TutorMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TutorMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F80071481BCDF8C000EA56C5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F800714A1BCDF8C000EA56C5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -160,6 +163,8 @@
 				74EB8FF81BE2C150000EFD5E /* LogInStudentViewController.m */,
 				7428DD5D1BE7041D00A74EE1 /* LogInStudentDetailsViewController.h */,
 				7428DD5E1BE7041D00A74EE1 /* LogInStudentDetailsViewController.m */,
+				DDF2F57E1C0904E800EE4F17 /* Student.h */,
+				DDF2F57F1C0904E800EE4F17 /* Student.m */,
 			);
 			name = "Log In Student";
 			sourceTree = "<group>";
@@ -515,6 +520,7 @@
 				F8BF1E801BE6F93900A42C04 /* TutorScheduleViewController.m in Sources */,
 				F844121E1BE054C2008325EC /* SACalendarCell.m in Sources */,
 				F87990441BEA4D890096A08A /* TutorRequestsViewController.m in Sources */,
+				DDF2F5801C0904E800EE4F17 /* Student.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,14 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Student.h"
 
 @interface LogInStudentViewController : UIViewController <UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-@property (strong, nonatomic) NSMutableArray *searchResults;
-@property (weak, nonatomic) IBOutlet UITableView *searchResultsTableView;
-@property (strong, nonatomic) NSString *student;
+@property (strong, nonatomic) Student *studentObject;
 @property (strong, nonatomic) NSMutableDictionary *studentInformation;
 @property (strong, nonatomic) NSMutableArray *loggedInStudents;
 @property (weak, nonatomic) IBOutlet UITableView *loggedInStudentsTableView;
+@property (weak, nonatomic) NSString *studentToLogIn;
+
+- (IBAction)addStudent:(id)sender;
+- (void) setUpStudent:(NSDictionary *)student;
 
 @end

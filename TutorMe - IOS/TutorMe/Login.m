@@ -24,7 +24,8 @@
     [super viewDidLoad];
     
     //URL To use for WebkitView and make request
-    myURL = @"https://casdev.ad.stetson.edu/cas/login?service=https%3A%2F%2Ftutorme.stetson.edu%2fapi%2fiosauthenticate";
+//    myURL = @"https://casdev.ad.stetson.edu/cas/login?service=https%3A%2F%2Ftutorme.stetson.edu%2fapi%2fiosauthenticate";
+    myURL = @"https://casdev.ad.stetson.edu/cas/login?service=https%3A%2F%2Ftutorme.stetson.edu%2fuser";
 //    myURL = @"https://tutorme.stetson.edu/api/students/get?field=FullName&value=Marisa%20Gomez";
     NSURL *myNSURL = [NSURL URLWithString:myURL];
     NSURLRequest *myRequest = [NSURLRequest requestWithURL:myNSURL];
@@ -58,46 +59,72 @@
     } failure:^(NSError * _Nonnull error) {
         NSLog(@"Failed with error: %@", error);
     }];
+    
+//    NSURLSession *session = [NSURLSession sharedSession];
+//    [[session dataTaskWithURL:[NSURL URLWithString:myURL]
+//            completionHandler:^(NSData *data,
+//                                NSURLResponse *response,
+//                                NSError *error) {
+//                NSLog(@"Response: %@", response);
+//                
+//            }] resume];
 }
 
 #pragma mark - UIWebView Delegate methods
 
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    
+    
+    NSLog(@"Request: %@", request.URL);
+    
+    return YES;
+}
 - (void) webViewDidFinishLoad:(UIWebView *)webView {
     if ([webView isEqual:myWebView]) {
         NSString *currentURL = myWebView.request.URL.absoluteString;
 //        NSLog(@"Current URL: %@", currentURL);
         
-        BOOL loaded = NO;
-        if ([currentURL isEqual:myURL]) {
-            loaded = YES;
-        }
+//        BOOL loaded = NO;
+//        if ([currentURL isEqual:myURL]) {
+//            loaded = YES;
+//        }
         
         NSArray *sessionIDWithLabel = [currentURL componentsSeparatedByString:@"="];
         NSString *sessionID = [sessionIDWithLabel objectAtIndex:1];
 //        NSLog(@"SessionID: %@", sessionID);
         
-        if (loaded) {
+//        if (loaded) {
             NSHTTPCookieStorage * storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-            NSArray * cookies = [storage cookiesForURL:webView.request.URL];
-
-            for (NSHTTPCookie * cookie in cookies)
-            {
-                NSLog(@"%@=%@", cookie.name, cookie.value);
-                
-                NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://tutorme.stetson.edu/user"]];
-                
-                [request setValue:[NSString stringWithFormat:@"%@=%@", cookie.name, cookie.value] forHTTPHeaderField:@"Cookie"];
-                
-                //Setting up for response
-                NSURLResponse *response;
-                NSError *err;
-                NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
-                
-                //Printing response
-                id json = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error: nil];
-                NSLog(@"JSON: %@", json);
-            }
+        
+//        if (![webView.request.URL isEqual:nil]) {
+//            NSArray * cookies = [storage cookiesForURL:webView.request.URL];
+//            
+//            for (NSHTTPCookie * cookie in cookies)
+//            {
+//                NSLog(@"%@=%@", cookie.name, cookie.value);
+//                
+//                NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://tutorme.stetson.edu/user"]];
+//                
+//                [request setValue:[NSString stringWithFormat:@"%@=%@", cookie.name, cookie.value] forHTTPHeaderField:@"Cookie"];
+//                
+//                //Setting up for response
+//                NSURLResponse *response;
+//                NSError *err;
+//                NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
+//                
+//                //Printing response
+//                id json = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error: nil];
+//                NSLog(@"JSON: %@", json);
+//            }
+//        }
+        
+        NSHTTPCookie *cookie;
+        NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+        for (cookie in [cookieJar cookies]) {
+            NSLog(@"Cookie: %@", cookie);
         }
+        
+//        }
     
 //        [self getUserInformation];
     }

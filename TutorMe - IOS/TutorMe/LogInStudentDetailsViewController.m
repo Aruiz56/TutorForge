@@ -25,15 +25,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    studentInformation = [[NSMutableDictionary alloc] init];
-    [studentInformation setObject:student forKey:@"student"];
+//    studentInformation = [[NSMutableDictionary alloc] init];
+//    [studentInformation setObject:student forKey:@"student"];
     
-    courses = [[NSMutableArray alloc] init];
-    [courses addObject:@"Software Development II"];
-    [courses addObject:@"Data and Informatino Technology"];
-    [courses addObject:@"Education with Children's Books"];
-    [courses addObject:@"Senior Research I"];
-    [courses addObject:@"Information Technology II"];
+    courses = student.courses;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,18 +65,18 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     course = courses[row];
-    [studentInformation setObject:course forKey:@"course"];
+//    [studentInformation setObject:course forKey:@"course"];
 }
 
 #pragma mark - Log in student details
 
 - (IBAction)logInStudent:(UIBarButtonItem *)sender {
-    [studentInformation setObject:topicTextField.text forKey:@"topic"];
+//    [studentInformation setObject:topicTextField.text forKey:@"topic"];
     
     if ([emailProfessor isOn]) {
-        [studentInformation setObject:@"YES" forKey:@"emailProfessor"];
+//        [studentInformation setObject:@"YES" forKey:@"emailProfessor"];
     } else {
-        [studentInformation setObject:@"NO" forKey:@"emailProfessor"];
+//        [studentInformation setObject:@"NO" forKey:@"emailProfessor"];
     }
     
     [self performSegueWithIdentifier:@"unwindWithInfo" sender:self];
