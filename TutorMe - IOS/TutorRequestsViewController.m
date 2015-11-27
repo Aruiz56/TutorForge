@@ -48,19 +48,32 @@
     //    myCell.imageView.image = [UIImage imageNamed:@""]; if we want to use a image with each cell
     return myCell;
 }
+/*
+ * Method tableview delegate is used when user selects a row in the table view.
+ * Displays an alert with request sent & with option to accept or decline the request.
+ */
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UIAlertController *myAlert = [UIAlertController alertControllerWithTitle:@"Request" message:[NSString stringWithFormat:@"%@", [_tableData objectAtIndex:indexPath.row]] preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *resendRequest = [UIAlertAction actionWithTitle:@"Resend Request" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
+    UIAlertAction *resendRequest = [UIAlertAction actionWithTitle:@"Accept" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
                                     {
-                                        UIAlertController *sentAlert = [UIAlertController alertControllerWithTitle:nil message:@"Request Resent!" preferredStyle:UIAlertControllerStyleAlert];
+                                        //DISPLAY REQUEST ABLE TO ACCEPT IT OR DECLINE IT
+                                        UIAlertController *sentAlert = [UIAlertController alertControllerWithTitle:nil message:@"Request Accepted!" preferredStyle:UIAlertControllerStyleAlert];
                                         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){}];
                                         [sentAlert addAction:okAction];
                                         [self presentViewController:sentAlert animated:YES completion:nil];
                                     }];
+    UIAlertAction *decline = [UIAlertAction actionWithTitle:@"Decline" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action){
+        //DECLINE IT IN DATABASE
+        UIAlertController *sentAlert = [UIAlertController alertControllerWithTitle:nil message:@"Request Declined!" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){}];
+        [sentAlert addAction:okAction];
+        [self presentViewController:sentAlert animated:YES completion:nil];
+    }];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action){}];
     
     [myAlert addAction:resendRequest];
+    [myAlert addAction:decline];
     [myAlert addAction:cancel];
     [self presentViewController:myAlert animated:YES completion:nil];
     

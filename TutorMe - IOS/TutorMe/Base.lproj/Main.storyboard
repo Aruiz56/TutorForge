@@ -916,7 +916,7 @@
         <!--Admin - Feedback-->
         <scene sceneID="wPN-q3-pik">
             <objects>
-                <viewController id="So4-ky-eeR" userLabel="Admin - Feedback" sceneMemberID="viewController">
+                <viewController id="So4-ky-eeR" userLabel="Admin - Feedback" customClass="FeedbackViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fJQ-yC-jTu"/>
                         <viewControllerLayoutGuide type="bottom" id="FoJ-qR-ROA"/>
@@ -985,6 +985,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Feedback" image="feedback_icon.png" id="ndh-iy-qVZ"/>
                     <connections>
+                        <outlet property="myTableView" destination="nV5-OT-vUX" id="Fam-iS-iaK"/>
                         <segue destination="VTy-2j-jul" kind="popoverPresentation" popoverAnchorView="Iuj-GG-lfm" id="Hpt-vh-L3G">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
