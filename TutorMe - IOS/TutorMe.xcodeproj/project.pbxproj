@@ -68,7 +68,7 @@
 		74D43E671BD9803B00D6F9C6 /* login_tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_tab.png; sourceTree = "<group>"; };
 		74D43E691BD9803F00D6F9C6 /* logout_tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout_tab.png; sourceTree = "<group>"; };
 		74EB8FF71BE2C150000EFD5E /* LogInStudentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInStudentViewController.h; sourceTree = "<group>"; };
-		74EB8FF81BE2C150000EFD5E /* LogInStudentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInStudentViewController.m; sourceTree = "<group>"; };
+		74EB8FF81BE2C150000EFD5E /* LogInStudentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInStudentViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		C2B480E56B5EDBD48BDF212B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C732DD977DCE018A9AC6BB95 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD0E6CA81BEBBA4500042C64 /* URLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLProtocol.h; sourceTree = "<group>"; };

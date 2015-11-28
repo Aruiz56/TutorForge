@@ -10,6 +10,7 @@
 
 @interface Student : NSObject
 
+//Student information
 @property (strong, nonatomic) NSString *email;
 @property (strong, nonatomic) NSString *firstName;
 @property (strong, nonatomic) NSString *fullname;
@@ -19,5 +20,10 @@
 @property (strong, nonatomic) NSString *major;
 @property (strong, nonatomic) NSString *username;
 @property (strong, nonatomic) NSArray *courses;
+
+//Session variables
+@property (strong, nonatomic) NSString *courseRequested;
+@property (strong, nonatomic) NSString *topic;
+@property (strong, nonatomic) NSString *emailProfessor;
 
 @end

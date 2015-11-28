@@ -8,46 +8,34 @@
 
 #import "LogInStudentDetailsViewController.h"
 #import "LogInStudentViewController.h"
+#import "Student.h"
 
 @interface LogInStudentDetailsViewController ()
 
 @end
 
 @implementation LogInStudentDetailsViewController
+@synthesize logInStudentViewController;
 @synthesize student;
 @synthesize courses;
-@synthesize course;
-@synthesize studentInformation;
 @synthesize topicTextField;
 @synthesize emailProfessor;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
-//    studentInformation = [[NSMutableDictionary alloc] init];
-//    [studentInformation setObject:student forKey:@"student"];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *encodedStudent = [defaults objectForKey:@"student"];
+    student = [NSKeyedUnarchiver unarchiveObjectWithData:encodedStudent];
     
     courses = student.courses;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - UIPickerViewDelegate methods
-//- (CGFloat)pickerView:(UIPickerView *)picker rowHeightForComponent:(NSInteger)rowHeight {
-//    CGFloat height;
-//    
-//    return height;
-//}
-//
-//- (CGFloat)pickerView:(UIPickerView *)picker widthForComponent:(NSInteger)rowWidth {
-//    CGFloat width;
-//    
-//    return width;
-//}
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
@@ -64,20 +52,33 @@
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    course = courses[row];
-//    [studentInformation setObject:course forKey:@"course"];
+    //Set the selected course for tutoring
+    student.courseRequested = courses[row];
+    
+    NSData *encodedStudent = [NSKeyedArchiver archivedDataWithRootObject:student];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:encodedStudent forKey:@"student"];
+    [defaults synchronize];
 }
 
 #pragma mark - Log in student details
 
 - (IBAction)logInStudent:(UIBarButtonItem *)sender {
-//    [studentInformation setObject:topicTextField.text forKey:@"topic"];
+    //Set fields for logging in a student, including topic and whether to email the professor
+    student.topic = topicTextField.text;
     
     if ([emailProfessor isOn]) {
-//        [studentInformation setObject:@"YES" forKey:@"emailProfessor"];
+        student.emailProfessor = @"YES";
     } else {
-//        [studentInformation setObject:@"NO" forKey:@"emailProfessor"];
+        student.emailProfessor = @"NO";
     }
+    
+    NSData *encodedStudent = [NSKeyedArchiver archivedDataWithRootObject:student];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:encodedStudent forKey:@"student"];
+    [defaults synchronize];
+    
+    [logInStudentViewController.loggedInStudents addObject:student];
     
     [self performSegueWithIdentifier:@"unwindWithInfo" sender:self];
 }
@@ -86,10 +87,7 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([[segue identifier] isEqualToString:@"unwindWithInfo"]) {
-//        LogInStudentViewController *vc = [[LogInStudentViewController alloc] init];
-//        vc.studentInformation = self.studentInformation;
-//    }
+    
 }
 
 @end

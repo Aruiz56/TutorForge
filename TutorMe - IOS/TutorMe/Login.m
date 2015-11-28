@@ -26,48 +26,14 @@
     //URL To use for WebkitView and make request
 //    myURL = @"https://casdev.ad.stetson.edu/cas/login?service=https%3A%2F%2Ftutorme.stetson.edu%2fapi%2fiosauthenticate";
     myURL = @"https://casdev.ad.stetson.edu/cas/login?service=https%3A%2F%2Ftutorme.stetson.edu%2fuser";
-//    myURL = @"https://tutorme.stetson.edu/api/students/get?field=FullName&value=Marisa%20Gomez";
     NSURL *myNSURL = [NSURL URLWithString:myURL];
     NSURLRequest *myRequest = [NSURLRequest requestWithURL:myNSURL];
     
-    //Load request
-//    [myWebView stopLoading];
-//    [myWebView loadRequest:myRequest];
-    
-    //Try using AFNetworking
-//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-//    manager.securityPolicy.allowInvalidCertificates = YES;
-//
-//    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:myRequest];
-//    [operation setCompletionBlockWithSuccess: ^(AFHTTPRequestOperation *operation, id responseObject) {
-//        
-//        NSString *stringResponse = [[NSString alloc] initWithData:responseObject
-//                                                         encoding:NSUTF8StringEncoding];
-//        [myWebView loadHTMLString:stringResponse baseURL:nil];
-//        
-//    } failure: ^(AFHTTPRequestOperation *operation, NSError *error) {
-//        
-//        [myWebView loadHTMLString:error.localizedDescription baseURL:nil];
-//        
-//    }];
-//    
-//    [operation start];
-    
     [myWebView loadRequest:myRequest progress:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {    } success:^NSString * _Nonnull(NSHTTPURLResponse * _Nonnull response, NSString * _Nonnull HTML) {
-//        NSLog(@"JSON: %@", HTML);
         return HTML;
     } failure:^(NSError * _Nonnull error) {
         NSLog(@"Failed with error: %@", error);
     }];
-    
-//    NSURLSession *session = [NSURLSession sharedSession];
-//    [[session dataTaskWithURL:[NSURL URLWithString:myURL]
-//            completionHandler:^(NSData *data,
-//                                NSURLResponse *response,
-//                                NSError *error) {
-//                NSLog(@"Response: %@", response);
-//                
-//            }] resume];
 }
 
 #pragma mark - UIWebView Delegate methods
@@ -121,7 +87,24 @@
         NSHTTPCookie *cookie;
         NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
         for (cookie in [cookieJar cookies]) {
-            NSLog(@"Cookie: %@", cookie);
+            if ([cookie.name isEqualToString:@"connect.sid"]) {
+                NSLog(@"Cookie: %@", cookie);
+                
+                NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://tutorme.stetson.edu/user"]];
+
+                NSArray* cookieArray = [NSArray arrayWithObject:cookie];
+                NSDictionary * headers = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieArray];
+                [request setAllHTTPHeaderFields:headers];
+                
+                //Setting up for response
+                NSURLResponse *response;
+                NSError *err;
+                NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
+                
+                //Printing response
+                id json = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error: nil];
+                NSLog(@"JSON: %@", json);
+            }
         }
         
 //        }

@@ -174,7 +174,6 @@
 #pragma mark - Search Bar Delegate
 
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
-    NSLog(@"Search bar was pressed.");
     return true;
 }
 
@@ -220,18 +219,19 @@
 
 - (IBAction)unwindForSegue:(UIStoryboardSegue *)unwindSegue {
     LogInStudentDetailsViewController *detailsViewController = [unwindSegue sourceViewController];
-    self.studentInformation = detailsViewController.studentInformation;
 }
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showStudentDetail"])
     {
-        // Get reference to the destination view controller
-        LogInStudentDetailsViewController *vc = [segue destinationViewController];
+        LogInStudentDetailsViewController *detailsViewController = segue.destinationViewController;
+        detailsViewController.logInStudentViewController = self;
         
-        // Pass any objects to the view controller here, like...
-        vc.student = self.studentObject;
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSData *encodedStudent = [NSKeyedArchiver archivedDataWithRootObject:studentObject];
+        [defaults setObject:encodedStudent forKey:@"student"];
+        [defaults synchronize];
     }
 }
 @end
