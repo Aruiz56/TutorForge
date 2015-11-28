@@ -13,6 +13,13 @@ var findElemIndex = function(arr, field, value){
   } return -1;
 };
 
+// Students.find({},function(err, stud){
+//   if (err) return callback(false,err);
+//   stud.forEach(function(x){
+//     x.Courses = [];
+//   });
+// });
+
 CourseModel.find({}, function(err, courses){
   if(err) return callback(false, err);
   courses.forEach(function(e, i){
