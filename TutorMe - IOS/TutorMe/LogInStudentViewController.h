@@ -12,12 +12,14 @@
 @interface LogInStudentViewController : UIViewController <UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) Student *studentObject;
-@property (strong, nonatomic) NSMutableDictionary *studentInformation;
 @property (strong, nonatomic) NSMutableArray *loggedInStudents;
-@property (weak, nonatomic) IBOutlet UITableView *loggedInStudentsTableView;
+@property (strong, nonatomic) UITableView *loggedInStudentsTableView;
 @property (weak, nonatomic) NSString *studentToLogIn;
+@property (weak, nonatomic) IBOutlet UIView *loggedInStudentsView;
+@property (strong, nonatomic) UITableViewCell *removeStudent;
 
 - (IBAction)addStudent:(id)sender;
 - (void) setUpStudent:(NSDictionary *)student;
+- (IBAction)removeStudent:(id)sender;
 
 @end

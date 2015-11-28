@@ -1476,6 +1476,9 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="113" y="572" width="150" height="34"/>
                                 </variation>
+                                <connections>
+                                    <action selector="removeStudent:" destination="H0k-Sx-dP2" eventType="touchUpInside" id="ZsS-ZC-p4h"/>
+                                </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8HY-7u-voZ">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1505,30 +1508,6 @@
                                     <outlet property="delegate" destination="H0k-Sx-dP2" id="y89-Ba-6XH"/>
                                 </connections>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Grt-Tt-4fF">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexBackgroundColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="sectionIndexTrackingBackgroundColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="loggedInStudentsIdentifer" id="aJU-kS-nLH">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aJU-kS-nLH" id="lCJ-6Z-8ge">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                        <color key="backgroundColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
-                                    </tableViewCell>
-                                </prototypes>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="230" width="375" height="328"/>
-                                </variation>
-                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wSE-FM-bLU">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <animations/>
@@ -1546,6 +1525,15 @@
                                     <action selector="addStudent:" destination="H0k-Sx-dP2" eventType="touchUpInside" id="z0Z-lP-eRi"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="e7b-oi-p90">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.24313725489999999" green="0.67450980390000004" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="230" width="377" height="334"/>
+                                </variation>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1555,8 +1543,8 @@
                                 <exclude reference="hoW-Gg-GLb"/>
                                 <exclude reference="8HY-7u-voZ"/>
                                 <exclude reference="ZYc-Gm-gcv"/>
-                                <exclude reference="Grt-Tt-4fF"/>
                                 <exclude reference="wSE-FM-bLU"/>
+                                <exclude reference="e7b-oi-p90"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -1565,8 +1553,8 @@
                                 <include reference="hoW-Gg-GLb"/>
                                 <include reference="8HY-7u-voZ"/>
                                 <include reference="ZYc-Gm-gcv"/>
-                                <include reference="Grt-Tt-4fF"/>
                                 <include reference="wSE-FM-bLU"/>
+                                <include reference="e7b-oi-p90"/>
                             </mask>
                         </variation>
                     </view>
@@ -1574,7 +1562,7 @@
                     <navigationItem key="navigationItem" title="My Schedule" id="gXX-hL-lz5"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="loggedInStudentsTableView" destination="Grt-Tt-4fF" id="oeA-h5-3tE"/>
+                        <outlet property="loggedInStudentsView" destination="e7b-oi-p90" id="Evx-fV-bjH"/>
                         <outlet property="searchBar" destination="ZYc-Gm-gcv" id="7mS-Ui-Im0"/>
                         <segue destination="gxi-Hb-lC2" kind="show" identifier="showStudentDetail" id="LZO-MJ-ose"/>
                     </connections>

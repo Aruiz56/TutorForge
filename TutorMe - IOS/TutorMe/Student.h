@@ -25,5 +25,8 @@
 @property (strong, nonatomic) NSString *courseRequested;
 @property (strong, nonatomic) NSString *topic;
 @property (strong, nonatomic) NSString *emailProfessor;
+@property (strong, nonatomic) NSDate *sessionStart;
+@property (strong, nonatomic) NSDate *sessionEnd;
+@property (strong, nonatomic) NSString *sessionDidEnd;
 
 @end

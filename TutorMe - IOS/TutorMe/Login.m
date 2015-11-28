@@ -23,6 +23,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSMutableArray *loggedInStudents = [[NSMutableArray alloc] init];
+    NSData *encodedStudentsLoggedIn = [NSKeyedArchiver archivedDataWithRootObject:loggedInStudents];
+    [defaults setObject:encodedStudentsLoggedIn forKey:@"loggedInStudents"];
+    [defaults synchronize];
+    
     //URL To use for WebkitView and make request
 //    myURL = @"https://casdev.ad.stetson.edu/cas/login?service=https%3A%2F%2Ftutorme.stetson.edu%2fapi%2fiosauthenticate";
     myURL = @"https://casdev.ad.stetson.edu/cas/login?service=https%3A%2F%2Ftutorme.stetson.edu%2fuser";

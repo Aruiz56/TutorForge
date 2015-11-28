@@ -73,12 +73,21 @@
         student.emailProfessor = @"NO";
     }
     
+    student.sessionStart = [NSDate date];
+    
     NSData *encodedStudent = [NSKeyedArchiver archivedDataWithRootObject:student];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSMutableArray *studentsLoggedIn = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithData:[defaults objectForKey:@"loggedInStudents"]]];
+    [studentsLoggedIn addObject:student];
+    NSData *encodedStudentsLoggedIn = [NSKeyedArchiver archivedDataWithRootObject:studentsLoggedIn];
+    
     [defaults setObject:encodedStudent forKey:@"student"];
+    [defaults setObject:encodedStudentsLoggedIn forKey:@"loggedInStudents"];
+    
     [defaults synchronize];
     
-    [logInStudentViewController.loggedInStudents addObject:student];
+//    [logInStudentViewController.loggedInStudents addObject:student];
     
     [self performSegueWithIdentifier:@"unwindWithInfo" sender:self];
 }

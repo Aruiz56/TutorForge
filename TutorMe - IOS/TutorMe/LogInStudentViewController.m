@@ -17,16 +17,21 @@
 @implementation LogInStudentViewController
 @synthesize searchBar;
 @synthesize studentObject;
-@synthesize studentInformation;
 @synthesize loggedInStudents;
 @synthesize loggedInStudentsTableView;
 @synthesize studentToLogIn;
+@synthesize loggedInStudentsView;
+@synthesize removeStudent;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    studentInformation = [[NSMutableDictionary alloc] init];
-    loggedInStudents = [[NSMutableArray alloc] init];
+    //Remove when log in works
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSMutableArray *loggedInStudents = [[NSMutableArray alloc] init];
+    NSData *encodedStudentsLoggedIn = [NSKeyedArchiver archivedDataWithRootObject:loggedInStudents];
+    [defaults setObject:encodedStudentsLoggedIn forKey:@"loggedInStudents"];
+    [defaults synchronize];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,11 +39,21 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    if ([[studentInformation objectForKey:@"student"] length] > 0) {
-        [loggedInStudents addObject:studentInformation];
-//        [loggedInStudentsTableView beginUpdates];
-//        [loggedInStudentsTableView reloadData];
-    }
+    //Refresh table with students logged in
+    //Set up logged in students table
+    CGRect tableFrame = loggedInStudentsView.frame;
+    tableFrame.origin.x = 0;
+    tableFrame.origin.y = 0;
+    loggedInStudentsTableView = [[UITableView alloc] initWithFrame:tableFrame style:UITableViewStylePlain];
+    loggedInStudentsTableView.delegate = self;
+    loggedInStudentsTableView.dataSource = self;
+    
+    loggedInStudentsTableView.backgroundColor = [UIColor colorWithRed:(74.0/255.0) green:(184.0/255.0) blue:(175.0/255.0) alpha:1];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    loggedInStudents = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithData:[defaults objectForKey:@"loggedInStudents"]]];
+    
+    [loggedInStudentsView addSubview:loggedInStudentsTableView];
 }
 
 - (IBAction)addStudent:(id)sender {
@@ -72,6 +87,7 @@
         
         //Set up Student Object
         [self setUpStudent:[responseJSON objectAtIndex:0]];
+        
         NSLog(@"JSON: %@", responseJSON);
         
         //Double check that it is the correct student
@@ -85,6 +101,8 @@
                                           style:UIAlertActionStyleDefault
                                           handler:^(UIAlertAction * action)
                                           {
+                                              searchBar.text = @"";
+                                              
                                               //Perform segue
                                               [self performSegueWithIdentifier:@"showStudentDetail" sender:self];
                                               
@@ -121,6 +139,7 @@
         
         //Set up Student Object
         [self setUpStudent:[responseJSON objectAtIndex:0]];
+        
         NSLog(@"JSON: %@", responseJSON);
         
         //Double check that it is the correct student
@@ -134,6 +153,8 @@
                              style:UIAlertActionStyleDefault
                              handler:^(UIAlertAction * action)
                              {
+                                 searchBar.text = @"";
+                                 
                                  //Perform segue
                                  [self performSegueWithIdentifier:@"showStudentDetail" sender:self];
                                  
@@ -157,7 +178,7 @@
 }
 
 - (void) setUpStudent:(NSDictionary *)studentResponse {
-    
+    //Update the student object
     studentObject = [[Student alloc] init];
     
     studentObject.courses = [studentResponse objectForKey:@"Courses"];
@@ -169,6 +190,24 @@
     studentObject.lastName = [studentResponse objectForKey:@"LastName"];
     studentObject.major = [studentResponse objectForKey:@"Major"];
     studentObject.username = [studentResponse objectForKey:@"Username"];
+    studentObject.sessionDidEnd = @"NO";
+}
+
+- (IBAction)removeStudent:(id)sender {
+    //End the session for that student
+    NSIndexPath *index = [loggedInStudentsTableView indexPathForCell:removeStudent];
+    Student *studentToRemove = [loggedInStudents objectAtIndex:index.row];
+    studentToRemove.sessionEnd = [NSDate date];
+    studentToRemove.sessionDidEnd = @"YES";
+    
+    //Update logged in students mutable array
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *encodedStudentsLoggedIn = [NSKeyedArchiver archivedDataWithRootObject:loggedInStudents];
+    [defaults setObject:encodedStudentsLoggedIn forKey:@"loggedInStudents"];
+    [defaults synchronize];
+    
+    //Remove student from UITableView
+    [loggedInStudentsTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:index] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 #pragma mark - Search Bar Delegate
@@ -192,36 +231,35 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *searchResultsIdentifier = @"SearchResultsIdentifier";
     NSString *loggedInStudentsIdentifer = @"LoggedStudentsIdentifier";
     
+    //Create each table cell with the student logged in
     UITableViewCell *cell;
         cell = [tableView dequeueReusableCellWithIdentifier:loggedInStudentsIdentifer];
         
         if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:  loggedInStudentsIdentifer];
-            cell.textLabel.text = [loggedInStudents objectAtIndex:indexPath.row];
+            Student *student = [loggedInStudents objectAtIndex:indexPath.row];
+            if ([student.sessionDidEnd isEqualToString:@"NO"]) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:loggedInStudentsIdentifer];
+                cell.textLabel.text = student.fullname;
+            }
         }
 
-    CGFloat red = 115.0;
-    CGFloat green = 255.0;
-    CGFloat blue = 248.0;
-    CGFloat alpha = 255.0;
-    cell.textLabel.textColor = [UIColor colorWithRed:(red/255.0) green:(green/255.0) blue:(blue/255.0) alpha:(alpha/255.0)];
+    cell.backgroundColor = [UIColor colorWithRed:(74.0/255.0) green:(184.0/255.0) blue:(175.0/255.0) alpha:1];
+    cell.textLabel.textColor = [UIColor whiteColor];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+       removeStudent = [tableView cellForRowAtIndexPath:indexPath];
 }
 
 #pragma mark - Navigation
 
 - (IBAction)unwindForSegue:(UIStoryboardSegue *)unwindSegue {
-    LogInStudentDetailsViewController *detailsViewController = [unwindSegue sourceViewController];
+//    LogInStudentDetailsViewController *detailsViewController = [unwindSegue sourceViewController];
 }
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showStudentDetail"])
     {

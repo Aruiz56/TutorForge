@@ -21,6 +21,9 @@
 @synthesize courseRequested;
 @synthesize topic;
 @synthesize emailProfessor;
+@synthesize sessionStart;
+@synthesize sessionEnd;
+@synthesize sessionDidEnd;
 
 - (id) init {
     return self;
@@ -40,6 +43,9 @@
     [encoder encodeObject:self.courseRequested forKey:@"courseRequested"];
     [encoder encodeObject:self.topic forKey:@"topic"];
     [encoder encodeObject:self.emailProfessor forKey:@"emailProfessor"];
+    [encoder encodeObject:self.sessionStart forKey:@"sessionStart"];
+    [encoder encodeObject:self.sessionEnd forKey:@"sessionEnd"];
+    [encoder encodeObject:self.sessionDidEnd forKey:@"sessionDidEnd"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
@@ -57,6 +63,9 @@
         self.courseRequested = [decoder decodeObjectForKey:@"courseRequested"];
         self.topic = [decoder decodeObjectForKey:@"topic"];
         self.emailProfessor = [decoder decodeObjectForKey:@"emailProfessor"];
+        self.sessionStart = [decoder decodeObjectForKey:@"sessionStart"];
+        self.sessionEnd = [decoder decodeObjectForKey:@"sessionEnd"];
+        self.sessionDidEnd = [decoder decodeObjectForKey:@"sessionDidEnd"];
     }
     return self;
 }
