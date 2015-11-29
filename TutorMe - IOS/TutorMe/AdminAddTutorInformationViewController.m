@@ -7,6 +7,7 @@
 //
 
 #import "AdminAddTutorInformationViewController.h"
+#import "Tutor.h"
 
 @interface AdminAddTutorInformationViewController ()
 
@@ -19,25 +20,26 @@
 @synthesize departmentPicker;
 @synthesize subjects;
 @synthesize subject;
+@synthesize tutor;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //Remove test tutor for testing purposes
-    //Connect to server and database
-    NSMutableURLRequest *removeTutorRequest =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://tutorme.stetson.edu/api/administrator/removeTutor"]]];
-    [removeTutorRequest setHTTPMethod:@"POST"];
-    
-    NSString *postBodyStr = [NSString stringWithFormat:@"ID=800104806"];
-    
-    NSData *encodedPostBody = [postBodyStr dataUsingEncoding:NSASCIIStringEncoding];
-    [removeTutorRequest setHTTPBody:encodedPostBody];
-    [removeTutorRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    
-    //Setting up for response
-    NSURLResponse *requestTutorResponse;
-    NSError *requestTutorError;
-    NSData *requestTutorData = [NSURLConnection sendSynchronousRequest:removeTutorRequest returningResponse:&requestTutorResponse error:&requestTutorError];
+//    //Remove test tutor for testing purposes
+//    //Connect to server and database
+//    NSMutableURLRequest *removeTutorRequest =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://tutorme.stetson.edu/api/administrator/removeTutor"]]];
+//    [removeTutorRequest setHTTPMethod:@"POST"];
+//    
+//    NSString *postBodyStr = [NSString stringWithFormat:@"ID=800104806"];
+//    
+//    NSData *encodedPostBody = [postBodyStr dataUsingEncoding:NSASCIIStringEncoding];
+//    [removeTutorRequest setHTTPBody:encodedPostBody];
+//    [removeTutorRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+//    
+//    //Setting up for response
+//    NSURLResponse *requestTutorResponse;
+//    NSError *requestTutorError;
+//    NSData *requestTutorData = [NSURLConnection sendSynchronousRequest:removeTutorRequest returningResponse:&requestTutorResponse error:&requestTutorError];
     
     nextBarButton.action = @selector(addTutorInformation:);
 //    nextBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(addTutorInformation:)];
@@ -61,6 +63,9 @@
         NSDictionary *subject = [responseJSON objectAtIndex:i];
         [subjects addObject:[subject objectForKey:@"MajorSubject"]];
     }
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    tutor = [NSKeyedUnarchiver unarchiveObjectWithData:[defaults objectForKey:@"tutor"]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -148,6 +153,14 @@
                                           style:UIAlertActionStyleDefault
                                           handler:^(UIAlertAction * action) {
                                               //Set as tutor
+                                              tutor.fullname = fullNameTextField.text;
+                                              tutor.studentID = studentIdTextField.text;
+                                              
+                                              NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                                              NSData *encodedTutor = [NSKeyedArchiver archivedDataWithRootObject:tutor];
+                                              [defaults setObject:encodedTutor forKey:@"tutor"];
+                                              [defaults synchronize];
+                                              
                                               //Connect to server and database
 //                                              NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://tutorme.stetson.edu/api/administrator/setAsTutor"]]];
 //                                              [request setHTTPMethod:@"POST"];

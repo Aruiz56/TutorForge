@@ -7,16 +7,27 @@
 //
 
 #import "AdminAddTutorViewController.h"
+#import "Tutor.h"
 
 @interface AdminAddTutorViewController ()
 
 @end
 
 @implementation AdminAddTutorViewController
+@synthesize tutors;
+@synthesize tutor;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    tutors = [[NSMutableArray alloc] init];
+    tutor = [[Tutor alloc] init];
+    NSData *encodedTutors = [NSKeyedArchiver archivedDataWithRootObject:tutors];
+    NSData *encodedTutor = [NSKeyedArchiver archivedDataWithRootObject:tutor];
+    [defaults setObject:encodedTutors forKey:@"tutors"];
+    [defaults setObject:encodedTutor forKey:@"tutor"];
+    [defaults synchronize];
 }
 
 - (void)didReceiveMemoryWarning {

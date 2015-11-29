@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Tutor.h"
 
 @interface AdminAddTutorScheduleViewController : UIViewController
 
@@ -27,6 +28,7 @@
 @property (strong, nonatomic) NSString *dayChosen;
 @property (strong, nonatomic) NSString *startTime;
 @property (strong, nonatomic) NSString *endTime;
+@property (strong, nonatomic) Tutor *tutor;
 
 -(IBAction)addTimeSlotInformation:(id)sender;
 -(IBAction)addSlotInformation:(id)sender;

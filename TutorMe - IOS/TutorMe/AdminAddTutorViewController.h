@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Tutor.h"
 
 @interface AdminAddTutorViewController : UIViewController
 //@property (weak, nonatomic) IBOutlet UIBarButtonItem *addTutor;
 @property (weak, nonatomic) IBOutlet UITableView *tutorTable;
+@property (strong, nonatomic) NSMutableArray *tutors;
+@property (strong, nonatomic) Tutor *tutor;
 
 @end

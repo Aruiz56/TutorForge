@@ -7,6 +7,7 @@
 //
 
 #import "AdminAddTutorScheduleViewController.h"
+#import "Tutor.h"
 
 @interface AdminAddTutorScheduleViewController ()
 
@@ -30,6 +31,7 @@
 @synthesize dayChosen;
 @synthesize startTime;
 @synthesize endTime;
+@synthesize tutor;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -44,6 +46,10 @@
     //Declare days array and times array
     days = @[@"sunday", @"monday", @"tuesday", @"wednesday", @"thursday", @"friday", @"saturday"];
     times = @[@"9:00AM", @"10:00AM", @"11:00AM", @"12:00PM", @"1:00PM", @"2:00PM", @"3:00PM", @"4:00PM", @"5:00PM", @"6:00PM", @"7:00PM", @"8:00PM", @"9:00PM", @"10:00PM", @"11:00PM", @"12:00AM"];
+    
+    //Get tutor
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    tutor = [NSKeyedUnarchiver unarchiveObjectWithData:[defaults objectForKey:@"tutor"]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,6 +58,8 @@
 }
 
 -(IBAction)addTimeSlotInformation:(id)sender {
+    //Add schedule array to tutor object
+    
     [timeSlotInformationView setHidden:NO];
     [selectATutorLabel setHidden:NO];
     [dayPicker setHidden:NO];
@@ -60,6 +68,65 @@
 }
 
 -(IBAction)addSlotInformation:(id)sender {
+    //Check if the times are valid (ie, start time is not after end time)
+    int startIndex = 0;
+    int endIndex = 0;
+    for (int i = 0; i < times.count; i++) {
+        if ([startTime isEqualToString:times[i]]) {
+            startIndex = i;
+        }
+        
+        if ([endTime isEqualToString:times[i]]) {
+            endIndex = i;
+        }
+    }
+    
+    if (startIndex > endIndex) {
+        UIAlertController *errorAlert=   [UIAlertController
+                                          alertControllerWithTitle:@"Error"
+                                          message:[NSString stringWithFormat:@"Start time cannot be later than end time."]
+                                          preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *confirmation = [UIAlertAction
+                                       actionWithTitle:@"OK"
+                                       style:UIAlertActionStyleDefault
+                                       handler:^(UIAlertAction * action)
+                                       {
+                                           [errorAlert dismissViewControllerAnimated:YES completion:nil];
+                                       }];
+        
+        [errorAlert addAction:confirmation];
+        [self presentViewController:errorAlert animated:YES completion:nil];
+        return;
+    } else if (startIndex == endIndex) {
+        UIAlertController *errorAlert=   [UIAlertController
+                                          alertControllerWithTitle:@"Error"
+                                          message:[NSString stringWithFormat:@"Start time and end time cannot be the same."]
+                                          preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *confirmation = [UIAlertAction
+                                       actionWithTitle:@"OK"
+                                       style:UIAlertActionStyleDefault
+                                       handler:^(UIAlertAction * action)
+                                       {
+                                           [errorAlert dismissViewControllerAnimated:YES completion:nil];
+                                       }];
+        
+        [errorAlert addAction:confirmation];
+        [self presentViewController:errorAlert animated:YES completion:nil];
+        return;
+    }
+    
+    //Add time slot to schedule array
+    NSMutableDictionary *schedule = tutor.schedule;
+    NSMutableArray *timesOnSchedule = [schedule objectForKey:dayChosen];
+    NSMutableDictionary *timesChosen = [[NSMutableDictionary alloc] init];
+    [timesChosen setObject:startTime forKey:@"startTime"];
+    [timesChosen setObject:endTime forKey:@"endTime"];
+    [timesOnSchedule addObject:timesChosen];
+    [schedule setObject:timesOnSchedule forKey:dayChosen];
+//    [tutor.schedule setObject:timesOnSchedule forKey:dayChosen];
+    
     [timeSlotInformationView setHidden:YES];
     [selectATutorLabel setHidden:YES];
     [dayPicker setHidden:YES];
@@ -90,11 +157,25 @@
 - (NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
     if ([pickerView isEqual:dayPicker]) {
+        //Set inital value
+        if (row == 0) {
+            dayChosen = days[row];
+        }
+        
         NSString *title = [days objectAtIndex:row];
         NSAttributedString *attString = [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
         
         return attString;
     } else {
+        //Set inital value
+        if (row == 0) {
+            if (component == 0) {
+                startTime = times[row];
+            } else {
+                endTime = times[row];
+            }
+        }
+        
         NSString *title = [times objectAtIndex:row];
         NSAttributedString *attString = [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
         

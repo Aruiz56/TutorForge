@@ -26,6 +26,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *TutorTextField;
 @property (strong, nonatomic) IBOutlet UITextField *TimeTextField;
 @property (strong, nonatomic) IBOutlet UITextField *DOBTextField;
+@property (weak, nonatomic) IBOutlet UIButton *requestAppointmentForMyself;
 
 
 @end
