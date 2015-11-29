@@ -22,6 +22,7 @@
 @synthesize studentToLogIn;
 @synthesize loggedInStudentsView;
 @synthesize removeStudent;
+@synthesize numberLoggedIn;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,6 +33,8 @@
     NSData *encodedStudentsLoggedIn = [NSKeyedArchiver archivedDataWithRootObject:loggedInStudents];
     [defaults setObject:encodedStudentsLoggedIn forKey:@"loggedInStudents"];
     [defaults synchronize];
+    
+    numberLoggedIn = 0;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,6 +43,23 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     //Refresh table with students logged in
+    
+    //Add Table
+    [self resetTable];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    loggedInStudents = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithData:[defaults objectForKey:@"loggedInStudents"]]];
+    
+    //Check how many students are logged in
+    numberLoggedIn = 0;
+    for (Student *student in loggedInStudents) {
+        if ([student.sessionDidEnd isEqualToString:@"NO"]) {
+            numberLoggedIn++;
+        }
+    }
+}
+
+- (void)resetTable {
     //Set up logged in students table
     CGRect tableFrame = loggedInStudentsView.frame;
     tableFrame.origin.x = 0;
@@ -49,9 +69,6 @@
     loggedInStudentsTableView.dataSource = self;
     
     loggedInStudentsTableView.backgroundColor = [UIColor colorWithRed:(74.0/255.0) green:(184.0/255.0) blue:(175.0/255.0) alpha:1];
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    loggedInStudents = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithData:[defaults objectForKey:@"loggedInStudents"]]];
     
     [loggedInStudentsView addSubview:loggedInStudentsTableView];
 }
@@ -206,8 +223,15 @@
     [defaults setObject:encodedStudentsLoggedIn forKey:@"loggedInStudents"];
     [defaults synchronize];
     
+    numberLoggedIn--;
+    
     //Remove student from UITableView
-    [loggedInStudentsTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:index] withRowAnimation:UITableViewRowAnimationAutomatic];
+    if (numberLoggedIn == 0) {
+        [self resetTable];
+    } else {
+//        [loggedInStudentsTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:index] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [loggedInStudentsTableView reloadData];
+    }
 }
 
 #pragma mark - Search Bar Delegate
@@ -227,7 +251,11 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (numberLoggedIn == 0) {
+        return 0;
+    } else {
         return [loggedInStudents count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

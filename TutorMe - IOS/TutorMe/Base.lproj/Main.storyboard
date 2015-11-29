@@ -168,7 +168,7 @@
                                     <navigationItem title="tutors" id="NT0-IV-I2c">
                                         <barButtonItem key="rightBarButtonItem" title="add tutor " id="ujS-tB-Wrm">
                                             <connections>
-                                                <segue destination="kWz-KN-7IT" kind="show" id="D4E-ni-oKO"/>
+                                                <segue destination="nlr-zw-y9f" kind="show" id="fLW-Lc-dj8"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -527,6 +527,10 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="0.0" y="302" width="375" height="222"/>
                                 </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="nlr-zw-y9f" id="RGM-OS-nX6"/>
+                                    <outlet property="delegate" destination="nlr-zw-y9f" id="jcx-hG-cfk"/>
+                                </connections>
                             </pickerView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J6D-xf-lfg">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
@@ -590,6 +594,7 @@
                                 <items>
                                     <navigationItem title="tutor information" id="9Hh-bA-teZ">
                                         <barButtonItem key="leftBarButtonItem" title="cancel" id="cPq-VK-hnN"/>
+                                        <barButtonItem key="rightBarButtonItem" title="next" id="MUK-W0-w1h"/>
                                     </navigationItem>
                                 </items>
                                 <variation key="widthClass=compact" fixedFrame="YES">
@@ -630,6 +635,7 @@
                         <outlet property="fridayLabel" destination="Bgv-Tc-Ohq" id="ZrG-nN-w9b"/>
                         <outlet property="fullNameTextField" destination="5h4-wn-z2d" id="P87-y7-enG"/>
                         <outlet property="mondayLabel" destination="FpD-G1-QwD" id="RHF-8B-Wub"/>
+                        <outlet property="nextBarButton" destination="MUK-W0-w1h" id="WyI-Bp-mZf"/>
                         <outlet property="saturdayLabel" destination="GKv-3f-GsK" id="HhY-Lm-S5N"/>
                         <outlet property="studentIdTextField" destination="J6D-xf-lfg" id="sFp-Vs-ft6"/>
                         <outlet property="sundayLabel" destination="bHU-Ar-2wv" id="WlQ-ft-kKZ"/>
@@ -640,12 +646,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="829-pt-oTZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2408.25" y="3016.5"/>
+            <point key="canvasLocation" x="1683.75" y="3016.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Admin Add Tutor Schedule View Controller-->
         <scene sceneID="cGi-TF-P0q">
             <objects>
-                <viewController id="g7T-86-vG6" sceneMemberID="viewController">
+                <viewController id="g7T-86-vG6" customClass="AdminAddTutorScheduleViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="86D-KV-dXF"/>
                         <viewControllerLayoutGuide type="bottom" id="1Ue-4W-Tbj"/>
@@ -665,7 +671,11 @@
                                 <items>
                                     <navigationItem title="tutor information" id="mwj-r8-aep">
                                         <barButtonItem key="leftBarButtonItem" title="cancel" id="KEC-EF-3kO"/>
-                                        <barButtonItem key="rightBarButtonItem" title="add" id="DDC-LL-LLZ"/>
+                                        <barButtonItem key="rightBarButtonItem" title="add" id="DDC-LL-LLZ">
+                                            <connections>
+                                                <segue destination="BIL-QI-Kuy" kind="unwind" identifier="unwindFromSchedule" unwindAction="unwindToTutors:" id="TYL-kY-mZd"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                                 <variation key="widthClass=compact" fixedFrame="YES">
@@ -897,21 +907,21 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
+                    <connections>
+                        <outlet property="addTimeSlotButton" destination="fUc-5h-Nb1" id="cfI-Lt-dg2"/>
+                        <outlet property="fridayLabel" destination="Bgv-Tc-Ohq" id="PQo-4L-FcH"/>
+                        <outlet property="mondayLabel" destination="FpD-G1-QwD" id="OYP-7Y-vtM"/>
+                        <outlet property="saturdayLabel" destination="GKv-3f-GsK" id="0ba-Qn-tnt"/>
+                        <outlet property="sundayLabel" destination="bHU-Ar-2wv" id="9I7-4r-vEb"/>
+                        <outlet property="thursdayLabel" destination="qg8-oU-Efl" id="CPT-fa-rQR"/>
+                        <outlet property="tuesdayLabel" destination="J8a-7W-sRE" id="Pi6-25-oDB"/>
+                        <outlet property="wednesdayLabel" destination="Enr-3j-CNQ" id="5bk-gn-8h2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g7z-v3-O4a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="BIL-QI-Kuy" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1683.75" y="3801.5"/>
-        </scene>
-        <!--Page View Controller-->
-        <scene sceneID="FJF-ft-PzJ">
-            <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="kWz-KN-7IT" sceneMemberID="viewController">
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="667"/>
-                </pageViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8mg-PV-iM7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1683.75" y="3016.5"/>
+            <point key="canvasLocation" x="2408.25" y="3016.5"/>
         </scene>
         <!--Admin - Feedback-->
         <scene sceneID="wPN-q3-pik">
@@ -1176,7 +1186,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qx7-5o-EeF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1271.25" y="1428.5"/>
+            <point key="canvasLocation" x="945.75" y="1420.5"/>
         </scene>
         <!--Admin Tab Controller Scene-->
         <scene sceneID="pv2-lD-qC1">
@@ -1930,7 +1940,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <state key="normal" title="Tutor Tab Controller"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="39" y="413" width="296" height="90"/>
+                                    <rect key="frame" x="39" y="253" width="296" height="90"/>
                                 </variation>
                                 <connections>
                                     <segue destination="6W6-dI-c54" kind="show" id="FHx-cc-dWf"/>
@@ -1940,8 +1950,23 @@
                                 <rect key="frame" x="127" y="504" width="120" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Student Calendar"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="127" y="362" width="120" height="30"/>
+                                </variation>
                                 <connections>
                                     <segue destination="0O5-gq-yze" kind="show" id="CTp-RZ-5cP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v3d-ea-NmU">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <state key="normal" title="Admin Tab Controller"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="21" y="154" width="332" height="91"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="0MG-re-hvc" kind="show" id="ejZ-5O-c0s"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1950,11 +1975,13 @@
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="iAp-de-IOr"/>
+                                <exclude reference="v3d-ea-NmU"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="iAp-de-IOr"/>
+                                <include reference="v3d-ea-NmU"/>
                             </mask>
                         </variation>
                     </view>
@@ -2000,5 +2027,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="FHx-cc-dWf"/>
         <segue reference="CTp-RZ-5cP"/>
+        <segue reference="ejZ-5O-c0s"/>
     </inferredMetricsTieBreakers>
 </document>

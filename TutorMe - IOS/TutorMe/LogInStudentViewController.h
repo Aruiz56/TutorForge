@@ -17,7 +17,9 @@
 @property (weak, nonatomic) NSString *studentToLogIn;
 @property (weak, nonatomic) IBOutlet UIView *loggedInStudentsView;
 @property (strong, nonatomic) UITableViewCell *removeStudent;
+@property (nonatomic) int numberLoggedIn;
 
+- (void) resetTable;
 - (IBAction)addStudent:(id)sender;
 - (void) setUpStudent:(NSDictionary *)student;
 - (IBAction)removeStudent:(id)sender;

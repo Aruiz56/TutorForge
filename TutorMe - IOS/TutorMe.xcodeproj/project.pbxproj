@@ -14,6 +14,7 @@
 		74EB8FF91BE2C150000EFD5E /* LogInStudentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74EB8FF81BE2C150000EFD5E /* LogInStudentViewController.m */; };
 		77A8E268B81DB204C6940733 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C732DD977DCE018A9AC6BB95 /* libPods.a */; };
 		DD0E6CAA1BEBBA4500042C64 /* URLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0E6CA91BEBBA4500042C64 /* URLProtocol.m */; };
+		DD95A8531C0A8C4500D6ACFD /* AdminAddTutorScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD95A8521C0A8C4500D6ACFD /* AdminAddTutorScheduleViewController.m */; };
 		DDC90BA71C035C9400F39E24 /* AdminAddTutorInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDC90BA61C035C9400F39E24 /* AdminAddTutorInformationViewController.m */; };
 		DDF2F5801C0904E800EE4F17 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF2F57F1C0904E800EE4F17 /* Student.m */; };
 		F80071491BCDF8C000EA56C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F80071481BCDF8C000EA56C5 /* main.m */; };
@@ -73,6 +74,8 @@
 		C732DD977DCE018A9AC6BB95 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD0E6CA81BEBBA4500042C64 /* URLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLProtocol.h; sourceTree = "<group>"; };
 		DD0E6CA91BEBBA4500042C64 /* URLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLProtocol.m; sourceTree = "<group>"; };
+		DD95A8511C0A8C4500D6ACFD /* AdminAddTutorScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminAddTutorScheduleViewController.h; sourceTree = "<group>"; };
+		DD95A8521C0A8C4500D6ACFD /* AdminAddTutorScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminAddTutorScheduleViewController.m; sourceTree = "<group>"; };
 		DDC90BA51C035C9400F39E24 /* AdminAddTutorInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminAddTutorInformationViewController.h; sourceTree = "<group>"; };
 		DDC90BA61C035C9400F39E24 /* AdminAddTutorInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminAddTutorInformationViewController.m; sourceTree = "<group>"; };
 		DDF2F57E1C0904E800EE4F17 /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
@@ -155,6 +158,8 @@
 				74A210021BFA252B0074966B /* AdminAddTutorViewController.m */,
 				DDC90BA51C035C9400F39E24 /* AdminAddTutorInformationViewController.h */,
 				DDC90BA61C035C9400F39E24 /* AdminAddTutorInformationViewController.m */,
+				DD95A8511C0A8C4500D6ACFD /* AdminAddTutorScheduleViewController.h */,
+				DD95A8521C0A8C4500D6ACFD /* AdminAddTutorScheduleViewController.m */,
 				F889236A1C037F7600363274 /* FeedbackViewController.h */,
 				F889236B1C037F7600363274 /* FeedbackViewController.m */,
 			);
@@ -524,6 +529,7 @@
 				F844121D1BE054C2008325EC /* SACalendar.m in Sources */,
 				F8BF1E801BE6F93900A42C04 /* TutorScheduleViewController.m in Sources */,
 				F844121E1BE054C2008325EC /* SACalendarCell.m in Sources */,
+				DD95A8531C0A8C4500D6ACFD /* AdminAddTutorScheduleViewController.m in Sources */,
 				F87990441BEA4D890096A08A /* TutorRequestsViewController.m in Sources */,
 				DDF2F5801C0904E800EE4F17 /* Student.m in Sources */,
 				F889236C1C037F7600363274 /* FeedbackViewController.m in Sources */,
