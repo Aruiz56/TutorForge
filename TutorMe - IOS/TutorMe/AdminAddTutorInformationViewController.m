@@ -23,6 +23,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //Remove test tutor for testing purposes
+    //Connect to server and database
+    NSMutableURLRequest *removeTutorRequest =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://tutorme.stetson.edu/api/administrator/removeTutor"]]];
+    [removeTutorRequest setHTTPMethod:@"POST"];
+    
+    NSString *postBodyStr = [NSString stringWithFormat:@"ID=800104806"];
+    
+    NSData *encodedPostBody = [postBodyStr dataUsingEncoding:NSASCIIStringEncoding];
+    [removeTutorRequest setHTTPBody:encodedPostBody];
+    [removeTutorRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    //Setting up for response
+    NSURLResponse *requestTutorResponse;
+    NSError *requestTutorError;
+    NSData *requestTutorData = [NSURLConnection sendSynchronousRequest:removeTutorRequest returningResponse:&requestTutorResponse error:&requestTutorError];
+    
     nextBarButton.action = @selector(addTutorInformation:);
 //    nextBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(addTutorInformation:)];
     subjects = [[NSMutableArray alloc] init];
@@ -130,56 +146,52 @@
         UIAlertAction *yesConfirmation = [UIAlertAction
                                           actionWithTitle:@"YES"
                                           style:UIAlertActionStyleDefault
-                                          handler:^(UIAlertAction * action)
-                                          {
+                                          handler:^(UIAlertAction * action) {
                                               //Set as tutor
                                               //Connect to server and database
-                                              NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://tutorme.stetson.edu/api/administrator/setAsTutor"]]];
-                                              [request setHTTPMethod:@"POST"];
-                                              
-                                              NSDictionary *postBody = [NSDictionary dictionaryWithObjects:@[studentIdTextField.text, subject, @true] forKeys:@[@"ID", @"Subject", @"isStudentTutor"]];
-                                              NSError *error;
-                                              NSData* jsonData = [NSJSONSerialization dataWithJSONObject:postBody
-                                                                                                 options:NSJSONWritingPrettyPrinted error:&error];
-                                              
-                                              [request setHTTPBody:jsonData];
-                                              
-                                              //Setting up for response
-                                              NSURLResponse *response;
-                                              NSError *err;
-                                              NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
-                                              
-                                              //Get response
-                                              id json = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error: nil];
-                                              
-                                              if ([[json objectForKey:@"success"] isEqual:@YES]) {
+//                                              NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://tutorme.stetson.edu/api/administrator/setAsTutor"]]];
+//                                              [request setHTTPMethod:@"POST"];
+//                                              
+//                                              NSString *postBodyStr = [NSString stringWithFormat:@"ID=%@&Subject=%@&isStudentTutor=%@", studentIdTextField.text, subject, @true];
+//                                              
+//                                              NSData *encodedPostBody = [postBodyStr dataUsingEncoding:NSASCIIStringEncoding];
+//                                              [request setHTTPBody:encodedPostBody];
+//                                              [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+//                                              
+//                                              //Setting up for response
+//                                              NSURLResponse *response;
+//                                              NSError *err;
+//                                              NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
+//                                              
+//                                              //Get response
+//                                              id json = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error: nil];
+//                                              
+//                                              if ([[json objectForKey:@"success"] isEqual:@YES]) {
                                                   //Perform segue
                                                   [self performSegueWithIdentifier:@"showSchedule" sender:self];
                                                   return;
-                                              }
+//                                              }
                                               
-                                              UIAlertController *requestError=   [UIAlertController
-                                                                           alertControllerWithTitle:@"Error"
-                                                                           message:[NSString stringWithFormat:@"Error setting student as tutor."]
-                                                                           preferredStyle:UIAlertControllerStyleAlert];
-                                              UIAlertAction *confirmation = [UIAlertAction
-                                                                               actionWithTitle:@"OK"
-                                                                               style:UIAlertActionStyleDefault
-                                                                               handler:^(UIAlertAction * action)
-                                                                               {
-                                                                                   [requestError dismissViewControllerAnimated:YES completion:nil];
-                                                                                   
-                                                                               }];
-                                              [requestError addAction:confirmation];
-                                              [self presentViewController:requestError animated:YES completion:nil];
+//                                              UIAlertController *requestError=   [UIAlertController
+//                                                                           alertControllerWithTitle:@"Error"
+//                                                                           message:[NSString stringWithFormat:@"Error setting student as tutor."]
+//                                                                           preferredStyle:UIAlertControllerStyleAlert];
+//                                              UIAlertAction *confirmation = [UIAlertAction
+//                                                                               actionWithTitle:@"OK"
+//                                                                               style:UIAlertActionStyleDefault
+//                                                                               handler:^(UIAlertAction * action)
+//                                                                               {
+//                                                                                   [requestError dismissViewControllerAnimated:YES completion:nil];
+//                                                                                   
+//                                                                               }];
+//                                              [requestError addAction:confirmation];
+//                                              [self presentViewController:requestError animated:YES completion:nil];
                                           }];
         UIAlertAction *noConfirmation = [UIAlertAction
                                          actionWithTitle:@"NO"
                                          style:UIAlertActionStyleDefault
-                                         handler:^(UIAlertAction * action)
-                                         {
+                                         handler:^(UIAlertAction * action) {
                                              [check dismissViewControllerAnimated:YES completion:nil];
-                                             
                                          }];
         
         [check addAction:yesConfirmation];

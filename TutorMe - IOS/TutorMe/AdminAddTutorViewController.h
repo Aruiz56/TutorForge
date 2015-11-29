@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface AdminAddTutorViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *addTutor;
+//@property (weak, nonatomic) IBOutlet UIBarButtonItem *addTutor;
 @property (weak, nonatomic) IBOutlet UITableView *tutorTable;
 
 @end
