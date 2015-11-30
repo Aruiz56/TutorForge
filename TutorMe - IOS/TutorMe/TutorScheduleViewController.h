@@ -32,7 +32,5 @@
 @property (weak, nonatomic) IBOutlet UIButton *requestAppointmentForMyself;
 @property (strong, nonatomic) IBOutlet UITextField *SubjectTextField;
 
->>>>>>> 8014ad7caf323bb7a530d03731ababaa2ba731e3
-
 
 @end
