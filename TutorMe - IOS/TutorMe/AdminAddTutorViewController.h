@@ -15,4 +15,6 @@
 @property (strong, nonatomic) NSMutableArray *tutors;
 @property (strong, nonatomic) Tutor *tutor;
 
+- (Tutor *)createTutor:(NSString *)fullname :(NSString *)studentID :(NSString *)department;
+
 @end

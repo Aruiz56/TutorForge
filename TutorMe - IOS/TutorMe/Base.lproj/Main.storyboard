@@ -202,6 +202,10 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="4VB-Yz-vgo" id="Unx-qW-PtL"/>
+                                    <outlet property="delegate" destination="4VB-Yz-vgo" id="dTH-Yy-0ep"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <animations/>
@@ -222,9 +226,7 @@
                     <tabBarItem key="tabBarItem" title="Tutors" image="tutors_icon.png" id="kuW-lx-8eR"/>
                     <connections>
                         <outlet property="tutorTable" destination="dGt-mS-jZt" id="O61-EB-lGs"/>
-                        <segue destination="NZM-ug-rfO" kind="popoverPresentation" popoverAnchorView="RKi-IT-YHr" id="X1f-Qa-X0N">
-                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                        </segue>
+                        <segue destination="NZM-ug-rfO" kind="show" identifier="showTutorProfile" id="oUf-oL-Rk4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D8g-gB-iBl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -234,7 +236,7 @@
         <!--Admin - tutor descriptive-->
         <scene sceneID="CnP-bl-2TN">
             <objects>
-                <viewController id="NZM-ug-rfO" userLabel="Admin - tutor descriptive" sceneMemberID="viewController">
+                <viewController id="NZM-ug-rfO" userLabel="Admin - tutor descriptive" customClass="TutorProfileViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y6a-1U-VAG"/>
                         <viewControllerLayoutGuide type="bottom" id="WwH-Bs-kXs"/>
@@ -256,6 +258,11 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="tutor" id="BPB-Vl-AsF">
+                                        <barButtonItem key="leftBarButtonItem" title="done" id="rBp-Rz-SCH">
+                                            <connections>
+                                                <segue destination="DMd-P8-Emv" kind="unwind" identifier="unwindToTutors" unwindAction="unwindToTutors:" id="H6I-E1-hcO"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="remove" id="8NI-ua-UwQ"/>
                                     </navigationItem>
                                 </items>
@@ -502,8 +509,22 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
+                    <connections>
+                        <outlet property="departmentLabel" destination="lKE-dQ-ii9" id="jQO-6u-jT5"/>
+                        <outlet property="fridayLabel" destination="nUv-oe-1wq" id="BYa-V2-mbN"/>
+                        <outlet property="fullNameLabel" destination="H0c-C8-BDs" id="W1c-yr-C4H"/>
+                        <outlet property="mondayLabel" destination="y5N-sa-UUa" id="ccb-BL-sRE"/>
+                        <outlet property="removeTutorBarButton" destination="8NI-ua-UwQ" id="jcV-xZ-zTH"/>
+                        <outlet property="saturdayLabel" destination="gY8-T6-3Eo" id="Pr7-6Z-dpj"/>
+                        <outlet property="studentIDLabel" destination="6yW-kD-3dD" id="pIc-Ti-55D"/>
+                        <outlet property="sundayLabel" destination="gSP-Xe-1ll" id="M1T-xt-S0V"/>
+                        <outlet property="thursdayLabel" destination="UX4-XR-w3r" id="n1h-uH-0BB"/>
+                        <outlet property="tuesdayLabel" destination="CAd-Ly-qx7" id="r1K-G5-b9b"/>
+                        <outlet property="wednesdayLabel" destination="lMl-zJ-CeL" id="0TZ-ti-f2H"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7V8-9D-6EE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="DMd-P8-Emv" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="945.75" y="3016.5"/>
         </scene>
@@ -782,77 +803,77 @@
                                     <action selector="addTimeSlotInformation:" destination="g7T-86-vG6" eventType="touchUpInside" id="xGX-B2-VZm"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHU-Ar-2wv">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHU-Ar-2wv">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.28627450980000002" green="0.69803921570000005" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="192" y="156" width="148" height="31"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FpD-G1-QwD">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FpD-G1-QwD">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.28627450980000002" green="0.69803921570000005" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="192" y="214" width="148" height="31"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8a-7W-sRE">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8a-7W-sRE">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.28627450980000002" green="0.69803921570000005" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="192" y="275" width="148" height="31"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Enr-3j-CNQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Enr-3j-CNQ">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.28627450980000002" green="0.69803921570000005" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="192" y="340" width="148" height="31"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qg8-oU-Efl">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qg8-oU-Efl">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.28627450980000002" green="0.69803921570000005" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="192" y="403" width="148" height="31"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bgv-Tc-Ohq">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bgv-Tc-Ohq">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.28627450980000002" green="0.69803921570000005" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="192" y="469" width="148" height="31"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKv-3f-GsK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKv-3f-GsK">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.28627450980000002" green="0.69803921570000005" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
@@ -932,6 +953,7 @@
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" red="0.28627450980000002" green="0.69803921570000005" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.28627450980000002" green="0.69803921570000005" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <variation key="default">
                                     <mask key="subviews">
                                         <exclude reference="pLv-m3-u6V"/>
@@ -2058,8 +2080,8 @@
         <image name="tutors_icon.png" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FHx-cc-dWf"/>
-        <segue reference="CTp-RZ-5cP"/>
-        <segue reference="ejZ-5O-c0s"/>
+        <segue reference="EET-N7-d4F"/>
+        <segue reference="Qc9-dg-45o"/>
+        <segue reference="TXE-MR-jL4"/>
     </inferredMetricsTieBreakers>
 </document>

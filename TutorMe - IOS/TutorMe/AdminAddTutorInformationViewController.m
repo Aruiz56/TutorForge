@@ -24,25 +24,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    //Remove test tutor for testing purposes
-//    //Connect to server and database
-//    NSMutableURLRequest *removeTutorRequest =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://tutorme.stetson.edu/api/administrator/removeTutor"]]];
-//    [removeTutorRequest setHTTPMethod:@"POST"];
-//    
-//    NSString *postBodyStr = [NSString stringWithFormat:@"ID=800104806"];
-//    
-//    NSData *encodedPostBody = [postBodyStr dataUsingEncoding:NSASCIIStringEncoding];
-//    [removeTutorRequest setHTTPBody:encodedPostBody];
-//    [removeTutorRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-//    
-//    //Setting up for response
-//    NSURLResponse *requestTutorResponse;
-//    NSError *requestTutorError;
-//    NSData *requestTutorData = [NSURLConnection sendSynchronousRequest:removeTutorRequest returningResponse:&requestTutorResponse error:&requestTutorError];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    tutor = [[Tutor alloc] init];
+    NSData *encodedTutor = [NSKeyedArchiver archivedDataWithRootObject:tutor];
+    [defaults setObject:encodedTutor forKey:@"tutor"];
+    [defaults synchronize];
     
     nextBarButton.action = @selector(addTutorInformation:);
-//    nextBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(addTutorInformation:)];
     subjects = [[NSMutableArray alloc] init];
     
     //Get all departments
@@ -63,9 +51,6 @@
         NSDictionary *subject = [responseJSON objectAtIndex:i];
         [subjects addObject:[subject objectForKey:@"MajorSubject"]];
     }
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    tutor = [NSKeyedUnarchiver unarchiveObjectWithData:[defaults objectForKey:@"tutor"]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -155,6 +140,7 @@
                                               //Set as tutor
                                               tutor.fullname = fullNameTextField.text;
                                               tutor.studentID = studentIdTextField.text;
+                                              tutor.department = subject;
                                               
                                               NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
                                               NSData *encodedTutor = [NSKeyedArchiver archivedDataWithRootObject:tutor];
@@ -162,43 +148,43 @@
                                               [defaults synchronize];
                                               
                                               //Connect to server and database
-//                                              NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://tutorme.stetson.edu/api/administrator/setAsTutor"]]];
-//                                              [request setHTTPMethod:@"POST"];
-//                                              
-//                                              NSString *postBodyStr = [NSString stringWithFormat:@"ID=%@&Subject=%@&isStudentTutor=%@", studentIdTextField.text, subject, @true];
-//                                              
-//                                              NSData *encodedPostBody = [postBodyStr dataUsingEncoding:NSASCIIStringEncoding];
-//                                              [request setHTTPBody:encodedPostBody];
-//                                              [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-//                                              
-//                                              //Setting up for response
-//                                              NSURLResponse *response;
-//                                              NSError *err;
-//                                              NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
-//                                              
-//                                              //Get response
-//                                              id json = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error: nil];
-//                                              
-//                                              if ([[json objectForKey:@"success"] isEqual:@YES]) {
+                                              NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://tutorme.stetson.edu/api/administrator/setAsTutor"]]];
+                                              [request setHTTPMethod:@"POST"];
+                                              
+                                              NSString *postBodyStr = [NSString stringWithFormat:@"ID=%@&Subject=%@&isStudentTutor=%@", studentIdTextField.text, subject, @true];
+                                              
+                                              NSData *encodedPostBody = [postBodyStr dataUsingEncoding:NSASCIIStringEncoding];
+                                              [request setHTTPBody:encodedPostBody];
+                                              [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+                                              
+                                              //Setting up for response
+                                              NSURLResponse *response;
+                                              NSError *err;
+                                              NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
+                                              
+                                              //Get response
+                                              id json = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error: nil];
+                                              
+                                              if ([[json objectForKey:@"success"] isEqual:@YES]) {
                                                   //Perform segue
                                                   [self performSegueWithIdentifier:@"showSchedule" sender:self];
                                                   return;
-//                                              }
+                                              }
                                               
-//                                              UIAlertController *requestError=   [UIAlertController
-//                                                                           alertControllerWithTitle:@"Error"
-//                                                                           message:[NSString stringWithFormat:@"Error setting student as tutor."]
-//                                                                           preferredStyle:UIAlertControllerStyleAlert];
-//                                              UIAlertAction *confirmation = [UIAlertAction
-//                                                                               actionWithTitle:@"OK"
-//                                                                               style:UIAlertActionStyleDefault
-//                                                                               handler:^(UIAlertAction * action)
-//                                                                               {
-//                                                                                   [requestError dismissViewControllerAnimated:YES completion:nil];
-//                                                                                   
-//                                                                               }];
-//                                              [requestError addAction:confirmation];
-//                                              [self presentViewController:requestError animated:YES completion:nil];
+                                              UIAlertController *requestError=   [UIAlertController
+                                                                           alertControllerWithTitle:@"Error"
+                                                                           message:[NSString stringWithFormat:@"Error setting student as tutor."]
+                                                                           preferredStyle:UIAlertControllerStyleAlert];
+                                              UIAlertAction *confirmation = [UIAlertAction
+                                                                               actionWithTitle:@"OK"
+                                                                               style:UIAlertActionStyleDefault
+                                                                               handler:^(UIAlertAction * action)
+                                                                               {
+                                                                                   [requestError dismissViewControllerAnimated:YES completion:nil];
+                                                                                   
+                                                                               }];
+                                              [requestError addAction:confirmation];
+                                              [self presentViewController:requestError animated:YES completion:nil];
                                           }];
         UIAlertAction *noConfirmation = [UIAlertAction
                                          actionWithTitle:@"NO"
@@ -245,6 +231,11 @@
 
 - (NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
+    //Set inital value
+    if (row == 0) {
+        subject = [subjects objectAtIndex:row];
+    }
+    
     NSString *title = [subjects objectAtIndex:row];
     NSAttributedString *attString = [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     

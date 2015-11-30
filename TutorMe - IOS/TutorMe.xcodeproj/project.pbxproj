@@ -18,6 +18,7 @@
 		DDC90BA71C035C9400F39E24 /* AdminAddTutorInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDC90BA61C035C9400F39E24 /* AdminAddTutorInformationViewController.m */; };
 		DDE865D91C0B8C7000A5D0BC /* Tutor.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE865D81C0B8C7000A5D0BC /* Tutor.m */; };
 		DDF2F5801C0904E800EE4F17 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF2F57F1C0904E800EE4F17 /* Student.m */; };
+		DDF590441C0BC2D20033A0C1 /* TutorProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF590431C0BC2D20033A0C1 /* TutorProfileViewController.m */; };
 		F80071491BCDF8C000EA56C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F80071481BCDF8C000EA56C5 /* main.m */; };
 		F800714C1BCDF8C000EA56C5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F800714B1BCDF8C000EA56C5 /* AppDelegate.m */; };
 		F800714F1BCDF8C000EA56C5 /* Login.m in Sources */ = {isa = PBXBuildFile; fileRef = F800714E1BCDF8C000EA56C5 /* Login.m */; };
@@ -83,6 +84,8 @@
 		DDE865D81C0B8C7000A5D0BC /* Tutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tutor.m; sourceTree = "<group>"; };
 		DDF2F57E1C0904E800EE4F17 /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
 		DDF2F57F1C0904E800EE4F17 /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
+		DDF590421C0BC2D20033A0C1 /* TutorProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorProfileViewController.h; sourceTree = "<group>"; };
+		DDF590431C0BC2D20033A0C1 /* TutorProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorProfileViewController.m; sourceTree = "<group>"; };
 		F80071441BCDF8C000EA56C5 /* TutorMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TutorMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F80071481BCDF8C000EA56C5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F800714A1BCDF8C000EA56C5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -163,10 +166,12 @@
 				DDC90BA61C035C9400F39E24 /* AdminAddTutorInformationViewController.m */,
 				DD95A8511C0A8C4500D6ACFD /* AdminAddTutorScheduleViewController.h */,
 				DD95A8521C0A8C4500D6ACFD /* AdminAddTutorScheduleViewController.m */,
-				F889236A1C037F7600363274 /* FeedbackViewController.h */,
-				F889236B1C037F7600363274 /* FeedbackViewController.m */,
+				DDF590421C0BC2D20033A0C1 /* TutorProfileViewController.h */,
+				DDF590431C0BC2D20033A0C1 /* TutorProfileViewController.m */,
 				DDE865D71C0B8C7000A5D0BC /* Tutor.h */,
 				DDE865D81C0B8C7000A5D0BC /* Tutor.m */,
+				F889236A1C037F7600363274 /* FeedbackViewController.h */,
+				F889236B1C037F7600363274 /* FeedbackViewController.m */,
 			);
 			name = "Admin add Tutor";
 			sourceTree = "<group>";
@@ -523,6 +528,7 @@
 				DD0E6CAA1BEBBA4500042C64 /* URLProtocol.m in Sources */,
 				F800714F1BCDF8C000EA56C5 /* Login.m in Sources */,
 				F844121B1BE054C2008325EC /* DateUtil.m in Sources */,
+				DDF590441C0BC2D20033A0C1 /* TutorProfileViewController.m in Sources */,
 				F8BF1E7D1BE6F83500A42C04 /* AdminScheduleViewController.m in Sources */,
 				F84412121BE053D3008325EC /* StudentScheduleViewController.m in Sources */,
 				F800714C1BCDF8C000EA56C5 /* AppDelegate.m in Sources */,

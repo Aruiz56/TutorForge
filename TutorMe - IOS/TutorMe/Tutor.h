@@ -11,6 +11,7 @@
 @interface Tutor : NSObject
 @property (strong, nonatomic) NSString *fullname;
 @property (strong, nonatomic) NSString *studentID;
+@property (strong, nonatomic) NSString *department;
 @property (strong, nonatomic) NSMutableDictionary *schedule;
 
 @end

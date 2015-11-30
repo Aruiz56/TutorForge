@@ -118,15 +118,57 @@
     }
     
     //Add time slot to schedule array
+    
+    //Get current student schedule
     NSMutableDictionary *schedule = tutor.schedule;
+    
+    //Get current time slots on the day chosen
     NSMutableArray *timesOnSchedule = [schedule objectForKey:dayChosen];
+    
+    //Create new dictionary for the new slot
     NSMutableDictionary *timesChosen = [[NSMutableDictionary alloc] init];
+    
     [timesChosen setObject:startTime forKey:@"startTime"];
     [timesChosen setObject:endTime forKey:@"endTime"];
-    [timesOnSchedule addObject:timesChosen];
-    [schedule setObject:timesOnSchedule forKey:dayChosen];
-//    [tutor.schedule setObject:timesOnSchedule forKey:dayChosen];
     
+    if (timesOnSchedule == nil) {
+        timesOnSchedule = [[NSMutableArray alloc] init];
+        [timesOnSchedule addObject:timesChosen];
+        [schedule setObject:timesOnSchedule forKey:dayChosen];
+    } else {
+        [[schedule objectForKey:[NSString stringWithFormat:@"%@", dayChosen]] addObject:timesChosen];
+    }
+    
+    //Update labels
+    NSString *scheduleString = @"";
+    NSArray *dailySchedule = [schedule objectForKey:dayChosen];
+    
+    for (NSDictionary *timesDictionary in dailySchedule) {
+        NSString *timesString = [NSString stringWithFormat:@"%@-%@", [timesDictionary objectForKey:@"startTime"], [timesDictionary objectForKey:@"endTime"]];
+        if ([scheduleString isEqualToString:@""]) {
+            scheduleString = [NSString stringWithFormat:@"%@", timesString];
+        } else {
+            scheduleString = [NSString stringWithFormat:@"%@, %@", scheduleString, timesString];
+        }
+    }
+    
+    if ([dayChosen isEqualToString:@"sunday"]) {
+        sundayLabel.text = scheduleString;
+    } else if ([dayChosen isEqualToString:@"monday"]) {
+        mondayLabel.text = scheduleString;
+    } else if ([dayChosen isEqualToString:@"tuesday"]) {
+        tuesdayLabel.text = scheduleString;
+    } else if ([dayChosen isEqualToString:@"wednesday"]) {
+        wednesdayLabel.text = scheduleString;
+    } else if ([dayChosen isEqualToString:@"thursday"]) {
+        thursdayLabel.text = scheduleString;
+    } else if ([dayChosen isEqualToString:@"friday"]) {
+        fridayLabel.text = scheduleString;
+    } else if ([dayChosen isEqualToString:@"saturday"]) {
+        saturdayLabel.text = scheduleString;
+    }
+    
+    //Hide subview
     [timeSlotInformationView setHidden:YES];
     [selectATutorLabel setHidden:YES];
     [dayPicker setHidden:YES];
