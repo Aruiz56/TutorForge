@@ -21,12 +21,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    tutors = [[NSMutableArray alloc] init];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    tutors = [[NSMutableArray alloc] init];
     
     //Get all tutors in database
     //Connect to server and database
@@ -45,6 +44,7 @@
         Tutor *tutorObject = [self createTutor:[responseJSON[i] objectForKey:@"FullName"] :[NSString stringWithFormat:@"%@", [responseJSON[i] objectForKey:@"ID"]] :[responseJSON[i] objectForKey:@"Subject"]];
         [tutors addObject:tutorObject];
     }
+    [tutorTable reloadData];
 }
 
 - (void)didReceiveMemoryWarning {

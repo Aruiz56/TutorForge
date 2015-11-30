@@ -42,11 +42,6 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    //Refresh table with students logged in
-    
-    //Add Table
-    [self resetTable];
-    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     loggedInStudents = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithData:[defaults objectForKey:@"loggedInStudents"]]];
     
@@ -57,6 +52,11 @@
             numberLoggedIn++;
         }
     }
+    
+    //Refresh table with students logged in
+    
+    //Add Table
+    [self resetTable];
 }
 
 - (void)resetTable {

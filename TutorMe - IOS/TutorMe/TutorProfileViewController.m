@@ -36,29 +36,69 @@
 }
 
 - (void)removeTutor:(id)sender {
-//    //Remove tutor
-    //Connect to server and database
-    NSMutableURLRequest *removeTutorRequest =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://tutorme.stetson.edu/api/administrator/removeTutor"]]];
-    [removeTutorRequest setHTTPMethod:@"POST"];
-    
-    NSString *postBodyStr = [NSString stringWithFormat:@"ID=%@", tutor.studentID];
-    
-    NSData *encodedPostBody = [postBodyStr dataUsingEncoding:NSASCIIStringEncoding];
-    [removeTutorRequest setHTTPBody:encodedPostBody];
-    [removeTutorRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    
-    //Setting up for response
-    NSURLResponse *requestTutorResponse;
-    NSError *requestTutorError;
-    NSData *requestTutorData = [NSURLConnection sendSynchronousRequest:removeTutorRequest returningResponse:&requestTutorResponse error:&requestTutorError];
-    
-    //Get response
-    id json = [NSJSONSerialization JSONObjectWithData:requestTutorData options:NSJSONReadingMutableContainers error: nil];
-    NSArray *responseJSON = [json objectForKey:@"success"];
-    
-    if (responseJSON[0]) {
-        [self performSegueWithIdentifier:@"unwindToTutors" sender:self];
-    }
+    UIAlertController *confirmation=   [UIAlertController
+                                          alertControllerWithTitle:@"Confirmation"
+                                            message:[NSString stringWithFormat:@"Are you sure you want to remove tutor:\n%@: %@", tutor.studentID, tutor.fullname]
+                                          preferredStyle:UIAlertControllerStyleAlert];
+        
+    UIAlertAction *yesConfirmation = [UIAlertAction
+                                       actionWithTitle:@"YES"
+                                       style:UIAlertActionStyleDefault
+                                       handler:^(UIAlertAction * action)
+                                       {
+                                           [confirmation dismissViewControllerAnimated:YES completion:nil];
+                                           
+                                           //Remove tutor
+                                           //Connect to server and database
+                                           NSMutableURLRequest *removeTutorRequest =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://tutorme.stetson.edu/api/administrator/removeTutor"]]];
+                                           [removeTutorRequest setHTTPMethod:@"POST"];
+                                           
+                                           NSString *postBodyStr = [NSString stringWithFormat:@"ID=%@", tutor.studentID];
+                                           
+                                           NSData *encodedPostBody = [postBodyStr dataUsingEncoding:NSASCIIStringEncoding];
+                                           [removeTutorRequest setHTTPBody:encodedPostBody];
+                                           [removeTutorRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+                                           
+                                           //Setting up for response
+                                           NSURLResponse *requestTutorResponse;
+                                           NSError *requestTutorError;
+                                           NSData *requestTutorData = [NSURLConnection sendSynchronousRequest:removeTutorRequest returningResponse:&requestTutorResponse error:&requestTutorError];
+                                           
+                                           //Get response
+                                           id json = [NSJSONSerialization JSONObjectWithData:requestTutorData options:NSJSONReadingMutableContainers error: nil];
+                                           bool responseJSON = [json objectForKey:@"success"];
+//                                           bool responseBool = responseJSON[0];
+                                           
+                                           if (responseJSON) {
+                                               [self performSegueWithIdentifier:@"unwindToTutors" sender:self];
+                                           } else {
+                                               UIAlertController *error=   [UIAlertController
+                                                                                   alertControllerWithTitle:@"Error"
+                                                                                   message:[NSString stringWithFormat:@"Error removing tutor:\n%@: %@\nTry again later.", tutor.studentID, tutor.fullname]
+                                                                                   preferredStyle:UIAlertControllerStyleAlert];
+                                               
+                                               UIAlertAction *confirmation = [UIAlertAction
+                                                                                actionWithTitle:@"OK"
+                                                                                style:UIAlertActionStyleDefault
+                                                                                handler:^(UIAlertAction * action)
+                                                                                {
+                                                                                    [error dismissViewControllerAnimated:YES completion:nil];
+                                                                                }];
+                                               [error addAction:confirmation];
+                                               [self presentViewController:error animated:YES completion:nil];
+                                           }
+                                       }];
+    UIAlertAction *noConfirmation = [UIAlertAction
+                                          actionWithTitle:@"NO"
+                                          style:UIAlertActionStyleDefault
+                                          handler:^(UIAlertAction * action)
+                                          {
+                                              [confirmation dismissViewControllerAnimated:YES completion:nil];
+                                          }];
+        
+    [confirmation addAction:noConfirmation];
+    [confirmation addAction:yesConfirmation];
+    [self presentViewController:confirmation animated:YES completion:nil];
 }
 
 /*
