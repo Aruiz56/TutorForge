@@ -82,7 +82,7 @@
     [barItems addObject:doneBtn2];
     
     [subjectToolbar setItems:barItems animated:YES];
-
+    
     
     
     
@@ -195,7 +195,7 @@
     
     if(day == 1 || day == 2 || day == 3 || day == 4 || day == 5 || day == 6 || day == 7 || day == 8 || day == 9) newDay = [NSString stringWithFormat:@"0%d", day];
     else newDay = [NSString stringWithFormat:@"%d", day];
-
+    
     
     //Add each event into NSMutuableArray
     if(_mySavedEvents.count > 0)
@@ -285,8 +285,8 @@
      {
          //Assign the tutorPicker and tutorPickerToolBar to textfield to display properly
          _TutorTextField = textField;
-//         textField.inputView = tutorPicker;
-//         textField.inputAccessoryView = tutorPickerToolbar;
+         //         textField.inputView = tutorPicker;
+         //         textField.inputAccessoryView = tutorPickerToolbar;
          textField.placeholder = NSLocalizedString(@"Student ID", @"Student ID");
          
      }];
@@ -414,12 +414,12 @@
          
      }];
     
-
+    
     
     [alert addAction:cancelAction];
     [alert addAction:defaultAction];
     [self presentViewController:alert animated:YES completion:nil];
-
+    
 }
 /*
  * Method for Date Picker to display Date properly when selected with correct format
