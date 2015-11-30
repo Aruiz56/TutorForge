@@ -20,12 +20,17 @@
     //Time Picker
     UIPickerView *timePicker;
     UIToolbar *timePickerToolbar;
+    //Subject Picker
+    UIPickerView *subjectPicker;
+    UIToolbar *subjectToolbar;
 }
 
 @property (strong, nonatomic) IBOutlet UIView *myView;
 @property (strong, nonatomic) IBOutlet UITextField *TutorTextField;
 @property (strong, nonatomic) IBOutlet UITextField *TimeTextField;
 @property (strong, nonatomic) IBOutlet UITextField *DOBTextField;
+@property (strong, nonatomic) IBOutlet UITextField *SubjectTextField;
+
 
 
 @end

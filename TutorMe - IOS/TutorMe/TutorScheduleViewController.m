@@ -15,6 +15,7 @@
 @property (strong, nonatomic) NSMutableArray *mySavedEvents;
 @property (strong, nonatomic) NSMutableArray *myEventDate;
 @property (strong, nonatomic) NSMutableArray *myEventTime;
+@property (strong, nonatomic) NSMutableArray *SubjectArray;
 
 @end
 
@@ -34,12 +35,12 @@
     _myEventDate = [[NSMutableArray alloc]init];
     _myEventTime = [[NSMutableArray alloc]init];
     
+    
     /*
      * Set up Tutor Picker for Tutor selection in UIAlertController
      */
-    _TutorArray = [[NSArray alloc]initWithObjects:@"", @"Josh John", @"Ashley Combs", @"Dylan Roberts", nil];
     
-    tutorPicker = [[UIPickerView alloc]initWithFrame:CGRectMake(0, 43, 320, 480)];
+    tutorPicker = [[UIPickerView alloc]initWithFrame:CGRectMake(0, 0, 320, 215)];
     tutorPicker.delegate = self;
     tutorPicker.dataSource = self;
     [tutorPicker setShowsSelectionIndicator:YES];
@@ -59,13 +60,38 @@
     
     [tutorPickerToolbar setItems:barItems animated:YES];
     
+    /*
+     * Setup subject picker
+     */
+    subjectPicker = [[UIPickerView alloc]initWithFrame:CGRectMake(0, 0, 320, 215)];
+    subjectPicker.delegate = self;
+    subjectPicker.dataSource = self;
+    [subjectPicker setShowsSelectionIndicator:YES];
+    
+    subjectToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 56)];
+    [subjectToolbar sizeToFit];
+    //
+    //    NSMutableArray *barItems = [[NSMutableArray alloc]init];
+    //
+    //    UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    
+    [barItems addObject:flexSpace];
+    
+    UIBarButtonItem *doneBtn2 = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(ShowSelectedSubject)];
+    
+    [barItems addObject:doneBtn2];
+    
+    [subjectToolbar setItems:barItems animated:YES];
+
+    
+    
     
     /*
      * Set up Time Picker for Time selection in UIAlertController
      */
     _TimeArray = [[NSArray alloc]initWithObjects:@"", @"1:00pm", @"1:30pm", @"2:00pm", nil];
     
-    timePicker = [[UIPickerView alloc]initWithFrame:CGRectMake(0, 43, 320, 480)];
+    timePicker = [[UIPickerView alloc]initWithFrame:CGRectMake(0, 0, 320, 215)];
     timePicker.delegate = self;
     timePicker.dataSource = self;
     [timePicker setShowsSelectionIndicator:YES];
@@ -101,20 +127,16 @@
 }
 
 /*
- * Method to show the selected Tutor
- */
-#pragma mark - Picker Show Selected Tutor
--(void)ShowSelectedTutor
-{
-    [_TutorTextField resignFirstResponder];
-}
-/*
  * Method to show the selected Time
  */
 #pragma mark - Picker Show Selected Time
 -(void)ShowSelectedTime
 {
     [_TimeTextField resignFirstResponder];
+}
+-(void)ShowSelectedSubject
+{
+    [_SubjectTextField resignFirstResponder];
 }
 /*
  * Methods needed by picker view to control the selection of the picker.
@@ -131,6 +153,7 @@
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
     if([pickerView isEqual:tutorPicker]) return [_TutorArray count];
+    else if([pickerView isEqual:subjectPicker]) return [_SubjectArray count];
     else return [_TimeArray count];
 }
 /*
@@ -139,6 +162,7 @@
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
     if([pickerView isEqual:tutorPicker]) return [_TutorArray objectAtIndex:row];
+    else if([pickerView isEqual:subjectPicker]) return [_SubjectArray objectAtIndex:row];
     else return [_TimeArray objectAtIndex:row];
 }
 /*
@@ -147,6 +171,7 @@
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     if([pickerView isEqual:tutorPicker]) _TutorTextField.text = [_TutorArray objectAtIndex:row];
+    else if([pickerView isEqual:subjectPicker]) _SubjectTextField.text = [_SubjectArray objectAtIndex:row];
     else _TimeTextField.text = [_TimeArray objectAtIndex:row];
     
 }
@@ -260,9 +285,9 @@
      {
          //Assign the tutorPicker and tutorPickerToolBar to textfield to display properly
          _TutorTextField = textField;
-         textField.inputView = tutorPicker;
-         textField.inputAccessoryView = tutorPickerToolbar;
-         textField.placeholder = NSLocalizedString(@"Select Tutor", @"Select Tutor");
+//         textField.inputView = tutorPicker;
+//         textField.inputAccessoryView = tutorPickerToolbar;
+         textField.placeholder = NSLocalizedString(@"Student ID", @"Student ID");
          
      }];
     //2. Field
@@ -290,6 +315,111 @@
     [alert addAction:defaultAction];
     [self presentViewController:alert animated:YES completion:nil];
     
+}
+- (IBAction)AddForMyself:(id)sender {
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Request an Appoitment"
+                                                                   message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"Request" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                    {
+                                        NSString *Subject = ((UITextField *)[alert.textFields objectAtIndex:0]).text;
+                                        NSString *myTutorID = ((UITextField *)[alert.textFields objectAtIndex:1]).text;
+                                        NSString *myDate = ((UITextField *)[alert.textFields objectAtIndex:2]).text;
+                                        NSString *myTime = ((UITextField *)[alert.textFields objectAtIndex:3]).text;
+                                        
+                                        
+                                        [_mySavedEvents addObject:myTutorID];
+                                        [_myEventDate addObject:myDate];
+                                        [_myEventTime addObject:myTime];
+                                        
+                                        NSString *myRequestStart = [NSString stringWithFormat:@"%@ %@:00", myDate, myTime];
+                                        
+                                        NSString *location = @"Elizabeth 208";
+                                        
+                                        
+                                        NSString *myURL = @"https://tutorme.stetson.edu/api/appointments/makeRequest";
+                                        NSURL *myNSURL = [NSURL URLWithString:myURL];
+                                        NSMutableURLRequest *rq = [NSMutableURLRequest requestWithURL:myNSURL];
+                                        [rq setHTTPMethod:@"POST"];
+                                        NSString *post2 = [NSString stringWithFormat:@"StudentField=%@&Student=%@&TutorField=%@&Tutor=%@&RequestedStart=%@&Location=%@&Subject=%@", @"ID", @"800679878", @"ID", myTutorID, myRequestStart, location, Subject];
+                                        NSData *postData2 = [post2 dataUsingEncoding:NSASCIIStringEncoding];
+                                        [rq setHTTPBody:postData2];
+                                        [rq setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+                                        
+                                        //Recieve the JSON data from the PHP file
+                                        NSError *error = [[NSError alloc]init];
+                                        NSHTTPURLResponse *response = nil;
+                                        NSData *urlData = [NSURLConnection sendSynchronousRequest:rq returningResponse:&response error:&error];
+                                        
+                                        NSLog(@"Response code : %ld", (long) [response statusCode]); //Print out response codes
+                                        
+                                        if([response statusCode] >= 200 && [response statusCode] < 300)
+                                        {
+                                            NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+                                            NSLog(@"Response ===> %@", responseData);
+                                            
+                                            NSMutableArray *myData = [[NSMutableArray alloc]init];
+                                            NSError *error = nil;
+                                            
+                                            //Populate tutor array with tutors from database
+                                            myData = [NSJSONSerialization
+                                                      JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error:&error];
+                                            
+                                            //Loop through mydata and add to tutors with same subject as student and then add to timeArray **
+                                        }
+                                        
+                                        
+                                        
+                                    }];
+    
+    UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {}];
+    
+    //1. Field
+    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField)
+     {
+         //Assign the subjectpicker
+         _SubjectTextField = textField;
+         textField.inputView = subjectPicker;
+         textField.inputAccessoryView = subjectToolbar;
+         textField.placeholder = NSLocalizedString(@"Select Subject", @"Select Subject");
+         
+     }];
+    //2. Field
+    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField)
+     {
+         //Assign the tutorPicker and tutorPickerToolBar to textfield to display properly
+         _TutorTextField = textField;
+         textField.inputView = tutorPicker;
+         textField.inputAccessoryView = tutorPickerToolbar;
+         textField.placeholder = NSLocalizedString(@"Select Tutor", @"Select Tutor");
+         
+     }];
+    //3. Field
+    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField)
+     {
+         //Assign the datePicker and toolBar to the textfield to display properly
+         _DOBTextField = textField;
+         textField.inputView = datePicker;
+         textField.inputAccessoryView = toolBar;
+         textField.placeholder = NSLocalizedString(@"Select Date", @"Select Date");
+         
+     }];
+    //4. Field
+    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField)
+     {
+         //Assign the timePicker and timePickerToolbar to the textfield to display properly
+         _TimeTextField = textField;
+         textField.inputView = timePicker;
+         textField.inputAccessoryView = timePickerToolbar;
+         textField.placeholder = NSLocalizedString(@"Select Time", @"Select Time");
+         
+     }];
+    
+
+    
+    [alert addAction:cancelAction];
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
+
 }
 /*
  * Method for Date Picker to display Date properly when selected with correct format
