@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15C47a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ZU8-3u-cmT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ZU8-3u-cmT">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -190,7 +190,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RKi-IT-YHr" id="i6W-tX-nSJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                             <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -223,7 +223,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Tutors" image="tutors_icon.png" id="kuW-lx-8eR"/>
+                    <tabBarItem key="tabBarItem" title="Tutors" image="Tutor" selectedImage="Tutor" id="kuW-lx-8eR"/>
                     <connections>
                         <outlet property="tutorTable" destination="dGt-mS-jZt" id="O61-EB-lGs"/>
                         <segue destination="NZM-ug-rfO" kind="show" identifier="showTutorProfile" id="oUf-oL-Rk4"/>
@@ -1085,7 +1085,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Iuj-GG-lfm" id="Sfo-PL-fwS">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                             <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1114,7 +1114,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Feedback" image="feedback_icon.png" id="ndh-iy-qVZ"/>
+                    <tabBarItem key="tabBarItem" title="Feedback" image="Invite" selectedImage="Invite" id="ndh-iy-qVZ"/>
                     <connections>
                         <outlet property="myTableView" destination="nV5-OT-vUX" id="Fam-iS-iaK"/>
                         <segue destination="VTy-2j-jul" kind="popoverPresentation" popoverAnchorView="Iuj-GG-lfm" id="Hpt-vh-L3G">
@@ -1247,7 +1247,7 @@
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Logout" image="logout_tab.png" id="Lz3-QK-Al3"/>
+                    <tabBarItem key="tabBarItem" title="Logout" image="logout_tab.png" selectedImage="logout_tab.png" id="Lz3-QK-Al3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iD6-dF-A7a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1300,7 +1300,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Schedules" image="schedule_icon.png" id="Fe7-KW-B7Z"/>
+                    <tabBarItem key="tabBarItem" title="Schedules" image="Calendar" selectedImage="Calendar" id="Fe7-KW-B7Z"/>
                     <connections>
                         <outlet property="myView" destination="0WO-lg-BxL" id="Zte-Rz-eXb"/>
                     </connections>
@@ -1396,19 +1396,6 @@
                                     <action selector="AddButton:" destination="DdO-Nx-4tT" eventType="touchUpInside" id="tOv-3S-euU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g4Z-t1-Xlx">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="16"/>
-                                <color key="tintColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="request appointment for myself">
-                                    <color key="titleColor" red="0.40000000000000002" green="1" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="49" y="580" width="276" height="30"/>
-                                </variation>
-                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1425,7 +1412,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Appointments" image="appointment_icon.png" id="dLd-hg-sMA"/>
+                    <tabBarItem key="tabBarItem" title="Appointments" image="Calendar" selectedImage="Calendar" id="dLd-hg-sMA"/>
                     <navigationItem key="navigationItem" title="Student Login" id="N1k-9C-Ftc"/>
                     <connections>
                         <outlet property="myView" destination="AT8-3k-s9j" id="xES-He-3Lh"/>
@@ -1477,7 +1464,7 @@
                                         <rect key="frame" x="0.0" y="28" width="240" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2bj-7W-dI9" id="Bx0-3C-pqJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                             <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1511,7 +1498,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Requests" image="requests.png" id="ybX-Tn-bZ8"/>
+                    <tabBarItem key="tabBarItem" title="Requests" image="Invite" selectedImage="Invite" id="ybX-Tn-bZ8"/>
                     <navigationItem key="navigationItem" title="My Appointment" id="nqb-Of-DQP"/>
                     <connections>
                         <outlet property="myTableView" destination="dqm-jk-fk7" id="Uo3-yS-pHl"/>
@@ -1639,7 +1626,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Log In Student" image="student_login_icon.png" id="ubj-7L-WBS"/>
+                    <tabBarItem key="tabBarItem" title="Log In Student" image="Student" selectedImage="Student" id="ubj-7L-WBS"/>
                     <navigationItem key="navigationItem" title="My Schedule" id="gXX-hL-lz5"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -1860,7 +1847,7 @@
                                         <rect key="frame" x="0.0" y="28" width="240" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cDz-8q-MZe" id="EKC-fN-UUK">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                             <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1893,7 +1880,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Requests" image="requests.png" id="vPl-SF-pCh"/>
+                    <tabBarItem key="tabBarItem" title="Requests" image="Invite" selectedImage="Invite" id="vPl-SF-pCh"/>
                     <connections>
                         <outlet property="myTableView" destination="0vP-bM-DtU" id="WL6-9W-PN8"/>
                     </connections>
@@ -1984,7 +1971,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Appointment" image="schedule_icon.png" selectedImage="schedule_icon.png" id="qVt-9M-U3r"/>
+                    <tabBarItem key="tabBarItem" title="Appointment" image="Calendar" selectedImage="Calendar" id="qVt-9M-U3r"/>
                     <connections>
                         <outlet property="myView" destination="2rB-wr-EPa" id="fIj-Bi-mII"/>
                     </connections>
@@ -2087,13 +2074,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="appointment_icon.png" width="50" height="50"/>
-        <image name="feedback_icon.png" width="50" height="50"/>
+        <image name="Calendar" width="12" height="12"/>
+        <image name="Invite" width="12" height="12"/>
+        <image name="Student" width="13" height="13"/>
+        <image name="Tutor" width="12" height="12"/>
         <image name="logout_tab.png" width="50" height="50"/>
-        <image name="requests.png" width="50" height="50"/>
-        <image name="schedule_icon.png" width="50" height="50"/>
-        <image name="student_login_icon.png" width="50" height="50"/>
-        <image name="tutors_icon.png" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="EET-N7-d4F"/>
