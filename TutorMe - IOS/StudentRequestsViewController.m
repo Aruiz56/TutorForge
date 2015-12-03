@@ -20,8 +20,69 @@
     [super viewDidLoad];
     
     _Editing = 0;
-    //Populate dummy data
-    _tableData = [[NSMutableArray alloc]initWithObjects:@"Ashley @ 2:00pm", @"Jacob @ 3:00pm", @"John @ 4:00pm", nil];
+    _tableData = [[NSMutableArray alloc]init];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        //Populate tutors array
+        
+        // DEPENDING ON SUBJECT OF STUDENT IS WHAT IS PASSEED BELOW *** Then added into
+        //Tutor array
+        NSString *myURL = @"https://tutorme.stetson.edu/api/getAppointmentRequests";
+        NSURL *myNSURL = [NSURL URLWithString:myURL];
+        
+        NSString *eTyp = @"FooErrType";
+        int eID = 0xf00;
+        NSError *eErr = [NSError errorWithDomain:eTyp
+                                            code:eID userInfo:nil];
+        
+        NSMutableURLRequest *rq = [NSMutableURLRequest requestWithURL:myNSURL];
+        [rq setHTTPMethod:@"POST"];
+        NSString *post2 = [NSString stringWithFormat:@"Student&ID=%@", @"800606792"]; // ***CHANGE TO CURRENT LOGGED IN STUDENT
+        NSData *postData2 = [post2 dataUsingEncoding:NSASCIIStringEncoding];
+        [rq setHTTPBody:postData2];
+        [rq setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        
+
+        
+        //Recieve the JSON data from the PHP file
+        NSError *error = [[NSError alloc]init];
+        NSHTTPURLResponse *response = nil;
+        NSData *urlData = [NSURLConnection sendSynchronousRequest:rq returningResponse:&response error:&eErr];
+        
+        
+        /* IOS 9
+         NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+         [[session dataTaskWithRequest:myRequest
+         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+         if (!data) {
+         NSLog(@"%@", error);
+         } else {
+         // ...
+         NSLog(@"dataaaa %@", data);
+         }
+         }] resume];
+         
+         */ NSLog(@"Response code : %ld", (long) [response statusCode]); //Print out response codes
+        
+        if([response statusCode] >= 200 && [response statusCode] < 300)
+        {
+            NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+            NSLog(@"Response ===> %@", responseData);
+            
+            NSDictionary *myData = [NSJSONSerialization
+                                    JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error:&error];
+            
+            //Loop through NSDictionary object at result which returns each tutor in there own index, add
+            //them to appropriate array either name or id for later use.
+            for(int i = 0; i < [[myData objectForKey:@"result"] count]; i++)
+            {
+                [_tableData addObject:[[[myData objectForKey:@"result"] objectAtIndex:i] objectForKey:@"FullName"]];
+                
+            }
+        }
+        
+        
+    });
 }
 
 
