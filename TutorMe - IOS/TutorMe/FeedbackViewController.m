@@ -1,23 +1,24 @@
 //
-//  RequestTableViewController.m
+//  FeedbackViewController.m
 //  TutorMe
 //
-//  Created by Christian Valderrama on 11/22/15.
+//  Created by Christian Valderrama on 11/4/15.
 //  Copyright © 2015 soft_dev2_group1. All rights reserved.
 //
 
 #import "FeedbackViewController.h"
+
+@interface FeedbackViewController ()
+
+@end
 
 @implementation FeedbackViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //Used to determine if user is editing list with bar button item
-    _Editing = 0;
-    
     //Populate dummy data
-    _tableData = [[NSMutableArray alloc]initWithObjects:@"Complaint - Josh", @"Great Work... - Ashley", @"Another well done.. - Nik", nil];
+    _tableData = [[NSMutableArray alloc]initWithObjects:@"Ashley @ 2:00pm", @"Jacob @ 3:00pm", @"John @ 4:00pm", nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,9 +31,7 @@
 {
     return [_tableData count];
 }
-/*
- * Method is used to populate the table veiw for each cell using the tabledata NSMutuableArray.
- */
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *myTableIdentifier = @"TableItem";
@@ -51,53 +50,31 @@
 }
 /*
  * Method tableview delegate is used when user selects a row in the table view.
- * Displays an alert with request sent & with option to resend the request.
+ * Displays an alert with request sent & with option to accept or decline the request.
  */
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIAlertController *myAlert = [UIAlertController alertControllerWithTitle:@"Message" message:[NSString stringWithFormat:@"%@", [_tableData objectAtIndex:indexPath.row]] preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Reply" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
+    UIAlertController *myAlert = [UIAlertController alertControllerWithTitle:@"Request" message:[NSString stringWithFormat:@"%@", [_tableData objectAtIndex:indexPath.row]] preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *resendRequest = [UIAlertAction actionWithTitle:@"Accept" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
                                     {
-                                        //Reply to user and send to database to send to user app or email?
+                                        //DISPLAY REQUEST ABLE TO ACCEPT IT OR DECLINE IT
+                                        UIAlertController *sentAlert = [UIAlertController alertControllerWithTitle:nil message:@"Request Accepted!" preferredStyle:UIAlertControllerStyleAlert];
+                                        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){}];
+                                        [sentAlert addAction:okAction];
+                                        [self presentViewController:sentAlert animated:YES completion:nil];
                                     }];
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action){}];
+    UIAlertAction *decline = [UIAlertAction actionWithTitle:@"Decline" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action){
+        //DECLINE IT IN DATABASE
+        UIAlertController *sentAlert = [UIAlertController alertControllerWithTitle:nil message:@"Request Declined!" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){}];
+        [sentAlert addAction:okAction];
+        [self presentViewController:sentAlert animated:YES completion:nil];
+    }];
     
-    [myAlert addAction:okAction];
-    [myAlert addAction:cancel];
+    [myAlert addAction:resendRequest];
+    [myAlert addAction:decline];
     [self presentViewController:myAlert animated:YES completion:nil];
     
-}
-/*
- * Method used to enable editing on table view.
- */
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-/*
- * Method used when deleting row in table to delete in database as well.
- */
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        
-        //DELETE IN DATABASE AND ARRAY
-        //Remove item from array but need to remove from database!
-        [_tableData removeObjectAtIndex:indexPath.row];
-        [tableView reloadData];
-    }
-}
-- (IBAction)trashButton:(UIBarButtonItem *)sender {
-    if(_Editing == 0)
-    {
-        _Editing = 1;
-        
-        [self.myTableView setEditing:YES animated:YES];
-    } else {
-        _Editing = 0;
-        [self.myTableView setEditing:NO animated:NO];
-    }
 }
 
 /*
@@ -111,4 +88,3 @@
  */
 
 @end
-

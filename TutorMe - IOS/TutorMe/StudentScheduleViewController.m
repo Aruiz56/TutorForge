@@ -15,6 +15,11 @@
 @property (strong, nonatomic) NSMutableArray *SubjectArray;
 @property (strong, nonatomic) NSArray *TimeArray;
 @property (strong, nonatomic) NSString *selectedTutorID;
+
+//dummy data
+@property (strong, nonatomic) NSMutableArray *mySavedEvents;
+@property (strong, nonatomic) NSMutableArray *myEventDate;
+@property (strong, nonatomic) NSMutableArray *myEventTime;
 @end
 
 @implementation StudentScheduleViewController
@@ -26,6 +31,14 @@
     _TutorIDArray = [[NSMutableArray alloc]init];
     _SubjectArray = [[NSMutableArray alloc]initWithObjects:@"", @"CS",@"CSCI", nil];
     _selectedTutorID = [[NSString alloc]init];
+    
+    [_TutorArray addObject:@""];
+    [_TutorIDArray addObject:@""];
+    
+    //dummy data
+    _mySavedEvents = [[NSMutableArray alloc]init];
+    _myEventDate = [[NSMutableArray alloc]init];
+    _myEventTime = [[NSMutableArray alloc]init];
     
     
      dispatch_async(dispatch_get_main_queue(), ^{
@@ -280,11 +293,27 @@
     NSMutableArray *events = [[NSMutableArray alloc]init];
     NSMutableArray *myData = [[NSMutableArray alloc]init];
     NSString *newDay = [[NSString alloc]init];
+    NSString *newMonth = [[NSString alloc]init];
     //    UIColor *textColor = [[UIColor alloc]init]; LATER WHEN CHANGING TO GREEN IF ACCEPTED
     //Format date correctly to fit datePicker values when looping
     
     if(day == 1 || day == 2 || day == 3 || day == 4 || day == 5 || day == 6 || day == 7 || day == 8 || day == 9) newDay = [NSString stringWithFormat:@"0%d", day];
     else newDay = [NSString stringWithFormat:@"%d", day];
+
+    if(month == 1) newMonth = @"Jan";
+    else if(month == 2) newMonth = @"Feb";
+    else if(month == 3) newMonth = @"Mar";
+    else if(month == 4) newMonth = @"Apr";
+    else if(month == 5) newMonth = @"May";
+    else if(month == 6) newMonth = @"Jun";
+    else if(month == 7) newMonth = @"Jul";
+    else if(month == 8) newMonth = @"Aug";
+    else if(month == 9) newMonth = @"Sep";
+    else if(month == 10) newMonth = @"Oct";
+    else if(month == 11) newMonth = @"Nov";
+    else if(month == 12) newMonth = @"Dec";
+    
+    
     /*
      NSString *myURL = @"https://tutorme.stetson.edu/api/getAppointmentRequests";
      NSURL *myNSURL = [NSURL URLWithString:myURL];
@@ -318,15 +347,18 @@
      }
      */
     //Add each event into NSMutuableArray
-    if(myData.count > 0)
+    if(_myEventDate.count > 0)
     {
-        /*for(int i = 0; i < _myEventDate.count; i++)
+        for(int i = 0; i < _myEventDate.count; i++)
          {
-         if([[_myEventDate objectAtIndex:i] isEqualToString:[NSString stringWithFormat:@"%d/%@/%d", month, newDay, year]])
+         if([[_myEventDate objectAtIndex:i] isEqualToString:[NSString stringWithFormat:@"%@ %@ %d", newMonth, newDay, year]])
          {
-         [events addObject:[NSString stringWithFormat:@"%@ @ %@",[_mySavedEvents objectAtIndex:i], [_myEventTime objectAtIndex:i]]];
+         [events addObject:[NSString stringWithFormat:@"%@ with %@ @ %@",[_mySavedEvents objectAtIndex:i], [_TutorArray objectAtIndex:i + 1], [_myEventTime objectAtIndex:i]]];
          }
-         }*/
+         }
+        
+        //Check if no events added
+        if(events.count == 0) [events addObject:@"No Events"];
     } else {
         [events addObject:@"No Events"];
     }
@@ -393,6 +425,7 @@
                                         
                                      
 //                                        Fri Nov 27 2015 02:59:52 GMT-0500 (Eastern Standard Time)
+                                       /*
                                         NSString *location = @"Elizabeth 208";
                                         
                                         NSDateFormatter *myFormatter = [[NSDateFormatter alloc] init];
@@ -433,7 +466,11 @@
                                             
                                             //Loop through mydata and add to tutors with same subject as student and then add to timeArray **
                                         }
+                                        */
                                         
+                                        [_mySavedEvents addObject:Subject];
+                                        [_myEventDate addObject:myDate];
+                                        [_myEventTime addObject:myTime];
                                         
                                     }];
     

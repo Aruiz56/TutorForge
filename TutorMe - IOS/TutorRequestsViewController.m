@@ -70,11 +70,9 @@
         [sentAlert addAction:okAction];
         [self presentViewController:sentAlert animated:YES completion:nil];
     }];
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action){}];
     
     [myAlert addAction:resendRequest];
     [myAlert addAction:decline];
-    [myAlert addAction:cancel];
     [self presentViewController:myAlert animated:YES completion:nil];
     
 }

@@ -22,6 +22,10 @@
     _Editing = 0;
     _tableData = [[NSMutableArray alloc]init];
     
+    //dummy data
+    _tableData = [[NSMutableArray alloc]initWithObjects:@"CSI with Ashley @ 2:00pm", @"Math with Jacob @ 3:00pm", @"Science with John @ 4:00pm", nil];
+
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         //Populate tutors array
         

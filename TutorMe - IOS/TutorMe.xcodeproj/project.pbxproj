@@ -107,8 +107,8 @@
 		F87990401BEA3E830096A08A /* StudentRequestsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentRequestsViewController.m; sourceTree = "<group>"; };
 		F87990421BEA4D890096A08A /* TutorRequestsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorRequestsViewController.h; sourceTree = "<group>"; };
 		F87990431BEA4D890096A08A /* TutorRequestsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorRequestsViewController.m; sourceTree = "<group>"; };
-		F889236A1C037F7600363274 /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
-		F889236B1C037F7600363274 /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
+		F889236A1C037F7600363274 /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedbackViewController.h; path = TutorMe/FeedbackViewController.h; sourceTree = "<group>"; };
+		F889236B1C037F7600363274 /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedbackViewController.m; path = TutorMe/FeedbackViewController.m; sourceTree = "<group>"; };
 		F8BF1E7B1BE6F83500A42C04 /* AdminScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminScheduleViewController.h; sourceTree = "<group>"; };
 		F8BF1E7C1BE6F83500A42C04 /* AdminScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminScheduleViewController.m; sourceTree = "<group>"; };
 		F8BF1E7E1BE6F93900A42C04 /* TutorScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorScheduleViewController.h; sourceTree = "<group>"; };
@@ -154,8 +154,6 @@
 				DDF590431C0BC2D20033A0C1 /* TutorProfileViewController.m */,
 				DDE865D71C0B8C7000A5D0BC /* Tutor.h */,
 				DDE865D81C0B8C7000A5D0BC /* Tutor.m */,
-				F889236A1C037F7600363274 /* FeedbackViewController.h */,
-				F889236B1C037F7600363274 /* FeedbackViewController.m */,
 			);
 			name = "Admin add Tutor";
 			sourceTree = "<group>";
@@ -218,6 +216,8 @@
 			isa = PBXGroup;
 			children = (
 				F80071461BCDF8C000EA56C5 /* TutorMe */,
+				F889236A1C037F7600363274 /* FeedbackViewController.h */,
+				F889236B1C037F7600363274 /* FeedbackViewController.m */,
 				F80071601BCDF8C000EA56C5 /* TutorMeTests */,
 				F800716B1BCDF8C100EA56C5 /* TutorMeUITests */,
 				F80071451BCDF8C000EA56C5 /* Products */,

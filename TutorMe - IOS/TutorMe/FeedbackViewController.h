@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FeedbackViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface FeedbackViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
 
 //Properties for tableView
 @property (strong, nonatomic) IBOutlet UITableView *myTableView;
 @property(nonatomic, retain) NSMutableArray *tableData;
-@property int Editing;
 
 @end
