@@ -70,8 +70,14 @@
                                     }];
     UIAlertAction *decline = [UIAlertAction actionWithTitle:@"Decline" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action){
         //DECLINE IT IN DATABASE
+        
         UIAlertController *sentAlert = [UIAlertController alertControllerWithTitle:nil message:@"Request Declined!" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){}];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+            //remove from dummy data
+//            [_tableData removeObject:indexPath];
+            [_tableData removeObjectAtIndex:indexPath.row];
+            [tableView reloadData];
+        }];
         [sentAlert addAction:okAction];
         [self presentViewController:sentAlert animated:YES completion:nil];
     }];

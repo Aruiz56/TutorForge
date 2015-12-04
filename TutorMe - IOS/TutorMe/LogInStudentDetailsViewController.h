@@ -10,14 +10,14 @@
 #import "Student.h"
 #import "LogInStudentViewController.h"
 
-@interface LogInStudentDetailsViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
+@interface LogInStudentDetailsViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate>
 
 @property (strong, nonatomic) LogInStudentViewController *logInStudentViewController;
 @property (strong, nonatomic) Student *student;
 @property (weak, nonatomic) IBOutlet UIPickerView *coursePickerView;
 @property (weak, nonatomic) IBOutlet UITextField *topicTextField;
 @property (weak, nonatomic) IBOutlet UISwitch *emailProfessor;
-@property (strong, nonatomic) NSArray *courses;
+@property (strong, nonatomic) NSMutableArray *courses;
 
 - (IBAction)logInStudent:(UIBarButtonItem *)sender;
 
