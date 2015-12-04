@@ -27,11 +27,16 @@
 }
 
 #pragma mark - TableView Delegate Methods
+/*
+ * Method used to determine how many cells are in table view based off tableData count.
+ */
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [_tableData count];
 }
-
+/*
+ * Method used to determine what cell has what based off of tabledata value at certain row / index.
+ */
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *myTableIdentifier = @"TableItem";
@@ -76,15 +81,5 @@
     [self presentViewController:myAlert animated:YES completion:nil];
     
 }
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

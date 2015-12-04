@@ -103,7 +103,7 @@
     
     
     //Create the SACalendar
-    SACalendar *myCalendar = [[SACalendar alloc]initWithFrame:CGRectMake(0, 20, 320, 400)];
+    SACalendar *myCalendar = [[SACalendar alloc]initWithFrame:CGRectMake(0, 20, 316, 441)];
     
     myCalendar.delegate = self;
     
@@ -143,9 +143,9 @@
     
     subjectToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 56)];
     [subjectToolbar sizeToFit];
-    //
+    
         NSMutableArray *barItems3 = [[NSMutableArray alloc]init];
-    //
+    
         UIBarButtonItem *flexSpace3 = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
     
     [barItems3 addObject:flexSpace3];
@@ -195,6 +195,8 @@
     UIBarButtonItem *space= [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     [toolBar setItems:[NSArray arrayWithObjects:space, doneButton, nil]];
     
+    [datePicker setMinimumDate:[NSDate date]];
+    
 }
 
 /*
@@ -220,8 +222,8 @@
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     [formatter setDateFormat:@"MMM dd YYYY"];
-    self.DOBTextField.text = [NSString stringWithFormat:@"%@", [formatter stringFromDate:datePicker.date]];
-    [self.DOBTextField resignFirstResponder];
+    self.DateTextField.text = [NSString stringWithFormat:@"%@", [formatter stringFromDate:datePicker.date]];
+    [self.DateTextField resignFirstResponder];
     
 }
 -(void)ShowSelectedSubject
@@ -272,7 +274,7 @@
      } else {
              NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
              [formatter setDateFormat:@"MMM dd YYYY"];
-             self.DOBTextField.text = [NSString stringWithFormat:@"%@", [formatter stringFromDate:datePicker.date]];
+             self.DateTextField.text = [NSString stringWithFormat:@"%@", [formatter stringFromDate:datePicker.date]];
          
          
      }
@@ -286,7 +288,8 @@
 }
 #pragma mark - SACalendar Delegates
 /*
- * Method is used when user clicks on a certain date.
+ * Method is used when user clicks on a certain date. Displays events if any otherwise displays message
+ * @"No Events".
  */
 -(void) SACalendar:(SACalendar *)calendar didSelectDate:(int)day month:(int)month year:(int)year
 {
@@ -300,6 +303,7 @@
     if(day == 1 || day == 2 || day == 3 || day == 4 || day == 5 || day == 6 || day == 7 || day == 8 || day == 9) newDay = [NSString stringWithFormat:@"0%d", day];
     else newDay = [NSString stringWithFormat:@"%d", day];
 
+    //Set month to MMM styling like value saved for javascript date function required by database.
     if(month == 1) newMonth = @"Jan";
     else if(month == 2) newMonth = @"Feb";
     else if(month == 3) newMonth = @"Mar";
@@ -411,6 +415,7 @@
 #pragma mark - Add Button
 /*
  * Method is used when user clicks on Request button so that they can request appoitments.
+ * Grabs all data from textfields and passes them through POST call to the database page.
  */
 - (IBAction)AddButton:(id)sender
 {
@@ -423,6 +428,14 @@
                                         NSString *myDate = ((UITextField *)[alert.textFields objectAtIndex:2]).text;
                                         NSString *myTime = ((UITextField *)[alert.textFields objectAtIndex:3]).text;
                                         
+                                        if([Subject isEqualToString:@""] || [myDate isEqualToString:@""] || [myTime isEqualToString:@""])
+                                        {
+                                            UIAlertController *sentAlert = [UIAlertController alertControllerWithTitle:nil message:@"Please fill all fields" preferredStyle:UIAlertControllerStyleAlert];
+                                            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){}];
+                                            [sentAlert addAction:okAction];
+                                            [self presentViewController:sentAlert animated:YES completion:nil];
+
+                                        } else {
                                      
 //                                        Fri Nov 27 2015 02:59:52 GMT-0500 (Eastern Standard Time)
                                        /*
@@ -472,6 +485,13 @@
                                         [_myEventDate addObject:myDate];
                                         [_myEventTime addObject:myTime];
                                         
+                                        UIAlertController *sentAlert = [UIAlertController alertControllerWithTitle:nil message:@"Request Sent!" preferredStyle:UIAlertControllerStyleAlert];
+                                        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){}];
+                                        [sentAlert addAction:okAction];
+                                        [self presentViewController:sentAlert animated:YES completion:nil];
+                                        }
+
+                                        
                                     }];
     
     UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {}];
@@ -501,7 +521,7 @@
     [alert addTextFieldWithConfigurationHandler:^(UITextField *textField)
      {
          //Assign the datePicker and toolBar to the textfield to display properly
-         _DOBTextField = textField;
+         _DateTextField = textField;
          textField.inputView = datePicker;
          textField.inputAccessoryView = toolBar;
          textField.placeholder = NSLocalizedString(@"Select Date", @"Select Date");

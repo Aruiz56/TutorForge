@@ -241,8 +241,8 @@
 			children = (
 				F800714A1BCDF8C000EA56C5 /* AppDelegate.h */,
 				F800714B1BCDF8C000EA56C5 /* AppDelegate.m */,
-				F80071501BCDF8C000EA56C5 /* Main.storyboard */,
 				F80071531BCDF8C000EA56C5 /* Assets.xcassets */,
+				F80071501BCDF8C000EA56C5 /* Main.storyboard */,
 				F80071551BCDF8C000EA56C5 /* LaunchScreen.storyboard */,
 				F80071581BCDF8C000EA56C5 /* Info.plist */,
 				F80071471BCDF8C000EA56C5 /* Supporting Files */,

@@ -25,7 +25,7 @@
     //dummy data
     _tableData = [[NSMutableArray alloc]initWithObjects:@"CSI with Ashley @ 2:00pm", @"Math with Jacob @ 3:00pm", @"Science with John @ 4:00pm", nil];
 
-    
+    //Run task in background off main thread and return it back to main thread.
     dispatch_async(dispatch_get_main_queue(), ^{
         //Populate tutors array
         
@@ -96,6 +96,9 @@
 }
 
 #pragma mark - TableView Delegate Methods
+/*
+ * Method to display number of cells in table based off tableData count.
+ */
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [_tableData count];
@@ -140,6 +143,7 @@
         [tableView reloadData];
     }
 }
+/*
 - (IBAction)editButton:(UIBarButtonItem *)sender {
     if(_Editing == 0)
     {
@@ -151,7 +155,8 @@
         _myEditButton.title = @"Edit";
         [self.myTableView setEditing:NO animated:NO];
     }
-}
+} */
+
 /*
  * Method tableview delegate is used when user selects a row in the table view.
  * Displays an alert with request sent & with option to resend the request.
@@ -175,15 +180,5 @@
     [self presentViewController:myAlert animated:YES completion:nil];
     
 }
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end
