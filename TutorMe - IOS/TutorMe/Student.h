@@ -20,6 +20,7 @@
 @property (strong, nonatomic) NSString *major;
 @property (strong, nonatomic) NSString *username;
 @property (strong, nonatomic) NSArray *courses;
+@property (strong, nonatomic) NSString *referenceID;
 
 //Session variables
 @property (strong, nonatomic) NSString *courseRequested;

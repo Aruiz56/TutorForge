@@ -18,6 +18,7 @@
 @synthesize major;
 @synthesize username;
 @synthesize courses;
+@synthesize referenceID;
 @synthesize courseRequested;
 @synthesize topic;
 @synthesize emailProfessor;
@@ -40,6 +41,7 @@
     [encoder encodeObject:self.major forKey:@"major"];
     [encoder encodeObject:self.username forKey:@"username"];
     [encoder encodeObject:self.courses forKey:@"courses"];
+    [encoder encodeObject:self.referenceID forKey:@"referenceID"];
     [encoder encodeObject:self.courseRequested forKey:@"courseRequested"];
     [encoder encodeObject:self.topic forKey:@"topic"];
     [encoder encodeObject:self.emailProfessor forKey:@"emailProfessor"];
@@ -60,6 +62,7 @@
         self.major = [decoder decodeObjectForKey:@"major"];
         self.username = [decoder decodeObjectForKey:@"username"];
         self.courses = [decoder decodeObjectForKey:@"courses"];
+        self.referenceID = [decoder decodeObjectForKey:@"referenceID"];
         self.courseRequested = [decoder decodeObjectForKey:@"courseRequested"];
         self.topic = [decoder decodeObjectForKey:@"topic"];
         self.emailProfessor = [decoder decodeObjectForKey:@"emailProfessor"];

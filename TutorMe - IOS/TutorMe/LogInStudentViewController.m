@@ -153,6 +153,7 @@
         //Get response
         id json = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error: nil];
         NSArray *responseJSON = [json objectForKey:@"result"];
+        NSLog(@"Student: %@", responseJSON);
         
         //Set up Student Object
         [self setUpStudent:[responseJSON objectAtIndex:0]];
@@ -207,6 +208,7 @@
     studentObject.lastName = [studentResponse objectForKey:@"LastName"];
     studentObject.major = [studentResponse objectForKey:@"Major"];
     studentObject.username = [studentResponse objectForKey:@"Username"];
+    studentObject.referenceID = [studentResponse objectForKey:@"id"];
     studentObject.sessionDidEnd = @"NO";
 }
 
@@ -225,12 +227,48 @@
     
     numberLoggedIn--;
     
-    //Remove student from UITableView
-    if (numberLoggedIn == 0) {
-        [self resetTable];
+    //End session on database
+    //Connect to server and database
+    NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://tutorme.stetson.edu/api/sessions/endSession"]]];
+    [request setHTTPMethod:@"POST"];
+    
+    bool emailProfesserBool;
+    if ([studentObject.emailProfessor isEqualToString:@"YES"]) {
+        emailProfesserBool = @true;
     } else {
-//        [loggedInStudentsTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:index] withRowAnimation:UITableViewRowAnimationAutomatic];
-        [loggedInStudentsTableView reloadData];
+        emailProfesserBool = @false;
+    }
+    
+    NSString *postBodyStr = [NSString stringWithFormat:@"Impromptu=%@&Start=%@&End=%@&Subject=%@&Location=%@&Student=%@&Tutor=%@&ForClass=%@&RequestProfessorNotification=%@&", @true, studentObject.sessionStart, studentObject.sessionEnd, @"subject", @"location", @"student", @"tutor", @"forclass", [NSString stringWithFormat:@"%d", emailProfesserBool]];
+    
+    NSData *encodedPostBody = [postBodyStr dataUsingEncoding:NSASCIIStringEncoding];
+    [request setHTTPBody:encodedPostBody];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    //Setting up for response
+    NSURLResponse *response;
+    NSError *err;
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
+    
+    //Get response
+    id json = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error: nil];
+    
+    if ([[json objectForKey:@"success"] isEqual:@YES]) {
+        //Remove student from UITableView
+        if (numberLoggedIn == 0) {
+            [self resetTable];
+        } else {
+            [loggedInStudentsTableView reloadData];
+        }
+    } else {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"Problem ending session. Please try again later." preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            [alert dismissViewControllerAnimated:YES completion:nil];
+        }];
+        
+        [alert addAction:ok];
+        [self presentViewController:alert animated:YES completion:nil];
     }
 }
 

@@ -28,7 +28,10 @@
     NSData *encodedStudent = [defaults objectForKey:@"student"];
     student = [NSKeyedUnarchiver unarchiveObjectWithData:encodedStudent];
     
-    courses = student.courses;
+    //courses = student.courses;
+    courses = [[NSMutableArray alloc]initWithObjects:@"", @"CSCI", @"Math", @"Science", @"CS", @"Art", nil];
+    
+    topicTextField.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -101,6 +104,14 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
+}
+
+/*
+ * Dismiss keyboard when return key is pressed when entering topic
+ */
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [topicTextField resignFirstResponder];
+    return NO;
 }
 
 @end

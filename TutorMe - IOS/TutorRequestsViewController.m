@@ -27,11 +27,16 @@
 }
 
 #pragma mark - TableView Delegate Methods
+/*
+ * Method used to determine how many cells are in table view based off tableData count.
+ */
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [_tableData count];
 }
-
+/*
+ * Method used to determine what cell has what based off of tabledata value at certain row / index.
+ */
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *myTableIdentifier = @"TableItem";
@@ -65,28 +70,22 @@
                                     }];
     UIAlertAction *decline = [UIAlertAction actionWithTitle:@"Decline" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action){
         //DECLINE IT IN DATABASE
+        
         UIAlertController *sentAlert = [UIAlertController alertControllerWithTitle:nil message:@"Request Declined!" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){}];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+            //remove from dummy data
+//            [_tableData removeObject:indexPath];
+            [_tableData removeObjectAtIndex:indexPath.row];
+            [tableView reloadData];
+        }];
         [sentAlert addAction:okAction];
         [self presentViewController:sentAlert animated:YES completion:nil];
     }];
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action){}];
     
     [myAlert addAction:resendRequest];
     [myAlert addAction:decline];
-    [myAlert addAction:cancel];
     [self presentViewController:myAlert animated:YES completion:nil];
     
 }
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end
