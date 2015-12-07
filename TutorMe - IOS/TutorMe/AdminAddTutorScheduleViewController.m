@@ -237,12 +237,59 @@
     }
 }
 
+- (IBAction)saveSchedule:(id)sender {
+    //Format strings for post
+    NSDictionary *schedule = tutor.schedule;
+    
+    //Sunday
+    
+    
+    //Monday
+    
+    
+    //Tuesday
+    
+    
+    //Wednesday
+    
+    
+    //Thursday
+    
+    
+    //Friday
+    
+    
+    //Saturday
+    
+    
+    //Connect to server and database
+//    NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://tutorme.stetson.edu/api/tutor/createSchedule"]]];
+//    [request setHTTPMethod:@"POST"];
+//    
+//    NSString *postBodyStr = [NSString stringWithFormat:@""];
+//    
+//    NSData *encodedPostBody = [postBodyStr dataUsingEncoding:NSASCIIStringEncoding];
+//    [request setHTTPBody:encodedPostBody];
+//    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+//    
+//    //Setting up for response
+//    NSURLResponse *response;
+//    NSError *err;
+//    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
+//    
+//    //Get response
+//    id json = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error: nil];
+//    
+//    if ([[json objectForKey:@"success"] isEqual:@YES]) {
+//        [self performSegueWithIdentifier:@"unwindFromSchedule" sender:self];
+//    }
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
 }
 
 @end

@@ -32,5 +32,6 @@
 
 -(IBAction)addTimeSlotInformation:(id)sender;
 -(IBAction)addSlotInformation:(id)sender;
+-(IBAction)saveSchedule:(id)sender;
 
 @end
