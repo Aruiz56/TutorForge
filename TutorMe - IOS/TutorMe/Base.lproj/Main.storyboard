@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ZU8-3u-cmT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="ZU8-3u-cmT">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
@@ -8,10 +8,6 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController title="Login" id="BYZ-38-t0r" customClass="Login" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jpp-Mg-PYY"/>
-                        <viewControllerLayoutGuide type="bottom" id="3v3-OA-tJc"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -32,7 +28,7 @@
                                 </items>
                             </navigationBar>
                             <webView contentMode="scaleToFill" id="Gr4-bL-Zk0">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.36078431372549019" green="0.38823529411764707" blue="0.40392156862745099" alpha="1" colorSpace="deviceRGB"/>
@@ -55,16 +51,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="62.399999999999999" y="617.22666666666669"/>
+            <point key="canvasLocation" x="51" y="617"/>
         </scene>
         <!--Admin - Log Out-->
         <scene sceneID="be0-s8-4F7">
             <objects>
                 <viewController id="OmT-th-u3h" userLabel="Admin - Log Out" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="mdh-qc-Sg9"/>
-                        <viewControllerLayoutGuide type="bottom" id="Lo5-RY-aWo"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pfF-5v-xea">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -92,16 +84,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GND-Y1-LdL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-206" y="1264"/>
+            <point key="canvasLocation" x="51" y="2030"/>
         </scene>
         <!--Admin - Tutors-->
         <scene sceneID="kKO-gK-BxC">
             <objects>
                 <viewController id="4VB-Yz-vgo" userLabel="Admin - Tutors" customClass="AdminAddTutorViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="TBm-d1-0C7"/>
-                        <viewControllerLayoutGuide type="bottom" id="akL-dX-W0j"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hix-mg-qOo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -168,16 +156,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D8g-gB-iBl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="475" y="2141"/>
+            <point key="canvasLocation" x="475" y="2030"/>
         </scene>
         <!--Admin - tutor descriptive-->
         <scene sceneID="CnP-bl-2TN">
             <objects>
                 <viewController id="NZM-ug-rfO" userLabel="Admin - tutor descriptive" customClass="TutorProfileViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Oe0-SY-FTZ"/>
-                        <viewControllerLayoutGuide type="bottom" id="Mz9-BY-sDR"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="wGn-yz-pS8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -383,16 +367,12 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7V8-9D-6EE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="DMd-P8-Emv" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="504" y="2845"/>
+            <point key="canvasLocation" x="471" y="2737"/>
         </scene>
         <!--Admin - add tutor information-->
         <scene sceneID="SoL-Gt-xnj">
             <objects>
                 <viewController id="nlr-zw-y9f" userLabel="Admin - add tutor information" customClass="AdminAddTutorInformationViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="2Z9-Jy-W0H"/>
-                        <viewControllerLayoutGuide type="bottom" id="aQu-FG-0Me"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Cmn-LW-paX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -444,11 +424,14 @@
                                 <items>
                                     <navigationItem title="Tutor Info" id="9Hh-bA-teZ">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="cPq-VK-hnN">
+                                            <color key="tintColor" red="0.45098039220000002" green="1" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <segue destination="9ZS-Nu-nEY" kind="unwind" unwindAction="unwindToTutors:" id="c2C-Ru-8Fk"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="MUK-W0-w1h"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="MUK-W0-w1h">
+                                            <color key="tintColor" red="0.45098039220000002" green="1" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -485,16 +468,12 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="829-pt-oTZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="9ZS-Nu-nEY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="897" y="2855"/>
+            <point key="canvasLocation" x="862" y="2737"/>
         </scene>
         <!--Admin Add Tutor Schedule View Controller-->
         <scene sceneID="cGi-TF-P0q">
             <objects>
                 <viewController id="g7T-86-vG6" customClass="AdminAddTutorScheduleViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Qke-rH-vfv"/>
-                        <viewControllerLayoutGuide type="bottom" id="HxQ-xG-IIA"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="SjG-80-XM8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -511,13 +490,15 @@
                                 <items>
                                     <navigationItem title="Tutor Info" id="mwj-r8-aep">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="KEC-EF-3kO">
+                                            <color key="tintColor" red="0.45098039220000002" green="1" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
-                                                <segue destination="BIL-QI-Kuy" kind="unwind" identifier="unwindFromSchedule" unwindAction="unwindToTutors:" id="Eu8-5A-68o"/>
+                                                <segue destination="BIL-QI-Kuy" kind="unwind" unwindAction="unwindToTutors:" id="Eu8-5A-68o"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="DDC-LL-LLZ">
+                                            <color key="tintColor" red="0.45098039220000002" green="1" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
-                                                <action selector="saveSchedule:" destination="g7T-86-vG6" id="mFA-Ug-zYl"/>
+                                                <action selector="saveSchedule:" destination="g7T-86-vG6" id="7hm-Nt-5Lw"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -671,7 +652,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" id="IA4-dX-oJm">
+                            <view hidden="YES" contentMode="scaleToFill" id="IA4-dX-oJm">
                                 <rect key="frame" x="0.0" y="89" width="320" height="448"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -734,26 +715,28 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="dayPicker" destination="fgO-f2-L2T" id="v6a-Hk-nML"/>
+                        <outlet property="fridayLabel" destination="3Ew-K5-7we" id="BE1-6z-tIk"/>
+                        <outlet property="mondayLabel" destination="8bW-Mv-xfR" id="B4N-Hg-8yA"/>
+                        <outlet property="saturdayLabel" destination="5Dk-BX-jkc" id="5xP-7C-nPd"/>
                         <outlet property="selectATutorLabel" destination="pNP-h3-tRO" id="lyc-HN-PHv"/>
+                        <outlet property="sundayLabel" destination="VWr-Ba-Ho2" id="2TV-K8-AU1"/>
+                        <outlet property="thursdayLabel" destination="cBc-t3-rO0" id="MKH-wD-2dH"/>
                         <outlet property="timeSlotInformationView" destination="IA4-dX-oJm" id="jmE-TW-cda"/>
                         <outlet property="timeSlotLabel" destination="TPW-Hq-Xt7" id="09V-kK-1qg"/>
                         <outlet property="timeSlotPicker" destination="pLv-m3-u6V" id="8Ew-cZ-FGn"/>
-                        <segue destination="BIL-QI-Kuy" kind="unwind" unwindAction="unwindToTutors:" id="yMh-ys-tgh"/>
+                        <outlet property="tuesdayLabel" destination="9Kh-Bn-Xh9" id="P13-Le-jDB"/>
+                        <outlet property="wednesdayLabel" destination="zBV-ty-xTu" id="yQn-Sr-Z7w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g7z-v3-O4a" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="BIL-QI-Kuy" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1284" y="2855"/>
+            <point key="canvasLocation" x="1254" y="2737"/>
         </scene>
         <!--Admin - Feedback-->
         <scene sceneID="wPN-q3-pik">
             <objects>
                 <viewController id="So4-ky-eeR" userLabel="Admin - Feedback" customClass="FeedbackViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="BBg-JV-fwV"/>
-                        <viewControllerLayoutGuide type="bottom" id="N3r-CD-Obz"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="73T-gx-tgh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -789,16 +772,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kCW-4G-XFe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="867" y="2141"/>
+            <point key="canvasLocation" x="862" y="2030"/>
         </scene>
         <!--Admin- feedback descriptive-->
         <scene sceneID="aux-qB-yLB">
             <objects>
                 <viewController id="VTy-2j-jul" userLabel="Admin- feedback descriptive" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="uFh-Jl-F1f"/>
-                        <viewControllerLayoutGuide type="bottom" id="wFT-hV-jz9"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4Ib-8K-rcQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -868,16 +847,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bP0-fd-PoC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1254" y="2141"/>
+            <point key="canvasLocation" x="1254" y="2030"/>
         </scene>
         <!--Tutor - Logout-->
         <scene sceneID="Fbh-Ga-NNC">
             <objects>
                 <viewController title="Tutor - Logout" id="QzW-uy-U9B" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="2Pb-lV-GDL"/>
-                        <viewControllerLayoutGuide type="bottom" id="yDm-sl-Okz"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ami-zJ-qmg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -905,16 +880,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iD6-dF-A7a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="862.39999999999998" y="1359.4133333333334"/>
+            <point key="canvasLocation" x="862" y="1341"/>
         </scene>
         <!--Admin - Schedule-->
         <scene sceneID="2iZ-Aj-j8u">
             <objects>
                 <viewController id="VFC-CV-ipi" userLabel="Admin - Schedule" customClass="AdminScheduleViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="E12-bZ-Snl"/>
-                        <viewControllerLayoutGuide type="bottom" id="ndA-hG-nys"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Esg-k2-9q7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -938,7 +909,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qx7-5o-EeF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="474.13333333333333" y="1359.4133333333334"/>
+            <point key="canvasLocation" x="475" y="1341"/>
         </scene>
         <!--Admin Tab Controller Scene-->
         <scene sceneID="pv2-lD-qC1">
@@ -963,16 +934,12 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P0J-cw-OQh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="62.399999999999999" y="1359.4133333333334"/>
+            <point key="canvasLocation" x="51" y="1341"/>
         </scene>
         <!--Tutor - add appointment-->
         <scene sceneID="XyK-gB-eA6">
             <objects>
                 <viewController title="Student Login" id="DdO-Nx-4tT" userLabel="Tutor - add appointment" customClass="TutorScheduleViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="kHc-df-sIU"/>
-                        <viewControllerLayoutGuide type="bottom" id="fmU-Pp-fQw"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="RpE-YY-rC0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1025,16 +992,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O3L-Uz-YwI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="820" y="776"/>
+            <point key="canvasLocation" x="862" y="617"/>
         </scene>
         <!--Tutor - requests-->
         <scene sceneID="ohI-GH-SIw">
             <objects>
                 <viewController title="Appointment" id="fdE-Zp-mdx" userLabel="Tutor - requests" customClass="TutorRequestsViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="I99-Ij-9qB"/>
-                        <viewControllerLayoutGuide type="bottom" id="m1S-fD-XVa"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="T0O-jz-esU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1082,16 +1045,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fr0-l1-ruB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1254" y="1359"/>
+            <point key="canvasLocation" x="1254" y="1341"/>
         </scene>
         <!--Tutor - log in student-->
         <scene sceneID="KHk-N4-4Qg">
             <objects>
                 <viewController title="Schedule" id="H0k-Sx-dP2" userLabel="Tutor - log in student" customClass="LogInStudentViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="aBH-LZ-X2f"/>
-                        <viewControllerLayoutGuide type="bottom" id="NJ1-cU-RxZ"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="eVQ-u9-nKg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1175,16 +1134,12 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1254" y="-100"/>
+            <point key="canvasLocation" x="1254" y="-132"/>
         </scene>
         <!--Tutor - log in student descriptive-->
         <scene sceneID="cJH-f4-CZc">
             <objects>
                 <viewController id="gxi-Hb-lC2" userLabel="Tutor - log in student descriptive" customClass="LogInStudentDetailsViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="kNE-pv-Jxg"/>
-                        <viewControllerLayoutGuide type="bottom" id="yAL-1S-vfT"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="sg8-Vz-xTn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1278,7 +1233,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Znb-RT-DEP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="XS3-lc-aiP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1643" y="-100"/>
+            <point key="canvasLocation" x="1647" y="-132"/>
         </scene>
         <!--Tutor Tab Controller-->
         <scene sceneID="bx9-Ig-jHC">
@@ -1308,10 +1263,6 @@
         <scene sceneID="gxw-Jf-wTI">
             <objects>
                 <viewController id="uM2-2E-qjk" userLabel="Student - requests" customClass="StudentRequestsViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="2Km-So-mdG"/>
-                        <viewControllerLayoutGuide type="bottom" id="9Nu-5e-xZK"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="v6m-bc-T5A">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1363,10 +1314,6 @@
         <scene sceneID="fql-fS-TkR">
             <objects>
                 <viewController id="5BE-h0-wKH" userLabel="Student - log out" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="FFo-uO-4gp"/>
-                        <viewControllerLayoutGuide type="bottom" id="HuS-Jd-jav"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Dhm-MQ-Car">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1394,16 +1341,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8oU-a6-azd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="846" y="-152"/>
+            <point key="canvasLocation" x="862" y="-132"/>
         </scene>
         <!--Student - schedule-->
         <scene sceneID="NxX-Pu-jNs">
             <objects>
                 <viewController id="v6u-gw-3g3" userLabel="Student - schedule" customClass="StudentScheduleViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="UqB-TM-G8B"/>
-                        <viewControllerLayoutGuide type="bottom" id="lKx-Gy-e2W"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Yvh-rY-vLF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1446,10 +1389,6 @@
         <scene sceneID="a5d-pR-jkA">
             <objects>
                 <viewController id="ZU8-3u-cmT" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="T8v-3v-ZQn"/>
-                        <viewControllerLayoutGuide type="bottom" id="FHw-Qb-Jgb"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jsL-Lj-jzD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1467,19 +1406,6 @@
                                     <segue destination="6W6-dI-c54" kind="modal" id="FHx-cc-dWf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eNQ-vb-vYV">
-                                <rect key="frame" x="12" y="172" width="300" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <state key="normal" title="Student Tab Controller">
-                                    <color key="titleColor" red="0.45098039220000002" green="1" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="0O5-gq-yze" kind="modal" id="CTp-RZ-5cP"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="v3d-ea-NmU">
                                 <rect key="frame" x="12" y="346" width="300" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1493,12 +1419,26 @@
                                     <segue destination="0MG-re-hvc" kind="modal" id="ejZ-5O-c0s"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eNQ-vb-vYV">
+                                <rect key="frame" x="12" y="172" width="300" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.2901960784" green="0.72156862749999995" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Student Tab Controller">
+                                    <color key="titleColor" red="0.45098039220000002" green="1" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="0O5-gq-yze" kind="modal" id="CTp-RZ-5cP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="AKf-F5-YqF"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Eg-Dc-DjS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1527,7 +1467,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pKQ-2o-HUb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="475.19999999999999" y="-99.400000000000006"/>
+            <point key="canvasLocation" x="471" y="-132"/>
         </scene>
     </scenes>
     <resources>
@@ -1539,9 +1479,9 @@
         <image name="Tutor" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ejZ-5O-c0s"/>
+        <segue reference="TXE-MR-jL4"/>
+        <segue reference="Qc9-dg-45o"/>
+        <segue reference="EET-N7-d4F"/>
         <segue reference="Tl2-b1-M2X"/>
-        <segue reference="CTp-RZ-5cP"/>
-        <segue reference="FHx-cc-dWf"/>
     </inferredMetricsTieBreakers>
 </document>

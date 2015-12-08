@@ -237,52 +237,92 @@
     }
 }
 
+- (NSString *) formatDayString:(NSMutableArray *)daySchedule {
+    NSString *day = @"";
+    
+    int count = daySchedule.count;
+    for (int i = 0; i < count; i++) {
+        NSString *singleSlot = [NSString stringWithFormat:@"{Start=%@&End=%@}", [daySchedule[i] objectForKey:@"startTime"], [daySchedule[i] objectForKey:@"endTime"]];
+        
+        if ([day isEqualToString:@""]) {
+            day = [NSString stringWithFormat:@"%@", singleSlot];
+        } else {
+            day = [NSString stringWithFormat:@"%@&%@", day, singleSlot];
+        }
+    }
+    
+    return day;
+}
+
 - (IBAction)saveSchedule:(id)sender {
     //Format strings for post
     NSDictionary *schedule = tutor.schedule;
+    NSMutableArray *daySchedule = [[NSMutableArray alloc] init];
     
     //Sunday
-    
+    daySchedule = [schedule objectForKey:@"sunday"];
+    NSString *sunday = [NSString stringWithFormat:@"[%@]", [self formatDayString:daySchedule]];
     
     //Monday
-    
+    daySchedule = [schedule objectForKey:@"monday"];
+    NSString *monday = [NSString stringWithFormat:@"[%@]", [self formatDayString:daySchedule]];
     
     //Tuesday
-    
+    daySchedule = [schedule objectForKey:@"tuesday"];
+    NSString *tuesday = [NSString stringWithFormat:@"[%@]", [self formatDayString:daySchedule]];
     
     //Wednesday
-    
+    daySchedule = [schedule objectForKey:@"wednesday"];
+    NSString *wednesday = [NSString stringWithFormat:@"[%@]", [self formatDayString:daySchedule]];
     
     //Thursday
-    
+    daySchedule = [schedule objectForKey:@"thursday"];
+    NSString *thursday = [NSString stringWithFormat:@"[%@]", [self formatDayString:daySchedule]];
     
     //Friday
-    
+    daySchedule = [schedule objectForKey:@"friday"];
+    NSString *friday = [NSString stringWithFormat:@"[%@]", [self formatDayString:daySchedule]];
     
     //Saturday
-    
+    daySchedule = [schedule objectForKey:@"saturday"];
+    NSString *saturday = [NSString stringWithFormat:@"[%@]", [self formatDayString:daySchedule]];
     
     //Connect to server and database
-//    NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://tutorme.stetson.edu/api/tutor/createSchedule"]]];
-//    [request setHTTPMethod:@"POST"];
-//    
-//    NSString *postBodyStr = [NSString stringWithFormat:@""];
-//    
-//    NSData *encodedPostBody = [postBodyStr dataUsingEncoding:NSASCIIStringEncoding];
-//    [request setHTTPBody:encodedPostBody];
-//    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-//    
-//    //Setting up for response
-//    NSURLResponse *response;
-//    NSError *err;
-//    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
-//    
-//    //Get response
-//    id json = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error: nil];
-//    
-//    if ([[json objectForKey:@"success"] isEqual:@YES]) {
-//        [self performSegueWithIdentifier:@"unwindFromSchedule" sender:self];
-//    }
+    NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://tutorme.stetson.edu/api/tutor/createSchedule"]]];
+    [request setHTTPMethod:@"POST"];
+    
+    NSString *postBodyStr = [NSString stringWithFormat:@"M=%@&T=%@&W=%@&R=%@&F=%@&S=%@&U=%@", monday, tuesday, wednesday, thursday, friday, saturday, sunday];
+    
+    NSData *encodedPostBody = [postBodyStr dataUsingEncoding:NSASCIIStringEncoding];
+    [request setHTTPBody:encodedPostBody];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    //Setting up for response
+    NSURLResponse *response;
+    NSError *err;
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
+    
+    //Get response
+    id json = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error: nil];
+    
+    if ([[json objectForKey:@"success"] isEqual:@YES]) {
+        [self performSegueWithIdentifier:@"unwindFromSchedule" sender:self];
+    } else {
+        UIAlertController *requestError=   [UIAlertController
+                                            alertControllerWithTitle:@"Error"
+                                            message:[NSString stringWithFormat:@"Error inputing schedule. Try again later."]
+                                            preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *confirmation = [UIAlertAction
+                                       actionWithTitle:@"OK"
+                                       style:UIAlertActionStyleDefault
+                                       handler:^(UIAlertAction * action)
+                                       {
+                                           [requestError dismissViewControllerAnimated:YES completion:nil];
+                                           
+                                       }];
+        [requestError addAction:confirmation];
+        [self presentViewController:requestError animated:YES completion:nil];
+    }
 }
 
 #pragma mark - Navigation
