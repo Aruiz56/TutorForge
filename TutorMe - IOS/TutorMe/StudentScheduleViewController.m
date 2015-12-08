@@ -8,7 +8,7 @@
 
 #import "StudentScheduleViewController.h"
 
-@interface StudentScheduleViewController () <SACalendarDelegate, NSURLSessionDownloadDelegate>
+@interface StudentScheduleViewController () <SACalendarDelegate>
 
 @property (strong, nonatomic) NSMutableArray *TutorArray;
 @property (strong, nonatomic) NSMutableArray *TutorIDArray;
@@ -27,9 +27,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSString *currentStudentID = @"800606792";
+    
     _TutorArray = [[NSMutableArray alloc]init];
     _TutorIDArray = [[NSMutableArray alloc]init];
-    _SubjectArray = [[NSMutableArray alloc]initWithObjects:@"", @"CS",@"CSCI", nil];
+    _SubjectArray = [[NSMutableArray alloc]initWithObjects:@"", nil];
     _selectedTutorID = [[NSString alloc]init];
     
     [_TutorArray addObject:@""];
@@ -41,67 +43,106 @@
     _myEventTime = [[NSMutableArray alloc]init];
     
     
-     dispatch_async(dispatch_get_main_queue(), ^{
-     //Populate tutors array
-     
-     // DEPENDING ON SUBJECT OF STUDENT IS WHAT IS PASSEED BELOW *** Then added into
-     //Tutor array
-     NSString *myURL = @"https://tutorme.stetson.edu/api/tutors/getAll";
-     NSURL *myNSURL = [NSURL URLWithString:myURL];
-     NSURLRequest *myRequest = [NSURLRequest requestWithURL:myNSURL];
-         
-         NSString *eTyp = @"FooErrType";
-         int eID = 0xf00;
-         NSError *eErr = [NSError errorWithDomain:eTyp
-                                    code:eID userInfo:nil];
-     
-     //Recieve the JSON data from the PHP file
-     NSError *error = [[NSError alloc]init];
-     NSHTTPURLResponse *response = nil;
-         NSData *urlData = [NSURLConnection sendSynchronousRequest:myRequest returningResponse:&response error:&eErr];
-         
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        // DEPENDING ON SUBJECT OF STUDENT IS WHAT IS PASSEED BELOW *** Then added into
+        //Tutor array
+        NSString *myURL = @"https://tutorme.stetson.edu/api/tutors/getAll";
+        NSURL *myNSURL = [NSURL URLWithString:myURL];
+        NSMutableURLRequest *myRequest = [NSMutableURLRequest requestWithURL:myNSURL];
+        
+        NSString *eTyp = @"FooErrType";
+        int eID = 0xf00;
+        NSError *eErr = [NSError errorWithDomain:eTyp
+                                            code:eID userInfo:nil];
+        
+        //Recieve the JSON data from the PHP file
+        NSError *error = [[NSError alloc]init];
+        NSHTTPURLResponse *response = nil;
+        NSData *urlData = [NSURLConnection sendSynchronousRequest:myRequest returningResponse:&response error:&eErr];
+        NSMutableURLRequest *rq = [NSMutableURLRequest requestWithURL:myNSURL];
         
         /* IOS 9
-          NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+         NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
          [[session dataTaskWithRequest:myRequest
-                     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                         if (!data) {
-                             NSLog(@"%@", error);
-                         } else {
-                             // ...
-                             NSLog(@"dataaaa %@", data);
-                         }
-                     }] resume];
-     
-    */ NSLog(@"Response code : %ld", (long) [response statusCode]); //Print out response codes
-     
-     if([response statusCode] >= 200 && [response statusCode] < 300)
-     {
-     NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-     NSLog(@"Response ===> %@", responseData);
-     
-         NSDictionary *myData = [NSJSONSerialization
-                                    JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error:&error];
-         
-         //Loop through NSDictionary object at result which returns each tutor in there own index, add
-         //them to appropriate array either name or id for later use.
-         for(int i = 0; i < [[myData objectForKey:@"result"] count]; i++)
-         {
-             [_TutorArray addObject:[[[myData objectForKey:@"result"] objectAtIndex:i] objectForKey:@"FullName"]];
-             [_TutorIDArray addObject:[[[myData objectForKey:@"result"] objectAtIndex:i] objectForKey:@"ID"]];
-
+         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+         if (!data) {
+         NSLog(@"%@", error);
+         } else {
+         // ...
+         NSLog(@"dataaaa %@", data);
          }
-     }
-     
-     
-     });
-
-    
-    
-    
-    
-    
-    
+         }] resume];
+         
+         */ NSLog(@"Response code : %ld", (long) [response statusCode]); //Print out response codes
+        
+        if([response statusCode] >= 200 && [response statusCode] < 300)
+        {
+            NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+            NSLog(@"Response ===> %@", responseData);
+            
+            NSDictionary *myData = [NSJSONSerialization
+                                    JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error:&error];
+            
+            //Loop through NSDictionary object at result which returns each tutor in there own index, add
+            //them to appropriate array either name or id for later use.
+            for(int i = 0; i < [[myData objectForKey:@"result"] count]; i++)
+            {
+                [_TutorArray addObject:[[[myData objectForKey:@"result"] objectAtIndex:i] objectForKey:@"FullName"]];
+                [_TutorIDArray addObject:[[[myData objectForKey:@"result"] objectAtIndex:i] objectForKey:@"ID"]];
+                
+            }
+        }
+        
+        //Populate tutors array
+        
+        // DEPENDING ON SUBJECT OF STUDENT IS WHAT IS PASSEED BELOW *** Then added into ** need when more tutors are made
+        //Tutor array
+        NSString *myURL2 = [NSString stringWithFormat:@"https://tutorme.stetson.edu/api/students/getStudentCourses?StudentID=%@", currentStudentID];
+        NSURL *myNSURL2 = [NSURL URLWithString:myURL2];
+        NSMutableURLRequest *myRequest2 = [NSMutableURLRequest requestWithURL:myNSURL2];
+        
+        
+        //Recieve the JSON data from the PHP file
+        //error = [[NSError alloc]init];
+        NSHTTPURLResponse *response2 = nil;
+        NSData *urlData2 = [NSURLConnection sendSynchronousRequest:myRequest2 returningResponse:&response2 error:&eErr];
+        
+        
+        /* IOS 9
+         NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+         [[session dataTaskWithRequest:myRequest
+         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+         if (!data) {
+         NSLog(@"%@", error);
+         } else {
+         // ...
+         NSLog(@"dataaaa %@", data);
+         }
+         }] resume];
+         
+         */ NSLog(@"Response code : %ld", (long) [response2 statusCode]); //Print out response codes
+        
+        if([response2 statusCode] >= 200 && [response2 statusCode] < 300)
+        {
+            NSString *responseData = [[NSString alloc]initWithData:urlData2 encoding:NSUTF8StringEncoding];
+            NSLog(@" student courses Response ===> %@", responseData);
+            
+            NSDictionary *myData = [NSJSONSerialization
+                                    JSONObjectWithData:urlData2 options:NSJSONReadingMutableContainers error:&error];
+            
+            //Loop through NSDictionary object at result which returns each tutor in there own index, add
+            //them to appropriate array either name or id for later use.
+            for(int i = 0; i < [[myData objectForKey:@"result"] count]; i++)
+            {
+                //Fill subjects into subject array
+                [_SubjectArray addObject:[[[myData objectForKey:@"result"]objectAtIndex:i] objectForKey:@"CourseSubject"]];
+                
+            }
+        }
+        
+        
+    });
     //Create the SACalendar
     SACalendar *myCalendar = [[SACalendar alloc]initWithFrame:CGRectMake(0, 20, 316, 441)];
     
@@ -144,9 +185,9 @@
     subjectToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 56)];
     [subjectToolbar sizeToFit];
     
-        NSMutableArray *barItems3 = [[NSMutableArray alloc]init];
+    NSMutableArray *barItems3 = [[NSMutableArray alloc]init];
     
-        UIBarButtonItem *flexSpace3 = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    UIBarButtonItem *flexSpace3 = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
     
     [barItems3 addObject:flexSpace3];
     
@@ -269,15 +310,15 @@
 {
     if([pickerView isEqual:tutorPicker]) _TutorTextField.text = [_TutorArray objectAtIndex:row];
     else if([pickerView isEqual:subjectPicker]) _SubjectTextField.text = [_SubjectArray objectAtIndex:row];
-     else if([pickerView isEqual:timePicker]){
-         _TimeTextField.text = [_TimeArray objectAtIndex:row];
-     } else {
-             NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-             [formatter setDateFormat:@"MMM dd YYYY"];
-             self.DateTextField.text = [NSString stringWithFormat:@"%@", [formatter stringFromDate:datePicker.date]];
-         
-         
-     }
+    else if([pickerView isEqual:timePicker]){
+        _TimeTextField.text = [_TimeArray objectAtIndex:row];
+    } else {
+        NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+        [formatter setDateFormat:@"MMM dd YYYY"];
+        self.DateTextField.text = [NSString stringWithFormat:@"%@", [formatter stringFromDate:datePicker.date]];
+        
+        
+    }
     
 }
 
@@ -302,7 +343,7 @@
     
     if(day == 1 || day == 2 || day == 3 || day == 4 || day == 5 || day == 6 || day == 7 || day == 8 || day == 9) newDay = [NSString stringWithFormat:@"0%d", day];
     else newDay = [NSString stringWithFormat:@"%d", day];
-
+    
     //Set month to MMM styling like value saved for javascript date function required by database.
     if(month == 1) newMonth = @"Jan";
     else if(month == 2) newMonth = @"Feb";
@@ -318,48 +359,48 @@
     else if(month == 12) newMonth = @"Dec";
     
     
-    /*
-     NSString *myURL = @"https://tutorme.stetson.edu/api/getAppointmentRequests";
-     NSURL *myNSURL = [NSURL URLWithString:myURL];
-     NSMutableURLRequest *rq = [NSMutableURLRequest requestWithURL:myNSURL];
-     [rq setHTTPMethod:@"POST"];
-     NSString *post2 = [NSString stringWithFormat:@"as=Student&ID=%@", @"800679878"];
-     NSData *postData2 = [post2 dataUsingEncoding:NSASCIIStringEncoding];
-     [rq setHTTPBody:postData2];
-     [rq setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-     
-     //Recieve the JSON data from the PHP file
-     NSError *error = [[NSError alloc]init];
-     NSHTTPURLResponse *response = nil;
-     NSData *urlData = [NSURLConnection sendSynchronousRequest:rq returningResponse:&response error:&error];
-     
-     NSLog(@"Response code : %ld", (long) [response statusCode]); //Print out response codes
-     
-     if([response statusCode] >= 200 && [response statusCode] < 300)
-     {
-     NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-     NSLog(@"Response ===> %@", responseData);
-     
-     
-     NSError *error = nil;
-     
-     //Populate tutor array with tutors from database
-     myData = [NSJSONSerialization
-     JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error:&error];
-     
-     //Loop through mydata and add to tutors with same subject as student and then add to timeArray **
-     }
-     */
+    
+    NSString *myURL = @"https://tutorme.stetson.edu/api/getAppointmentRequests";
+    NSURL *myNSURL = [NSURL URLWithString:myURL];
+    NSMutableURLRequest *rq = [NSMutableURLRequest requestWithURL:myNSURL];
+    [rq setHTTPMethod:@"GET"];
+    NSString *post2 = [NSString stringWithFormat:@"as=Student&ID=%@", @"800606792"];
+    NSData *postData2 = [post2 dataUsingEncoding:NSASCIIStringEncoding];
+    [rq setHTTPBody:postData2];
+    [rq setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    //Recieve the JSON data from the PHP file
+    NSError *error = [[NSError alloc]init];
+    NSHTTPURLResponse *response = nil;
+    NSData *urlData = [NSURLConnection sendSynchronousRequest:rq returningResponse:&response error:&error];
+    
+    NSLog(@"Response code : %ld", (long) [response statusCode]); //Print out response codes
+    
+    if([response statusCode] >= 200 && [response statusCode] < 300)
+    {
+        NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+        NSLog(@"Response ===> %@", responseData);
+        
+        
+        NSError *error = nil;
+        
+        //Populate tutor array with tutors from database
+        myData = [NSJSONSerialization
+                  JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error:&error];
+        
+        //Loop through mydata and add to tutors with same subject as student and then add to timeArray **
+    }
+    
     //Add each event into NSMutuableArray
     if(_myEventDate.count > 0)
     {
         for(int i = 0; i < _myEventDate.count; i++)
-         {
-         if([[_myEventDate objectAtIndex:i] isEqualToString:[NSString stringWithFormat:@"%@ %@ %d", newMonth, newDay, year]])
-         {
-         [events addObject:[NSString stringWithFormat:@"%@ with %@ @ %@",[_mySavedEvents objectAtIndex:i], [_TutorArray objectAtIndex:i + 1], [_myEventTime objectAtIndex:i]]];
-         }
-         }
+        {
+            if([[_myEventDate objectAtIndex:i] isEqualToString:[NSString stringWithFormat:@"%@ %@ %d", newMonth, newDay, year]])
+            {
+                [events addObject:[NSString stringWithFormat:@"%@ with %@ @ %@",[_mySavedEvents objectAtIndex:i], [_TutorArray objectAtIndex:i + 1], [_myEventTime objectAtIndex:i]]];
+            }
+        }
         
         //Check if no events added
         if(events.count == 0) [events addObject:@"No Events"];
@@ -424,7 +465,7 @@
     UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"Request" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
                                     {
                                         NSString *Subject = ((UITextField *)[alert.textFields objectAtIndex:0]).text;
-//                                        NSString *myTutorID = ((UITextField *)[alert.textFields objectAtIndex:1]).text;
+                                        //                                        NSString *myTutorID = ((UITextField *)[alert.textFields objectAtIndex:1]).text;
                                         NSString *myDate = ((UITextField *)[alert.textFields objectAtIndex:2]).text;
                                         NSString *myTime = ((UITextField *)[alert.textFields objectAtIndex:3]).text;
                                         
@@ -434,63 +475,63 @@
                                             UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){}];
                                             [sentAlert addAction:okAction];
                                             [self presentViewController:sentAlert animated:YES completion:nil];
-
+                                            
                                         } else {
-                                     
-//                                        Fri Nov 27 2015 02:59:52 GMT-0500 (Eastern Standard Time)
-                                       /*
-                                        NSString *location = @"Elizabeth 208";
-                                        
-                                        NSDateFormatter *myFormatter = [[NSDateFormatter alloc] init];
-                                        [myFormatter setDateFormat:@"EE"]; // day, like "Saturday"
-                                        NSString *weekDay =  [myFormatter stringFromDate:datePicker.date];
-   
-                                        NSString *myRequestStart = [NSString stringWithFormat:@"%@ %@ %@:00 GMT-0500 (Eastern Standard Time)", weekDay,myDate, myTime];
-                                        
-                                        NSLog(@"Myrequest start is %@", myRequestStart);
-                                        
-                                        NSString *myURL = @"https://tutorme.stetson.edu/api/appointments/makeRequest";
-                                        NSURL *myNSURL = [NSURL URLWithString:myURL];
-                                        NSMutableURLRequest *rq = [NSMutableURLRequest requestWithURL:myNSURL];
-                                        [rq setHTTPMethod:@"POST"];
-                                        NSString *post2 = [NSString stringWithFormat:@"StudentField=%@&Student=%@&TutorField=%@&Tutor=%@&RequestedStart=%@&Location=%@&Subject=%@", @"ID", @"800606792", @"ID", _selectedTutorID, myRequestStart, location, Subject];
-                                        NSData *postData2 = [post2 dataUsingEncoding:NSASCIIStringEncoding];
-                                        [rq setHTTPBody:postData2];
-                                        [rq setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-                                        
-                                        //Recieve the JSON data from the PHP file
-                                        NSError *error = [[NSError alloc]init];
-                                        NSHTTPURLResponse *response = nil;
-                                        NSData *urlData = [NSURLConnection sendSynchronousRequest:rq returningResponse:&response error:&error];
-                                        
-                                        NSLog(@"Response code : %ld", (long) [response statusCode]); //Print out response codes
-                                        
-                                        if([response statusCode] >= 200 && [response statusCode] < 300)
-                                        {
-                                            NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-                                            NSLog(@"Request sent response ===> %@", responseData);
                                             
-                                            NSMutableArray *myData = [[NSMutableArray alloc]init];
-                                            NSError *error = nil;
+                                            //                                        Fri Nov 27 2015 02:59:52 GMT-0500 (Eastern Standard Time)
+                                            /*
+                                             NSString *location = @"Elizabeth 208";
+                                             
+                                             NSDateFormatter *myFormatter = [[NSDateFormatter alloc] init];
+                                             [myFormatter setDateFormat:@"EE"]; // day, like "Saturday"
+                                             NSString *weekDay =  [myFormatter stringFromDate:datePicker.date];
+                                             
+                                             NSString *myRequestStart = [NSString stringWithFormat:@"%@ %@ %@:00 GMT-0500 (Eastern Standard Time)", weekDay,myDate, myTime];
+                                             
+                                             NSLog(@"Myrequest start is %@", myRequestStart);
+                                             
+                                             NSString *myURL = @"https://tutorme.stetson.edu/api/appointments/makeRequest";
+                                             NSURL *myNSURL = [NSURL URLWithString:myURL];
+                                             NSMutableURLRequest *rq = [NSMutablUeRLRequest requestWithURL:myNSURL];
+                                             [rq setHTTPMethod:@"POST"];
+                                             NSString *post2 = [NSString stringWithFormat:@"StudentField=%@&Student=%@&TutorField=%@&Tutor=%@&RequestedStart=%@&Location=%@&Subject=%@", @"ID", @"800606792", @"ID", _selectedTutorID, myRequestStart, location, Subject];
+                                             NSData *postData2 = [post2 dataUsingEncoding:NSASCIIStringEncoding];
+                                             [rq setHTTPBody:postData2];
+                                             [rq setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+                                             
+                                             //Recieve the JSON data from the PHP file
+                                             NSError *error = [[NSError alloc]init];
+                                             NSHTTPURLResponse *response = nil;
+                                             NSData *urlData = [NSURLConnection sendSynchronousRequest:rq returningResponse:&response error:&error];
+                                             
+                                             NSLog(@"Response code : %ld", (long) [response statusCode]); //Print out response codes
+                                             
+                                             if([response statusCode] >= 200 && [response statusCode] < 300)
+                                             {
+                                             NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+                                             NSLog(@"Request sent response ===> %@", responseData);
+                                             
+                                             NSMutableArray *myData = [[NSMutableArray alloc]init];
+                                             NSError *error = nil;
+                                             
+                                             //Populate tutor array with tutors from database
+                                             myData = [NSJSONSerialization
+                                             JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error:&error];
+                                             
+                                             //Loop through mydata and add to tutors with same subject as student and then add to timeArray **
+                                             }
+                                             */
                                             
-                                            //Populate tutor array with tutors from database
-                                            myData = [NSJSONSerialization
-                                                      JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error:&error];
+                                            [_mySavedEvents addObject:Subject];
+                                            [_myEventDate addObject:myDate];
+                                            [_myEventTime addObject:myTime];
                                             
-                                            //Loop through mydata and add to tutors with same subject as student and then add to timeArray **
+                                            UIAlertController *sentAlert = [UIAlertController alertControllerWithTitle:nil message:@"Request Sent!" preferredStyle:UIAlertControllerStyleAlert];
+                                            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){}];
+                                            [sentAlert addAction:okAction];
+                                            [self presentViewController:sentAlert animated:YES completion:nil];
                                         }
-                                        */
                                         
-                                        [_mySavedEvents addObject:Subject];
-                                        [_myEventDate addObject:myDate];
-                                        [_myEventTime addObject:myTime];
-                                        
-                                        UIAlertController *sentAlert = [UIAlertController alertControllerWithTitle:nil message:@"Request Sent!" preferredStyle:UIAlertControllerStyleAlert];
-                                        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){}];
-                                        [sentAlert addAction:okAction];
-                                        [self presentViewController:sentAlert animated:YES completion:nil];
-                                        }
-
                                         
                                     }];
     
