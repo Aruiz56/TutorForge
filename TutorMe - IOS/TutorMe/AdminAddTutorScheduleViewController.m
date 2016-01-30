@@ -258,6 +258,7 @@
     //Format strings for post
     NSDictionary *schedule = tutor.schedule;
     NSMutableArray *daySchedule = [[NSMutableArray alloc] init];
+    NSDate *currentDate = [NSDate date];
     
     //Sunday
     daySchedule = [schedule objectForKey:@"sunday"];
@@ -291,7 +292,9 @@
     NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://tutorme.stetson.edu/api/tutor/createSchedule"]]];
     [request setHTTPMethod:@"POST"];
     
-    NSString *postBodyStr = [NSString stringWithFormat:@"M=%@&T=%@&W=%@&R=%@&F=%@&S=%@&U=%@", monday, tuesday, wednesday, thursday, friday, saturday, sunday];
+    NSString *test = [NSString stringWithFormat:@"[{Start=%@&End=%@}]", currentDate, currentDate];
+    
+    NSString *postBodyStr = [NSString stringWithFormat:@"M=%@&T=%@&W=%@&R=%@&F=%@&S=%@&U=%@", test, tuesday, wednesday, thursday, friday, saturday, sunday];
     
     NSData *encodedPostBody = [postBodyStr dataUsingEncoding:NSASCIIStringEncoding];
     [request setHTTPBody:encodedPostBody];
@@ -304,6 +307,7 @@
     
     //Get response
     id json = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error: nil];
+    NSLog(@"JSON: %@", json);
     
     if ([[json objectForKey:@"success"] isEqual:@YES]) {
         [self performSegueWithIdentifier:@"unwindFromSchedule" sender:self];
